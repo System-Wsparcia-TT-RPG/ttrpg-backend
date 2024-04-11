@@ -6,6 +6,7 @@ EXPOSE 8000
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV DJANGO_ENV "DOCKER"
 
 COPY ./requirements.txt ./requirements.txt
 RUN pip install --upgrade pip && pip install -r ./requirements.txt

@@ -14,7 +14,10 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-load_dotenv('./.env.dev')
+if getenv("DJANGO_ENV") == "DOCKER":
+    load_dotenv('.env.docker')
+else:
+    load_dotenv('.env.dev')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
