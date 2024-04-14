@@ -16,6 +16,6 @@ def characters(request):
     return render(request, "characters.html", {"characters": chars})
 
 
-def api_character(request):
-    with open("./api/static_json/example_character.json", "r") as file:
+def api_character(request, id: int=1):
+    with open("./api/static_json/1.json", "r") as file:
         return JsonResponse({"character": load(file)})
