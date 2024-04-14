@@ -1,0 +1,298 @@
+{
+  "nickname": "John Baldur",
+  "player": {
+    "name": "Jan Kowalski",
+    "id": "14"
+  },
+  "xp": 15200,
+  "race": {
+      "name": "Dragonborn",
+      "subtype": "Silver",
+      "size": "Medium",
+      "traits": [
+        {
+          "name": "Ability Score Increase",
+          "description": "Your Strength score increases by 2, and your Charisma score increases by 1.",
+          "source": {
+            "text": "Player's Handbook",
+            "note": "",
+            "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+          }
+        },
+        {
+          "name": "Age",
+          "description": "Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80.",
+          "source": {
+            "text": "Player's Handbook",
+            "note": "",
+            "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+          }
+        },
+        {
+          "name": "Draconic Ancestry",
+          "description": "You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.",
+          "source": {
+            "text": "Player's Handbook",
+            "note": "",
+            "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+          }
+        }
+      ],
+      "actions": [
+      {
+        "name": "Dragon Breath",
+        "description": "Exhale destructive energy in a 30-foot cone. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 2d6 damage of a type determined by your draconic ancestry, and half as much damage on a successful save.",
+        "attack_bonus": 0,
+        "damage_dice": {
+          "count": 2,
+          "sides": 6,
+          "mod": 0
+        },
+        "damage_bonus": 0,
+        "legendary": false,
+        "reaction": false,
+        "source": {
+          "text": "Player's Handbook",
+          "note": "",
+          "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+        }
+      }],
+      "senses": {
+        "darkvision": "60ft"
+      },
+      "source": {
+        "text": "Player's Handbook",
+        "note": "",
+        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+      }
+  },
+  "alignment": "Lawful Good",
+  "classes": [
+    {
+      "name": "Paladin",
+      "level": 6,
+      "subtype": "Oath of Devotion",
+      "hit_die": 10,
+      "spellcasting": "cha",
+      "features": [
+        {
+          "name": "Divine Smite",
+          "description": "When you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend.",
+          "source": {
+            "text": "Player's Handbook",
+            "note": "",
+            "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+          }
+        },
+        {
+          "name": "Lay on Hands",
+          "description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level x 5.",
+          "source": {
+            "text": "Player's Handbook",
+            "note": "",
+            "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+          }
+        }
+      ],
+      "source": {
+        "text": "Player's Handbook",
+        "note": "",
+        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+      }
+    }
+  ],
+  "background": {
+    "name": "Noble",
+    "option": "Noble: Knight",
+    "description": "You understand wealth, power, and privilege. You carry a noble title, and your family owns land, collects taxes, and wields significant political influence. You might be a pampered aristocrat unfamiliar with work or discomfort, a former merchant just elevated to the nobility, or a disinherited scoundrel with a disproportionate sense of entitlement. Or you could be an honest, hard-working landowner who cares deeply about the people who live and work on your land, keenly aware of your responsibility to them.",
+    "source": {
+      "text": "Player's Handbook",
+      "note": "",
+      "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+    }
+  },
+  "details": {
+    "age": 32,
+    "eyes": "Blue",
+    "hair": "Brown",
+    "skin": "Fair",
+    "weight": 75,
+    "height": "170cm",
+    "personality": "Cheerful and optimistic, always looking for the best in people and situations.",
+    "ideal": "I believe that everyone deserves a chance to prove themselves, no matter their past.",
+    "bond": "I am searching for my long-lost sibling, who disappeared when we were children.",
+    "flaw": "I am easily distracted by shiny objects and beautiful things.",
+    "backstory": "Once a member of a noble family, I was exiled from my home after a scandalous affair with a servant. Now I wander the land, searching for my lost sibling and trying to make a name for myself as a hero.",
+    "physical": "Toned and athletic, with a few scars from past battles."
+  },
+  "weapon_proficiencies": ["Simple Weapons", "Martial Weapons"],
+  "armor_proficiencies": ["Light Armor", "Medium Armor", "Heavy armor", "Shields"],
+  "tool_proficiencies": ["Artisan's Tools", "Vehicles (Land)"],
+  "feats": [
+    {
+      "name": "Lucky",
+      "description": "You have inexplicable luck that seems to kick in at just the right moment. You have 3 luck points. Whenever you make an attack roll, an ability check, or a saving throw, you can spend one luck point to roll an additional d20. You can choose to spend one of your luck points after you roll the die, but before the outcome is determined. You choose which of the d20s is used for the attack roll, ability check, or saving throw. You can also spend one luck point when an attack roll is made against you. Roll a d20, and then choose whether the attack uses the attacker's roll or yours. If more than one creature spends a luck point to influence the outcome of a roll, the points cancel each other out; no additional dice are rolled. You regain your expended luck points when you finish a long rest.",
+      "source": {
+        "text": "Player's Handbook",
+        "note": "",
+        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+      }
+    }
+  ],
+  "spells": [
+    {
+      "name": "Thunderous Smite",
+      "description": "The first time you hit with a melee weapon attack during this spell's duration, your weapon rings with thunder that is audible within 300 feet of you, and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet away from you and knocked prone.",
+      "higher_level": "",
+      "level": "1",
+      "casting_time": "1 Action",
+      "range_area": "Self",
+      "components": ["V"],
+      "material": "",
+      "ritual": false,
+      "concentration": true,
+      "duration": "1 minute",
+      "school": "Evocation",
+      "attack_save": "STR Save",
+      "damage_effect": "Thunder",
+      "tags": ["Paladin"],
+      "source": {
+        "text": "Player's Handbook",
+        "note": "",
+        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+      }
+    }
+  ],
+  "weapons": [
+    {
+      "name": "Longsword",
+      "weight": 3,
+      "description": "A versatile weapon with a sharp blade, suitable for slashing and thrusting attacks.",
+      "attack_bonus": 5,
+      "damage_dice": {
+        "count": 1,
+        "sides": 8,
+        "mod": 3
+      },
+      "damage_bonus": 0,
+      "damage_type": "Slashing",
+      "properties": ["Versatile"],
+      "source": {
+        "text": "Player's Handbook",
+        "note": "",
+        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+      }
+    },
+    {
+      "name": "Javelin",
+      "weight": 2,
+      "description": "A lightweight spear that can be thrown or used for melee attacks.",
+      "attack_bonus": 5,
+      "damage_dice": {
+        "count": 1,
+        "sides": 6,
+        "mod": 3
+      },
+      "damage_bonus": 0,
+      "damage_type": "Piercing",
+      "properties": ["Thrown"],
+      "source": {
+        "text": "Player's Handbook",
+        "note": "",
+        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+      }
+    }
+  ],
+  "equipment": [
+    {
+      "name": "Chain Mail",
+      "weight": 55,
+      "description": "A suit of interlocking metal rings, providing good protection without hindering mobility.",
+      "magic": false,
+      "quantity": 1,
+      "source": {
+        "text": "Player's Handbook",
+        "note": "",
+        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+      }
+    },
+    {
+      "name": "Shield",
+      "weight": 6,
+      "description": "A piece of wood or metal held in the hand or attached to the arm, used to block attacks.",
+      "magic": false,
+      "quantity": 1,
+      "source": {
+        "text": "Player's Handbook",
+        "note": "",
+        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+      }
+    },
+    {
+      "name": "Holy Symbol",
+      "weight": 1,
+      "description": "A representation of a deity or religious symbol, used by paladins to focus their divine powers.",
+      "magic": false,
+      "quantity": 1,
+      "source": {
+        "text": "Player's Handbook",
+        "note": "",
+        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+      }
+    }
+  ],
+  "treasure": {
+    "pp": 21,
+    "ep": 37,
+    "gp": 15,
+    "sp": 0,
+    "cp": 3
+  },
+  "Ability Scores": {
+    "STR": 16,
+    "DEX": 10,
+    "CON": 14,
+    "INT": 10,
+    "WIS": 12,
+    "CHA": 16
+  },
+  "Skills": {
+    "Acrobatics": 0,
+    "Animal Handling": 1,
+    "Arcana": 0,
+    "Athletics": 5,
+    "Deception": 3,
+    "History": 0,
+    "Insight": 1,
+    "Intimidation": 3,
+    "Investigation": 0,
+    "Medicine": 1,
+    "Nature": 0,
+    "Perception": 1,
+    "Performance": 3,
+    "Persuasion": 5,
+    "Religion": 0,
+    "Sleight of Hand": 0,
+    "Stealth": 0,
+    "Survival": 1
+  },
+  "Saving Throws": {
+    "STR": 5,
+    "DEX": 0,
+    "CON": 2,
+    "INT": 0,
+    "WIS": 1,
+    "CHA": 5
+  },
+  "Combat": {
+    "Armor Class": 18,
+    "Initiative": 0,
+    "Speed": 30,
+    "Hit Points": 52,
+    "Hit Dice": "6d10",
+    "Death Saves": {
+      "Successes": 0,
+      "Failures": 0
+    }
+  }
+}
