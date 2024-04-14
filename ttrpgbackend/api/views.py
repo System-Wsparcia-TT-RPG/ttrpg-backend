@@ -17,5 +17,5 @@ def characters(request):
 
 
 def api_character(request, id: int=1):
-    with open("./api/static_json/1.json", "r") as file:
+    with open("./api/static_json/1.json", "r", encoding="utf-8") as file:
         return JsonResponse({"character": load(file)})
