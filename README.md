@@ -34,9 +34,9 @@ They may change in the future, and it is better to have them isolated from other
         pip install -e .
         ```
     - If you just want to run the project, install it normally:
-		```bash
-		pip install .
-		```
+        ```bash
+        pip install .
+        ```
 4. Run the project:
     
     Since the project has django app deep inside the project structure I have made global python project executable
@@ -72,6 +72,8 @@ They may change in the future, and it is better to have them isolated from other
 
 5. Your project should now be running and accessible at `http://localhost:8000` - [\[Link\]](http://localhost:8000)
 
+6. You can now safely turn off the computer.
+
 #### Docker
 
 Here are the steps to run the project in a Docker container:
@@ -103,6 +105,8 @@ Here are the steps to run the project in a Docker container:
         ```
 
 3. Your container should now be running and accessible at `http://localhost:8000` - [\[Link\]](http://localhost:8000)
+
+4. You can now safely turn off the computer.
 
 ### Documentation
 
