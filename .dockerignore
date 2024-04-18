@@ -1,3 +1,9 @@
 .git
+.gitignore
 .idea
 .vscode
+
+**/migrations/
+**/db.sqlite3
+
+*.md

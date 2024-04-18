@@ -7,14 +7,17 @@ RUN pip install --upgrade pip
 COPY ./requirements.txt ./requirements.txt
 RUN pip install -r ./requirements.txt
 
+ENV DJANGO_ENV "DOCKER"
+
 COPY . .
-WORKDIR /app/ttrpgbackend
+
+RUN pip install .
+RUN web-app makemigrations api
+RUN web-app migrate
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-ENV DJANGO_ENV "DOCKER"
-
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["web-app", "runserver", "0.0.0.0:8000"]

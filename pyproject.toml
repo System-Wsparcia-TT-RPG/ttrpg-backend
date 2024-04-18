@@ -1,0 +1,36 @@
+python-implementation = "CPython"
+
+[project]
+name = "ttrpg-backend"
+version = "0.0.5"
+authors = [
+    { name="Robert Barcik", email="robertbarcik32@gmail.com" },
+    { name="Miłosz Góralczyk", email="kbodzio@student.agh.edu.pl" },
+    { name="Konrad Bodzioch", email="Goralczyk.Milosz2k@gmail.com" },
+    { name="Dominik Breksa", email="dominikbreksa@gmail.com" },
+]
+description = "Backend for TTRPG System."
+readme = { file = "README.md", content-type = "text/markdown" }
+
+requires-python = ">=3.12.0"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dynamic = ["dependencies"]
+
+
+[project.urls]
+Homepage = "https://github.com/System-Wsparcia-TT-RPG/ttrpg-backend"
+Issues = "https://github.com/System-Wsparcia-TT-RPG/ttrpg-backend/issues"
+
+[project.scripts]
+web-app = "web.manage:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
