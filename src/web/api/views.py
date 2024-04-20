@@ -22,3 +22,4 @@ def characters(request):
 def api_character(request):
     with open("./src/web/api/static_json/1.json", "r", encoding="utf-8") as file:
         return JsonResponse({"character": load(file)})
+    # to change to dynamic with Character model, use dump function to serialize the model to json, then return JsonResponse
