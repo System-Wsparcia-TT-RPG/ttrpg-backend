@@ -212,6 +212,14 @@ class Spell(models.Model):
     tags = models.ManyToManyField('Tag')
     source = models.ForeignKey('Source', on_delete=models.CASCADE)
 
+class ArmorProficiencies(models.Model):
+    name = models.CharField(max_length=100)
+
+class WeaponProficiencies(models.Model):
+    name = models.CharField(max_length=100)
+
+class ToolProficiencies(models.Model):
+    name = models.CharField(max_length=100)
 
 class Character(models.Model):
     nickname = models.CharField(max_length=100)
@@ -221,9 +229,9 @@ class Character(models.Model):
     classes = models.ManyToManyField('Class')
     background = models.ForeignKey('Background', on_delete=models.CASCADE)
     details = models.ForeignKey('Details', on_delete=models.CASCADE)
-    weapon_proficiencies = ArrayField(models.CharField(max_length=100))
-    armor_proficiencies = ArrayField(models.CharField(max_length=100))
-    tool_proficiencies = ArrayField(models.CharField(max_length=100))
+    weapon_proficiencies = models.ForeignKey('WeaponProficiencies', on_delete=models.CASCADE)
+    armor_proficiencies = models.ForeignKey('ArmorProficiencies', on_delete=models.CASCADE)
+    tool_proficiencies = models.ForeignKey('ToolProficiencies', on_delete=models.CASCADE)
     feats = models.ManyToManyField('Feat')
     spells = models.ManyToManyField('Spell')
     weapons = models.ManyToManyField('Weapon')
