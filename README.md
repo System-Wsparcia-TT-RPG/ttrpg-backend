@@ -80,7 +80,7 @@ Here are the steps to run the project in a Docker container:
 
 1. Build container image:
     ```bash
-    docker build . -t tt-rpg-backend:latest;
+    docker build . -t tt-rpg-backend:latest
     ```
 2. Start the container:
 
@@ -90,17 +90,15 @@ Here are the steps to run the project in a Docker container:
     - Bash:
         ```bash
         docker run -p 8000:8000 --name tt-rpg-backend \
-            -e DJANGO_SUPERUSER_USERNAME="..." \
-            -e DJANGO_SUPERUSER_PASSWORD="..." \
-            -e DJANGO_SUPERUSER_EMAIL="..." \
+            -e DJANGO_SUPERUSER_USERNAME="testuser" \
+            -e DJANGO_SUPERUSER_PASSWORD="testpass" \
         tt-rpg-backend:latest
         ```
     - Powershell:
         ```powershell
         docker run -p 8000:8000 --name tt-rpg-backend `
-            -e DJANGO_SUPERUSER_USERNAME="..." `
-            -e DJANGO_SUPERUSER_PASSWORD="..." `
-            -e DJANGO_SUPERUSER_EMAIL="..." `
+            -e DJANGO_SUPERUSER_USERNAME="testuser" `
+            -e DJANGO_SUPERUSER_PASSWORD="testpass" `
         tt-rpg-backend:latest
         ```
 
