@@ -4,7 +4,7 @@ from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.views import View
 
-# from .models import Character
+from .models import Character
 
 
 class CharacterView:

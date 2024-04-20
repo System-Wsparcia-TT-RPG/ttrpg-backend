@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
 
 
 # Create your models here.
@@ -212,14 +211,18 @@ class Spell(models.Model):
     tags = models.ManyToManyField('Tag')
     source = models.ForeignKey('Source', on_delete=models.CASCADE)
 
+
 class ArmorProficiencies(models.Model):
     name = models.CharField(max_length=100)
+
 
 class WeaponProficiencies(models.Model):
     name = models.CharField(max_length=100)
 
+
 class ToolProficiencies(models.Model):
     name = models.CharField(max_length=100)
+
 
 class Character(models.Model):
     nickname = models.CharField(max_length=100)
@@ -241,4 +244,3 @@ class Character(models.Model):
     skills = models.ForeignKey('Skills', on_delete=models.CASCADE)
     saving_throws = models.ForeignKey('SavingThrows', on_delete=models.CASCADE)
     combat = models.ForeignKey('CombatStats', on_delete=models.CASCADE)
-
