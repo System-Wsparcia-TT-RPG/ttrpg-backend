@@ -14,11 +14,6 @@ class DamageDice(models.Model):
     mod = models.IntegerField()
 
 
-class Damage(models.Model):
-    dice = models.ForeignKey('DamageDice', on_delete=models.CASCADE)
-    type = models.CharField(max_length=100)
-
-
 class Senses(models.Model):
     darkvision = models.IntegerField()
     blindsight = models.IntegerField()

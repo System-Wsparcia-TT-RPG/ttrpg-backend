@@ -1,0 +1,20 @@
+[
+  {
+    "model": "api.details",
+    "pk": 1,
+    "fields": {
+      "age": 32,
+      "height": "170cm",
+      "weight": 75,
+      "eyes": "Blue",
+      "skin": "Fair",
+      "hair": "Brown",
+      "personality": "Cheerful and optimistic, always looking for the best in people and situations.",
+      "ideal": "I believe that everyone deserves a chance to prove themselves, no matter their past.",
+      "bond": "I am searching for my long-lost sibling, who disappeared when we were children.",
+      "flaw": "I am easily distracted by shiny objects and beautiful things.",
+      "backstory": "Once a member of a noble family, I was exiled from my home after a scandalous affair with a servant. Now I wander the land, searching for my lost sibling and trying to make a name for myself as a hero.",
+      "physical": "Toned and athletic, with a few scars from past battles."
+    }
+  }
+]

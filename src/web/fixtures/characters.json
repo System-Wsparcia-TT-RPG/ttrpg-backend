@@ -1,0 +1,51 @@
+[
+  {
+    "model": "api.character",
+    "pk": 1,
+    "fields": {
+      "nickname": "John Baldur",
+      "player": 1,
+      "xp": 15200,
+      "race": 1,
+      "background": 1,
+      "details": 1,
+      "treasure": 1,
+      "ability_scores": 1,
+      "skills": 1,
+      "saving_throws": 1,
+      "combat": 1,
+      "classes": [
+        1
+      ],
+      "weapon_proficiencies": [
+        1,
+        2
+      ],
+      "armor_proficiencies": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "tool_proficiencies": [
+        1,
+        2
+      ],
+      "feats": [
+        1
+      ],
+      "spells": [
+        1
+      ],
+      "weapons": [
+        1,
+        2
+      ],
+      "equipment": [
+        1,
+        2,
+        3
+      ]
+    }
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "model": "api.weapon",
+    "pk": 1,
+    "fields": {
+      "name": "Longsword",
+      "weight": 3,
+      "description": "A versatile weapon with a sharp blade, suitable for slashing and thrusting attacks.",
+      "attack_bonus": 5,
+      "damage_dice": 3,
+      "damage_bonus": 0,
+      "damage_type": "Slashing",
+      "source": 1,
+      "properties": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "api.weapon",
+    "pk": 2,
+    "fields": {
+      "name": "Javelin",
+      "weight": 2,
+      "description": "A lightweight spear that can be thrown or used for melee attacks.",
+      "attack_bonus": 5,
+      "damage_dice": 2,
+      "damage_bonus": 0,
+      "damage_type": "Piercing",
+      "source": 1,
+      "properties": [
+        2
+      ]
+    }
+  }
+]

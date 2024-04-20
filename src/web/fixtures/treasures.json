@@ -1,0 +1,13 @@
+[
+  {
+    "model": "api.treasure",
+    "pk": 1,
+    "fields": {
+      "pp": 21,
+      "gp": 37,
+      "ep": 15,
+      "sp": 0,
+      "cp": 3
+    }
+  }
+]

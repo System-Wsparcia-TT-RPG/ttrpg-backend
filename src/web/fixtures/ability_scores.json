@@ -1,0 +1,14 @@
+[
+  {
+    "model": "api.abilityscores",
+    "pk": 1,
+    "fields": {
+      "strength": 16,
+      "dexterity": 10,
+      "constitution": 14,
+      "intelligence": 10,
+      "wisdom": 12,
+      "charisma": 16
+    }
+  }
+]

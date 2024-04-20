@@ -1,0 +1,11 @@
+[
+  {
+    "model": "api.source",
+    "pk": 1,
+    "fields": {
+      "text": "Player's Handbook",
+      "note": "Taken from page 69",
+      "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
+    }
+  }
+]

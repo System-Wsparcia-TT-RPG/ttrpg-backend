@@ -1,0 +1,29 @@
+[
+  {
+    "model": "api.trait",
+    "pk": 1,
+    "fields": {
+      "name": "Ability Score Increase",
+      "description": "Your Strength score increases by 2, and your Charisma score increases by 1.",
+      "source": 1
+    }
+  },
+  {
+    "model": "api.trait",
+    "pk": 2,
+    "fields": {
+      "name": "Age",
+      "description": "Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80.",
+      "source": 1
+    }
+  },
+  {
+    "model": "api.trait",
+    "pk": 3,
+    "fields": {
+      "name": "Draconic Ancestry",
+      "description": "You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.",
+      "source": 1
+    }
+  }
+]

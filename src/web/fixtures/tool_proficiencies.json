@@ -1,0 +1,16 @@
+[
+  {
+    "model": "api.toolproficiencies",
+    "pk": 1,
+    "fields": {
+      "name": "Artisan's Tools"
+    }
+  },
+  {
+    "model": "api.toolproficiencies",
+    "pk": 2,
+    "fields": {
+      "name": "Vehicles (Land)"
+    }
+  }
+]

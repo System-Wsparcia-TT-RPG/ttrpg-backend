@@ -1,0 +1,9 @@
+[
+  {
+    "model": "api.player",
+    "pk": 1,
+    "fields": {
+      "name": "Jan Kowalski"
+    }
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "model": "api.class",
+    "pk": 1,
+    "fields": {
+      "name": "Paladin",
+      "subtype": "Oath of Devotion",
+      "level": 6,
+      "hit_die": 10,
+      "spellcasting": "cha",
+      "source": 1,
+      "features": [
+        1,
+        2
+      ]
+    }
+  }
+]

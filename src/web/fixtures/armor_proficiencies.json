@@ -1,0 +1,30 @@
+[
+  {
+    "model": "api.armorproficiencies",
+    "pk": 1,
+    "fields": {
+      "name": "Light Armor"
+    }
+  },
+  {
+    "model": "api.armorproficiencies",
+    "pk": 2,
+    "fields": {
+      "name": "Medium Armor"
+    }
+  },
+  {
+    "model": "api.armorproficiencies",
+    "pk": 3,
+    "fields": {
+      "name": "Heavy armor"
+    }
+  },
+  {
+    "model": "api.armorproficiencies",
+    "pk": 4,
+    "fields": {
+      "name": "Shields"
+    }
+  }
+]

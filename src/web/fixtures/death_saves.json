@@ -1,0 +1,10 @@
+[
+  {
+    "model": "api.deathsaves",
+    "pk": 1,
+    "fields": {
+      "successes": 0,
+      "failures": 0
+    }
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "model": "api.skills",
+    "pk": 1,
+    "fields": {
+      "acrobatics": 0,
+      "animal_handling": 1,
+      "arcana": 0,
+      "athletics": 5,
+      "deception": 3,
+      "history": 0,
+      "insight": 1,
+      "intimidation": 3,
+      "investigation": 0,
+      "medicine": 1,
+      "nature": 0,
+      "perception": 1,
+      "performance": 3,
+      "persuasion": 5,
+      "religion": 0,
+      "sleight_of_hand": 0,
+      "stealth": 0,
+      "survival": 1
+    }
+  }
+]

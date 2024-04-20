@@ -1,0 +1,16 @@
+[
+  {
+    "model": "api.property",
+    "pk": 1,
+    "fields": {
+      "name": "Versatile"
+    }
+  },
+  {
+    "model": "api.property",
+    "pk": 2,
+    "fields": {
+      "name": "Thrown"
+    }
+  }
+]

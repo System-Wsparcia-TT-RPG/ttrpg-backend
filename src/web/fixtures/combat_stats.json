@@ -1,0 +1,14 @@
+[
+  {
+    "model": "api.combatstats",
+    "pk": 1,
+    "fields": {
+      "armor_class": 18,
+      "initiative": 0,
+      "speed": 30,
+      "hit_points": 52,
+      "hit_dice": "6d10",
+      "death_saves": 1
+    }
+  }
+]
