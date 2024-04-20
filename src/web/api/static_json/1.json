@@ -58,7 +58,12 @@
         }
       }],
       "senses": {
-        "darkvision": "60ft"
+        "darkvision": 60,
+        "blindsight": 0,
+        "tremorsense": 0,
+        "truesight": 0,
+        "passive_perception": 11
+
       },
       "source": {
         "text": "Player's Handbook",
