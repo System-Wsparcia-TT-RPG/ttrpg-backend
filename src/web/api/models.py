@@ -9,16 +9,16 @@ class Character(models.Model):
     player = models.ForeignKey('Player', on_delete=models.CASCADE)
     xp = models.IntegerField()
     race = models.ForeignKey('Race', on_delete=models.CASCADE)
-    classes = classes = models.ManyToManyField('Class')
+    classes = models.ManyToManyField('Class')
     background = models.ForeignKey('Background', on_delete=models.CASCADE)
-    details = BLANK
-    weapon_proficiencies = BLANK
-    armor_proficiencies = BLANK
-    tool_proficiencies = BLANK
-    feats = BLANK
-    spells = BLANK
-    weapons = BLANK
-    equipment = BLANK
+    #details = BLANK
+    #weapon_proficiencies = BLANK
+    #armor_proficiencies = BLANK
+    #tool_proficiencies = BLANK
+    #feats = BLANK
+    #spells = BLANK
+    #weapons = BLANK
+    #equipment = BLANK
     treasure = models.ForeignKey('Treasure', on_delete=models.CASCADE)
     ability_scores = models.ForeignKey('AbilityScores', on_delete=models.CASCADE)
     skills = models.ForeignKey('Skills', on_delete=models.CASCADE)
@@ -29,15 +29,14 @@ class Character(models.Model):
 
 class Player(models.Model):
     name = models.CharField(max_length=100)
-    id = models.IntegerField()
 
 class Race(models.Model):
     name = models.CharField(max_length=100)
     subtype = models.CharField(max_length=100)
     size = models.CharField(max_length=100)
-    traits = BLANK
-    abilities = BLANK
-    senses = BLANK
+    #traits = BLANK
+    #abilities = BLANK
+    #senses = BLANK
     source = models.ForeignKey('Source', on_delete=models.CASCADE)
 
 class Class(models.Model):
@@ -46,7 +45,7 @@ class Class(models.Model):
     level = models.IntegerField()
     hit_die = models.IntegerField()
     spellcasting = models.TextChoices('Spellcasting ability', 'int wis cha')
-    features = BLANK
+    #features = BLANK
     source = models.ForeignKey('Source', on_delete=models.CASCADE)
 
 
