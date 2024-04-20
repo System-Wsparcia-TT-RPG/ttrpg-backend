@@ -32,9 +32,9 @@ SECRET_KEY = getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(getenv("DEBUG") == '1')
 
-ALLOWED_HOSTS = str(getenv("DJANGO_ALLOWED_HOSTS") or '').split(' ')
+ALLOWED_HOSTS = str(getenv("DJANGO_ALLOWED_HOSTS")).split(' ')
 
-DATABASE_PATH = getenv("DJANGO_DATABASE_PATH") or 'db.dev.sqlite3'
+DATABASE_PATH = getenv("DJANGO_DATABASE_PATH")
 
 # Application definition
 

@@ -18,8 +18,7 @@ COPY . .
 RUN pip install .
 RUN web-app makemigrations api
 RUN web-app migrate
-RUN web-app createsuperuser --noinput
 
 EXPOSE 8000
 
-CMD ["web-app", "runserver", "0.0.0.0:8000"]
+CMD web-app createsuperuser --username $DJANGO_SUPERUSER_USERNAME --noinput && web-app runserver 0.0.0.0:8000
