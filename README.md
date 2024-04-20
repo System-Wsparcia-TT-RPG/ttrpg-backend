@@ -92,6 +92,7 @@ Here are the steps to run the project in a Docker container:
         docker run -p 8000:8000 --name tt-rpg-backend \
             -e DJANGO_SUPERUSER_USERNAME="testuser" \
             -e DJANGO_SUPERUSER_PASSWORD="testpass" \
+            -e DJANGO_SUPERUSER_EMAIL="admin@admin.com" \
         tt-rpg-backend:latest
         ```
     - Powershell:
@@ -99,6 +100,7 @@ Here are the steps to run the project in a Docker container:
         docker run -p 8000:8000 --name tt-rpg-backend `
             -e DJANGO_SUPERUSER_USERNAME="testuser" `
             -e DJANGO_SUPERUSER_PASSWORD="testpass" `
+            -e DJANGO_SUPERUSER_EMAIL="admin@admin.com" `
         tt-rpg-backend:latest
         ```
 

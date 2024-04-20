@@ -174,7 +174,7 @@ class AbilityScores(models.Model):
     intelligence = models.IntegerField()
     wisdom = models.IntegerField()
     charisma = models.IntegerField()
-    
+
 class Skills(models.Model):
     acrobatics = models.IntegerField()
     animal_handling = models.IntegerField()
