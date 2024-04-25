@@ -8,3 +8,4 @@ docs
 **/db.dev.sqlite3
 
 *.md
+.containers
