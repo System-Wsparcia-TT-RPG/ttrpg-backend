@@ -4,6 +4,8 @@
 .vscode
 docs
 
+.dockerignore
+
 **/migrations/
 **/db.dev.sqlite3
 

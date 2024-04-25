@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 from os import getenv
 from pathlib import Path
+from socket import gethostbyname_ex
 
 from dotenv import load_dotenv
 
@@ -94,7 +95,7 @@ DATABASES = {
         'NAME': 'ttrpg',
         'USER': 'admin',
         'PASSWORD': 'password',
-        'HOST': '172.18.0.2',
+        'HOST': 'ttrpg.database',
         'PORT': '5432',
     }
 }
