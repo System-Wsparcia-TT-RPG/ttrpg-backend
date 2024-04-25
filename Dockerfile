@@ -16,9 +16,9 @@ ENV PYTHONUNBUFFERED 1
 COPY . .
 
 RUN pip install .
-#RUN web-app makemigrations api
-#RUN web-app migrate
-#RUN web-app loaddata $(find ./src/web/fixtures -type f -name '*.json')
+RUN web-app makemigrations api
+RUN web-app migrate
+RUN web-app loaddata $(find ./src/web/fixtures -type f -name '*.json')
 
 EXPOSE 8000
 

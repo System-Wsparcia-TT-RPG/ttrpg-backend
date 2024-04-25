@@ -85,17 +85,18 @@ WSGI_APPLICATION = 'web.core.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / DATABASE_PATH,
-    }
     # 'default': {
-    #     "ENGINE": "django.db.backends.postgresql",
-    #     "OPTIONS": {
-    #         "service": "postgres",
-    #         "passfile": ".my_pgpass",
-    #     },
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / DATABASE_PATH,
     # }
+    'default': {
+        "ENGINE": "django.db.backends.postgresql",
+        'NAME': 'ttrpg',
+        'USER': 'admin',
+        'PASSWORD': 'password',
+        'HOST': '172.18.0.2',
+        'PORT': '5432',
+    }
 }
 
 
