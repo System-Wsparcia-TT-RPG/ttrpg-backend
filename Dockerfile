@@ -2,6 +2,8 @@ FROM python:3.12.2
 
 SHELL ["/bin/bash", "-c"]
 
+RUN apt update -y && apt install -y liblockfile-bin
+
 WORKDIR /app
 
 RUN pip install --upgrade pip
@@ -17,8 +19,8 @@ COPY . .
 
 RUN pip install .
 
-RUN chmod +x start.sh
+RUN chmod +x ./scripts/docker/start.sh
 
 EXPOSE 8000
 
-CMD ./start.sh
+CMD ./scripts/docker/start.sh

@@ -86,17 +86,14 @@ WSGI_APPLICATION = 'web.core.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / DATABASE_PATH,
-    # }
     'default': {
         "ENGINE": "django.db.backends.postgresql",
-        'NAME': 'ttrpg',
-        'USER': 'admin',
-        'PASSWORD': 'password',
-        'HOST': 'ttrpg.database',
-        'PORT': '5432',
+
+        'NAME': getenv("DJANGO_DATABASE_NAME"),
+        'USER': getenv("DJANGO_DATABASE_USER"),
+        'PASSWORD': getenv("DJANGO_DATABASE_PASSWORD"),
+        'HOST': getenv("DJANGO_DATABASE_HOST"),
+        'PORT': getenv("DJANGO_DATABASE_PORT"),
     }
 }
 

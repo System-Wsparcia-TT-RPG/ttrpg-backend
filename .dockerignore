@@ -2,12 +2,14 @@
 .gitignore
 .idea
 .vscode
+
 docs
 
-.dockerignore
-
 **/migrations/
-**/db.dev.sqlite3
+**/.env.dev
+
+scripts/*
+!scripts/docker
 
 *.md
 .containers
