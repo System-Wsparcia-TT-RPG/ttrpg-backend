@@ -4,12 +4,6 @@
       <settings>
         <option name="envFilePath" value="" />
         <option name="removeVolumesOnComposeDown" value="true" />
-        <option name="services">
-          <list>
-            <option value="ttrpg.database" />
-            <option value="ttrpg.web" />
-          </list>
-        </option>
         <option name="sourceFilePath" value="docker-compose.yml" />
       </settings>
     </deployment>
