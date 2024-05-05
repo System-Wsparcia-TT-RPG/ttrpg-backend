@@ -81,11 +81,11 @@ def validate_json_keys(checked_json, required_fields : List[Tuple[str, type]]) -
 # TESTING
 
 
-with open("./docs/resources/example_character.json", "r", encoding="utf-8") as file:
-    json_obj = json.load(file)
+# with open("./docs/resources/example_character.json", "r", encoding="utf-8") as file:
+#     json_obj = json.load(file)
 
-    # print(type(json_obj))
-    # print(type(json_obj['player']))
+#     # print(type(json_obj))
+#     # print(type(json_obj['player']))
 
-    print(character_fields_exist(json_obj))
-    print(validate_race_traits(json_obj['race']['traits']))
+#     print(character_fields_exist(json_obj))
+#     print(validate_race_traits(json_obj['race']['traits']))
