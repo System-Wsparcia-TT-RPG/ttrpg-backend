@@ -19,6 +19,12 @@ def character_fields_exist(character_json) -> Tuple[bool, List[str], List[str]]:
     
     return validate_json_keys(character_json, required_fields)
 
+def validate_race(race_json) -> bool:
+    # Validates "race" field of the character json
+
+    # TODO: actually check if values stored in these fields corelate with expected values
+
+    return race_fields_exist(race_json) and validate_race_actions(race_json['actions']) and validate_race_traits(race_json['traits'] and validate_source(race_json['source']))
 
 def race_fields_exist(race_json) -> Tuple[bool, List[str], List[str]]:
     # Validate that all fields within the "race" key of the character are within spec.
@@ -78,14 +84,11 @@ def validate_json_keys(checked_json, required_fields : List[Tuple[str, type]]) -
 
     return (len(missing_fields) == 0 and len(bad_field_types) == 0, missing_fields, bad_field_types)
 
-# TESTING
 
-
-# with open("./docs/resources/example_character.json", "r", encoding="utf-8") as file:
-#     json_obj = json.load(file)
-
-#     # print(type(json_obj))
-#     # print(type(json_obj['player']))
-
+def expected_str_value(actual_value:str, expected_values:List[str], case_sensitive:bool = False) -> bool:
+    if case_sensitive:
+        return actual_value in expected_values
+    else:
+        return actual_value.lower() in [a.lower() for a in expected_values]
 #     print(character_fields_exist(json_obj))
 #     print(validate_race_traits(json_obj['race']['traits']))
