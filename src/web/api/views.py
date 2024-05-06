@@ -6,6 +6,7 @@ from django.views import View
 
 from .models import Character
 
+from utils.character_validation import validate_character, validate_json_keys
 
 class CharacterView:
     class Get(View):

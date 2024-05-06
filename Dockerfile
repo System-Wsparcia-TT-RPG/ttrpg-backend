@@ -19,8 +19,6 @@ COPY . .
 
 RUN pip install .
 
-RUN chmod +x ./scripts/docker/start.sh
-
 EXPOSE 8000
 
 CMD ./scripts/docker/start.sh
