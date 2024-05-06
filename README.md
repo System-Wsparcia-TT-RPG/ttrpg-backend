@@ -152,7 +152,7 @@ However, it is remarkably slower due to the fact that all services must be resta
 
 1. Run docker-compose in the main root directory of the project:
     ```bash
-    docker compose -f .\docker-compose.yml --no-deps --build up
+    docker compose -f .\docker-compose.yml up --no-deps --build
     ```
 2. Wait some time to let the containers start. You should see the logs of the containers in the terminal.:
 
