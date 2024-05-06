@@ -5,7 +5,7 @@
     "fields": {
       "name": "Divine Smite",
       "description": "When you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend.",
-      "source": 1
+      "source": "PHB"
     }
   },
   {
@@ -14,7 +14,7 @@
     "fields": {
       "name": "Lay on Hands",
       "description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level x 5.",
-      "source": 1
+      "source": "PHB"
     }
   }
 ]

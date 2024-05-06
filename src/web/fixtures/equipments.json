@@ -8,7 +8,7 @@
       "description": "A suit of interlocking metal rings, providing good protection without hindering mobility.",
       "magic": false,
       "quantity": 1,
-      "source": 1
+      "source": "PHB"
     }
   },
   {
@@ -20,7 +20,7 @@
       "description": "A piece of wood or metal held in the hand or attached to the arm, used to block attacks.",
       "magic": false,
       "quantity": 1,
-      "source": 1
+      "source": "PHB"
     }
   },
   {
@@ -32,7 +32,7 @@
       "description": "A representation of a deity or religious symbol, used by paladins to focus their divine powers.",
       "magic": false,
       "quantity": 1,
-      "source": 1
+      "source": "PHB"
     }
   }
 ]

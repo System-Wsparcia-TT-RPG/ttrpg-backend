@@ -17,7 +17,7 @@
       "concentration": true,
       "attack_save": "STR Save",
       "damage_effect": "Thunder",
-      "source": 1,
+      "source": "PHB",
       "tags": [
         1
       ]
