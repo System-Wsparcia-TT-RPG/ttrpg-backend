@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 
@@ -110,7 +110,7 @@ class Weapon(models.Model):
     damage_bonus = models.IntegerField()
     damage_type = models.CharField(max_length=100)
     # properties = models.ManyToManyField('Property')
-    properties = models.ArrayField(models.CharField(max_length=100))
+    properties = ArrayField(models.CharField(max_length=100))
     source = models.CharField(max_length=100)
 
 
@@ -205,7 +205,7 @@ class Spell(models.Model):
     attack_save = models.CharField(max_length=100)
     damage_effect = models.CharField(max_length=100)
     # tags = models.ManyToManyField('Tag')
-    tags = models.ArrayField(models.CharField(max_length=100))
+    tags = ArrayField(models.CharField(max_length=100))
     source = models.CharField(max_length=100)
 
 # class ArmorProficiencies(models.Model):
@@ -231,9 +231,9 @@ class Character(models.Model):
     # weapon_proficiencies = models.ManyToManyField('WeaponProficiencies')
     # armor_proficiencies = models.ManyToManyField('ArmorProficiencies')
     # tool_proficiencies = models.ManyToManyField('ToolProficiencies')
-    weapon_proficiencies = models.ArrayField(models.CharField(max_length=100))
-    armor_proficiencies = models.ArrayField(models.CharField(max_length=100))
-    tool_proficiencies = models.ArrayField(models.CharField(max_length=100))
+    weapon_proficiencies = ArrayField(models.CharField(max_length=100))
+    armor_proficiencies = ArrayField(models.CharField(max_length=100))
+    tool_proficiencies = ArrayField(models.CharField(max_length=100))
     feats = models.ManyToManyField('Feat')
     spells = models.ManyToManyField('Spell')
     weapons = models.ManyToManyField('Weapon')

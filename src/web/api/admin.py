@@ -1,9 +1,9 @@
 from django.contrib import admin
 from .models import Player, DamageDice, Senses, \
-    Source, Trait, Background, Action, Feature, Feat, \
-    Class, Details, Equipment, Property, Weapon, Tag, Treasure, \
+    Trait, Background, Action, Feature, Feat, \
+    Class, Details, Equipment, Weapon, Treasure, \
     AbilityScores, Skills, SavingThrows, DeathSaves, CombatStats, \
-    Race, Spell, ArmorProficiencies, WeaponProficiencies, ToolProficiencies, \
+    Race, Spell, \
     Character
 
 # Register your models here.
@@ -11,7 +11,6 @@ from .models import Player, DamageDice, Senses, \
 admin.site.register(Player)
 admin.site.register(DamageDice)
 admin.site.register(Senses)
-admin.site.register(Source)
 admin.site.register(Trait)
 admin.site.register(Background)
 admin.site.register(Action)
@@ -20,9 +19,7 @@ admin.site.register(Feat)
 admin.site.register(Class)
 admin.site.register(Details)
 admin.site.register(Equipment)
-admin.site.register(Property)
 admin.site.register(Weapon)
-admin.site.register(Tag)
 admin.site.register(Treasure)
 admin.site.register(AbilityScores)
 admin.site.register(Skills)
@@ -31,7 +28,4 @@ admin.site.register(DeathSaves)
 admin.site.register(CombatStats)
 admin.site.register(Race)
 admin.site.register(Spell)
-admin.site.register(ArmorProficiencies)
-admin.site.register(WeaponProficiencies)
-admin.site.register(ToolProficiencies)
 admin.site.register(Character)
