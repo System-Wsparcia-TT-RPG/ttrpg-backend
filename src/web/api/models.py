@@ -22,29 +22,29 @@ class Senses(models.Model):
     passive_perception = models.IntegerField()
 
 
-class Source(models.Model):
-    text = models.CharField(max_length=100)
-    note = models.CharField(max_length=100)
-    href = models.CharField(max_length=100)
+# class Source(models.Model):
+#     text = models.CharField(max_length=100)
+#     note = models.CharField(max_length=100)
+#     href = models.CharField(max_length=100)
 
 
 class Trait(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1024)
-    source = models.ForeignKey('Source', on_delete=models.CASCADE)
+    source = models.CharField(max_length=100)
 
 
 class Background(models.Model):
     name = models.CharField(max_length=100)
     option = models.CharField(max_length=100)
     description = models.CharField(max_length=1024)
-    source = models.ForeignKey('Source', on_delete=models.CASCADE)
+    source = models.CharField(max_length=100)
 
 
 class Action(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1024)
-    source = models.ForeignKey('Source', on_delete=models.CASCADE)
+    source = models.CharField(max_length=100)
     damage_dice = models.ForeignKey('DamageDice', on_delete=models.CASCADE)
     damage_bonus = models.IntegerField()
     legendary = models.BooleanField()
@@ -54,13 +54,13 @@ class Action(models.Model):
 class Feature(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1024)
-    source = models.ForeignKey('Source', on_delete=models.CASCADE)
+    source = models.CharField(max_length=100)
 
 
 class Feat(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1024)
-    source = models.ForeignKey('Source', on_delete=models.CASCADE)
+    source = models.CharField(max_length=100)
 
 
 class Class(models.Model):
@@ -70,7 +70,7 @@ class Class(models.Model):
     hit_die = models.IntegerField()
     spellcasting = models.CharField(max_length=100)
     features = models.ManyToManyField('Feature')
-    source = models.ForeignKey('Source', on_delete=models.CASCADE)
+    source = models.CharField(max_length=100)
 
 
 class Details(models.Model):
@@ -94,11 +94,11 @@ class Equipment(models.Model):
     description = models.CharField(max_length=1024)
     magic = models.BooleanField()
     quantity = models.IntegerField()
-    source = models.ForeignKey('Source', on_delete=models.CASCADE)
+    source = models.CharField(max_length=100)
 
 
-class Property(models.Model):
-    name = models.CharField(max_length=100)
+# class Property(models.Model):
+#     name = models.CharField(max_length=100)
 
 
 class Weapon(models.Model):
@@ -109,12 +109,13 @@ class Weapon(models.Model):
     damage_dice = models.ForeignKey('DamageDice', on_delete=models.CASCADE)
     damage_bonus = models.IntegerField()
     damage_type = models.CharField(max_length=100)
-    properties = models.ManyToManyField('Property')
-    source = models.ForeignKey('Source', on_delete=models.CASCADE)
+    # properties = models.ManyToManyField('Property')
+    properties = models.ArrayField(models.CharField(max_length=100))
+    source = models.CharField(max_length=100)
 
 
-class Tag(models.Model):
-    name = models.CharField(max_length=100)
+# class Tag(models.Model):
+#     name = models.CharField(max_length=100)
 
 
 class Treasure(models.Model):
@@ -185,7 +186,7 @@ class Race(models.Model):
     traits = models.ManyToManyField('Trait')
     actions = models.ManyToManyField('Action')
     senses = models.ForeignKey('Senses', on_delete=models.CASCADE)
-    source = models.ForeignKey('Source', on_delete=models.CASCADE)
+    source = models.CharField(max_length=100)
 
 
 class Spell(models.Model):
@@ -203,9 +204,9 @@ class Spell(models.Model):
     concentration = models.BooleanField()
     attack_save = models.CharField(max_length=100)
     damage_effect = models.CharField(max_length=100)
-    tags = models.ManyToManyField('Tag')
-    source = models.ForeignKey('Source', on_delete=models.CASCADE)
-
+    # tags = models.ManyToManyField('Tag')
+    tags = models.ArrayField(models.CharField(max_length=100))
+    source = models.CharField(max_length=100)
 
 class ArmorProficiencies(models.Model):
     name = models.CharField(max_length=100)
