@@ -208,16 +208,16 @@ class Spell(models.Model):
     tags = models.ArrayField(models.CharField(max_length=100))
     source = models.CharField(max_length=100)
 
-class ArmorProficiencies(models.Model):
-    name = models.CharField(max_length=100)
+# class ArmorProficiencies(models.Model):
+#     name = models.CharField(max_length=100)
 
 
-class WeaponProficiencies(models.Model):
-    name = models.CharField(max_length=100)
+# class WeaponProficiencies(models.Model):
+#     name = models.CharField(max_length=100)
 
 
-class ToolProficiencies(models.Model):
-    name = models.CharField(max_length=100)
+# class ToolProficiencies(models.Model):
+#     name = models.CharField(max_length=100)
 
 
 class Character(models.Model):
@@ -228,9 +228,12 @@ class Character(models.Model):
     classes = models.ManyToManyField('Class')
     background = models.ForeignKey('Background', on_delete=models.CASCADE)
     details = models.ForeignKey('Details', on_delete=models.CASCADE)
-    weapon_proficiencies = models.ManyToManyField('WeaponProficiencies')
-    armor_proficiencies = models.ManyToManyField('ArmorProficiencies')
-    tool_proficiencies = models.ManyToManyField('ToolProficiencies')
+    # weapon_proficiencies = models.ManyToManyField('WeaponProficiencies')
+    # armor_proficiencies = models.ManyToManyField('ArmorProficiencies')
+    # tool_proficiencies = models.ManyToManyField('ToolProficiencies')
+    weapon_proficiencies = models.ArrayField(models.CharField(max_length=100))
+    armor_proficiencies = models.ArrayField(models.CharField(max_length=100))
+    tool_proficiencies = models.ArrayField(models.CharField(max_length=100))
     feats = models.ManyToManyField('Feat')
     spells = models.ManyToManyField('Spell')
     weapons = models.ManyToManyField('Weapon')
