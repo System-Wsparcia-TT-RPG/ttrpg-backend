@@ -61,10 +61,11 @@ class CharacterView:
             return HttpResponse(status=204)
 
     class Race:
-
         class RaceSizeView(View):
             http_method_names = ['get']
 
             @staticmethod
             def get(request) -> JsonResponse:
-                return JsonResponse({list(Race.Size)}, status = 201)
+                # return JsonResponse({list(Race.Size)}, status = 201)
+                print(list(Race.Size))
+                return JsonResponse({a : a.value for a in (Race.Size)}, status = 201)
