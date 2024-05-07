@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.views import View
 
 from .models import Character
+from .models import Race
 
 
 class CharacterView:
@@ -57,3 +58,12 @@ class CharacterView:
                 return JsonResponse({"error": "Character not found"}, status=404)
 
             return HttpResponse(status=204)
+
+    class Race:
+
+        class RaceSizeView(View):
+            http_method_names = ['get']
+
+            @staticmethod
+            def get(request) -> JsonResponse:
+                return JsonResponse({list(Race.Size)}, status = 201)

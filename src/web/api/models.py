@@ -1,5 +1,5 @@
 from django.db import models
-
+from enum import Enum
 
 # Create your models here.
 
@@ -32,6 +32,7 @@ class Trait(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1024)
     source = models.ForeignKey('Source', on_delete=models.CASCADE)
+    
 
 
 class Background(models.Model):
@@ -179,6 +180,14 @@ class CombatStats(models.Model):
 
 
 class Race(models.Model):
+    class Size(str, Enum):
+        Tiny = 'Tiny'
+        Small = 'Small'
+        Medium = 'Medium'
+        Large = 'Large'
+        Huge = 'Huge'
+        Gargantuan = 'Gargantuan'
+
     name = models.CharField(max_length=100)
     subtype = models.CharField(max_length=100)
     size = models.CharField(max_length=100)
