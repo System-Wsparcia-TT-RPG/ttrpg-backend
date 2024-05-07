@@ -4,10 +4,11 @@ from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.views import View
 
+
 from .models import Character
 from .models import Race
 
-from utils.character_validation import validate_character, validate_json_keys
+from utils.character_validation import CharacterSerializer
 
 class CharacterView:
     class Get(View):
@@ -35,9 +36,13 @@ class CharacterView:
         @staticmethod
         def post(request) -> JsonResponse:
             json_data = loads(request.body)
-            # Validate body!
-
-            return JsonResponse({"character": {"id": 2, "data": {**json_data}}}, status=201)
+            
+            # Validation
+            data_ser = CharacterSerializer(data=json_data)
+            if data_ser.is_valid():
+                return JsonResponse({"character": {"id": 2, "data": {**json_data}}}, status=201)
+            else:
+                return JsonResponse({"error": "Provided character data is invalid!"}, status=400)
 
     class Put(View):
         http_method_names = ["put"]
@@ -60,12 +65,10 @@ class CharacterView:
 
             return HttpResponse(status=204)
 
-    class Race:
-        class RaceSizeView(View):
+    class RaceView:
+        class GetRaceSizes(View):
             http_method_names = ['get']
 
             @staticmethod
             def get(request) -> JsonResponse:
-                # return JsonResponse({list(Race.Size)}, status = 201)
-                print(list(Race.Size))
                 return JsonResponse({a : a.value for a in (Race.Size)}, status = 201)
