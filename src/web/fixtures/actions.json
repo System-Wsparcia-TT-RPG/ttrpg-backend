@@ -5,7 +5,7 @@
     "fields": {
       "name": "Dragon Breath",
       "description": "Exhale destructive energy in a 30-foot cone. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 2d6 damage of a type determined by your draconic ancestry, and half as much damage on a successful save.",
-      "source": 1,
+      "source": "PHB",
       "damage_dice": 1,
       "damage_bonus": 0,
       "legendary": false,

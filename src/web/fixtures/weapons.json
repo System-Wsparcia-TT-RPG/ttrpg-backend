@@ -10,7 +10,7 @@
       "damage_dice": 3,
       "damage_bonus": 0,
       "damage_type": "Slashing",
-      "source": 1,
+      "source": "PHB",
       "properties": [
         1
       ]
@@ -27,7 +27,7 @@
       "damage_dice": 2,
       "damage_bonus": 0,
       "damage_type": "Piercing",
-      "source": 1,
+      "source": "PHB",
       "properties": [
         2
       ]

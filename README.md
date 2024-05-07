@@ -146,17 +146,13 @@ However, it is remarkably slower due to the fact that all services must be resta
 
 - The build process may take a while, so be patient (Up to 90s + 20s).
 
-- Before running the docker compose make sure that you have the most recent version of `tt-rpg-backend` image present on your device.
-    - You can build it by running `docker build . -t tt-rpg-backend:latest` in the root directory of the project.
-    - On a fresh start it is not required, as the image will be built automatically.
-
 - Before every major change of the postgres database you should clear the volume by running `rm -rf ./.containers/tt-rpg_database`.
 
 ##### Commands
 
 1. Run docker-compose in the main root directory of the project:
     ```bash
-    docker compose -f .\docker-compose.yml up
+    docker compose -f .\docker-compose.yml up --no-deps --build
     ```
 2. Wait some time to let the containers start. You should see the logs of the containers in the terminal.:
 

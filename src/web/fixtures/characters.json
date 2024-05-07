@@ -18,18 +18,18 @@
         1
       ],
       "weapon_proficiencies": [
-        1,
-        2
+        "Simple",
+        "Martial"
       ],
       "armor_proficiencies": [
-        1,
-        2,
-        3,
-        4
+        "Light",
+        "Medium",
+        "Heavy",
+        "Shields"
       ],
       "tool_proficiencies": [
-        1,
-        2
+        "Smith's Tools",
+        "Brewer's Supplies"
       ],
       "feats": [
         1

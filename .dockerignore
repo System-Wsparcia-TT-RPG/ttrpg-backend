@@ -8,8 +8,5 @@ docs
 **/migrations/
 **/.env.dev
 
-scripts/*
-!scripts/docker
-
 *.md
 .containers
