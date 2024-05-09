@@ -1,13 +1,14 @@
-"""
-
-"""
 from typing import Callable
+from functools import WRAPPER_ASSIGNMENTS
 
 from django.http import HttpResponse
 
 
 def add_http_options(cls) -> Callable:
-    class NewClass(cls):
+    """
+
+    """
+    class Wrapper(cls):
         http_method_names = cls.http_method_names + ['options']
 
         @staticmethod
@@ -22,4 +23,4 @@ def add_http_options(cls) -> Callable:
             response['Access-Control-Max-Age'] = '86400'
             return response
 
-    return NewClass
+    return Wrapper

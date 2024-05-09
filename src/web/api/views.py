@@ -1,11 +1,13 @@
 from json import load, loads
 
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.views import View
 
-from .models import Character, Race
 from utils.http_options_decorator import add_http_options
+
+from .models import Character, Race
 
 
 class CharacterView:
@@ -15,8 +17,9 @@ class CharacterView:
 
         @staticmethod
         def get(request) -> JsonResponse:
-            with open("./src/web/api/static_json/1.json", "r", encoding="utf-8") as file:
-                return JsonResponse({"characters": [{"id": 1, "data": load(file)}, ]})
+            all_characters = list(Character.objects.values())
+
+            return JsonResponse({"characters": all_characters})
 
     @add_http_options
     class GetId(View):
@@ -24,11 +27,18 @@ class CharacterView:
 
         @staticmethod
         def get(request, character_id: int) -> JsonResponse:
-            if character_id != 1:
-                return JsonResponse({"error": "Character not found"}, status=404)
+            try:
+                character = Character.objects.values().get(id=character_id)
 
-            with open("./src/web/api/static_json/1.json", "r", encoding="utf-8") as file:
-                return JsonResponse({"character": load(file)})
+                return JsonResponse({"character": character}, status=200)
+            except ObjectDoesNotExist as error:
+                return JsonResponse({
+                    "error": "Character with specified id is not found!",
+                    "details": str(error),
+                    "error_data": {
+                        "id_not_found": character_id,
+                    },
+                }, status=404)
 
     @add_http_options
     class Post(View):
@@ -72,9 +82,7 @@ class RaceView:
 
         @staticmethod
         def get(request) -> JsonResponse:
-            # return JsonResponse({list(Race.Size)}, status = 201)
-            print(list(Race.Size))
-            return JsonResponse({a: a.value for a in Race.Size}, status=201)
+            return JsonResponse({a: a.value for a in Race.Size}, status=200)
 
 
 @add_http_options
