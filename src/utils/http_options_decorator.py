@@ -1,5 +1,4 @@
 from typing import Callable
-from functools import WRAPPER_ASSIGNMENTS
 
 from django.http import HttpResponse
 
