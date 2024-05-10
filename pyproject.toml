@@ -2,11 +2,11 @@ python-implementation = "CPython"
 
 [project]
 name = "ttrpg-backend"
-version = "0.0.5"
+version = "1.0.0.0"
 authors = [
     { name="Robert Barcik", email="robertbarcik32@gmail.com" },
-    { name="Miłosz Góralczyk", email="kbodzio@student.agh.edu.pl" },
-    { name="Konrad Bodzioch", email="Goralczyk.Milosz2k@gmail.com" },
+    { name="Miłosz Góralczyk", email="Goralczyk.Milosz2k@gmail.com" },
+    { name="Konrad Bodzioch", email="kbodzio@student.agh.edu.pl" },
     { name="Dominik Breksa", email="dominikbreksa@gmail.com" },
 ]
 description = "Backend for TTRPG System."
