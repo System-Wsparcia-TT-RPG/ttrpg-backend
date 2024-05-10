@@ -9,5 +9,4 @@ urlpatterns = [
     path('character/delete/<int:character_id>/', views.CharacterView.Delete.as_view()),
     path('race/all/', views.RaceView.GetRaceEnum.as_view()),
     path('', views.Index.as_view()),
-
 ]

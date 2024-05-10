@@ -5,6 +5,7 @@ from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.views import View
 
+from utils.character_validation import CharacterSerializer
 from utils.http_options_decorator import add_http_options
 
 from .models import Character, Race
@@ -47,9 +48,13 @@ class CharacterView:
         @staticmethod
         def post(request) -> JsonResponse:
             json_data = loads(request.body)
-            # Validate body!
-
-            return JsonResponse({"character": {"id": 2, "data": {**json_data}}}, status=201)
+            
+            # Validation
+            data_ser = CharacterSerializer(data=json_data)
+            if data_ser.is_valid():
+                return JsonResponse({"character": {"id": 2, "data": {**json_data}}}, status=201)
+            else:
+                return JsonResponse({"error": "Provided character data is invalid!"}, status=400)
 
     @add_http_options
     class Put(View):
@@ -73,7 +78,6 @@ class CharacterView:
                 return JsonResponse({"error": "Character not found"}, status=404)
 
             return HttpResponse(status=204)
-
 
 class RaceView:
     @add_http_options
