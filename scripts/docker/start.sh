@@ -9,7 +9,7 @@ then
 	web-app makemigrations api &&
 	web-app migrate &&
 	web-app loaddata $(find ./src/web/fixtures -type f -name '*.json') &&
-	web-app createsuperuser --username $DJANGO_SUPERUSER_USERNAME --email $DJANGO_SUPERUSER_EMAIL --noinput
+	web-app createsuperuser --username "$DJANGO_SUPERUSER_USERNAME" --email "$DJANGO_SUPERUSER_EMAIL" --noinput
 
 	echo "...config build ended."
 else

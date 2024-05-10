@@ -3,7 +3,7 @@ version: '3.9'
 services:
   tt-rpg.database:
     image: postgres:latest
-    container_name: ttrpg.database
+    container_name: tt-rpg.database
     restart: always
     environment:
       - POSTGRES_DB=tt-rpg
@@ -46,7 +46,3 @@ services:
 networks:
   tt-rpg-network:
     driver: bridge
-
-volumes:
-  tt-rpg-database:
-    driver: local

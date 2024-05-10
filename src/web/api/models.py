@@ -1,10 +1,9 @@
-from django.db import models
-from django.contrib.postgres.fields import ArrayField
 from enum import Enum
 
-# Create your models here.
+from django.db import models
+from django.contrib.postgres.fields import ArrayField
 
-# TODO : Update the model to the full version of the Character model
+
 class Player(models.Model):
     name = models.CharField(max_length=100)
 
@@ -21,12 +20,6 @@ class Senses(models.Model):
     tremorsense = models.IntegerField()
     truesight = models.IntegerField()
     passive_perception = models.IntegerField()
-
-
-# class Source(models.Model):
-#     text = models.CharField(max_length=100)
-#     note = models.CharField(max_length=100)
-#     href = models.CharField(max_length=100)
 
 
 class Trait(models.Model):
@@ -98,10 +91,6 @@ class Equipment(models.Model):
     source = models.CharField(max_length=100)
 
 
-# class Property(models.Model):
-#     name = models.CharField(max_length=100)
-
-
 class Weapon(models.Model):
     name = models.CharField(max_length=100)
     weight = models.IntegerField()
@@ -110,13 +99,8 @@ class Weapon(models.Model):
     damage_dice = models.ForeignKey('DamageDice', on_delete=models.CASCADE)
     damage_bonus = models.IntegerField()
     damage_type = models.CharField(max_length=100)
-    # properties = models.ManyToManyField('Property')
     properties = ArrayField(models.CharField(max_length=100))
     source = models.CharField(max_length=100)
-
-
-# class Tag(models.Model):
-#     name = models.CharField(max_length=100)
 
 
 class Treasure(models.Model):
@@ -213,20 +197,8 @@ class Spell(models.Model):
     concentration = models.BooleanField()
     attack_save = models.CharField(max_length=100)
     damage_effect = models.CharField(max_length=100)
-    # tags = models.ManyToManyField('Tag')
     tags = ArrayField(models.CharField(max_length=100))
     source = models.CharField(max_length=100)
-
-# class ArmorProficiencies(models.Model):
-#     name = models.CharField(max_length=100)
-
-
-# class WeaponProficiencies(models.Model):
-#     name = models.CharField(max_length=100)
-
-
-# class ToolProficiencies(models.Model):
-#     name = models.CharField(max_length=100)
 
 
 class Character(models.Model):
@@ -237,9 +209,6 @@ class Character(models.Model):
     classes = models.ManyToManyField('Class')
     background = models.ForeignKey('Background', on_delete=models.CASCADE)
     details = models.ForeignKey('Details', on_delete=models.CASCADE)
-    # weapon_proficiencies = models.ManyToManyField('WeaponProficiencies')
-    # armor_proficiencies = models.ManyToManyField('ArmorProficiencies')
-    # tool_proficiencies = models.ManyToManyField('ToolProficiencies')
     weapon_proficiencies = ArrayField(models.CharField(max_length=100))
     armor_proficiencies = ArrayField(models.CharField(max_length=100))
     tool_proficiencies = ArrayField(models.CharField(max_length=100))

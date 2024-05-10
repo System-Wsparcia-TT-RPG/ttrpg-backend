@@ -34,10 +34,10 @@ They may change in the future, and it is better to have them isolated from other
     docker run \
 	    --name postgres \
 	    -e POSTGRES_PASSWORD=password \
-        -e POSTGRES_USER=root \
+        -e POSTGRES_USER=postgres \
         -e POSTGRES_DB=tt-rpg \
         -p 5432:5432 \ 
-	postgres:latest
+	  postgres:latest
     ```
 
 3. **(NOT RECOMMENDED)** If for whatever reason you need to change any ot previously stated credentials you would likely also need to change them in the following files:

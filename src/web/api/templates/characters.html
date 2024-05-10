@@ -1,8 +1,0 @@
-{% extends 'base.html' %} {% block content %}
-<h1>Characters </h1>
-<ul>
-  {% for character in characters %}
-  <li>{{ character.name }}: {{ character.character_class}}, lvl {{ character.level }}</li>
-  {% endfor %}
-</ul>
-{% endblock %}
