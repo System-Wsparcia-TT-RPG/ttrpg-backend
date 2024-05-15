@@ -12,36 +12,23 @@
         {
           "name": "Ability Score Increase",
           "description": "Your Strength score increases by 2, and your Charisma score increases by 1.",
-          "source": {
-            "text": "Player's Handbook",
-            "note": "",
-            "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-          }
+          "source": "Player's Handbook"
         },
         {
           "name": "Age",
           "description": "Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80.",
-          "source": {
-            "text": "Player's Handbook",
-            "note": "",
-            "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-          }
+          "source": "Player's Handbook"
         },
         {
           "name": "Draconic Ancestry",
           "description": "You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.",
-          "source": {
-            "text": "Player's Handbook",
-            "note": "",
-            "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-          }
+          "source": "Player's Handbook"
         }
       ],
       "actions": [
       {
         "name": "Dragon Breath",
         "description": "Exhale destructive energy in a 30-foot cone. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 2d6 damage of a type determined by your draconic ancestry, and half as much damage on a successful save.",
-        "attack_bonus": 0,
         "damage_dice": {
           "count": 2,
           "sides": 6,
@@ -50,22 +37,17 @@
         "damage_bonus": 0,
         "legendary": false,
         "reaction": false,
-        "source": {
-          "text": "Player's Handbook",
-          "note": "",
-          "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-        }
+        "source": "Player's Handbook"
       }],
       "senses": {
-        "darkvision": "60ft"
+        "darkvision": 60,
+        "blindsight": 0,
+        "tremorsense": 0,
+        "truesight": 0,
+        "passive_perception": 0
       },
-      "source": {
-        "text": "Player's Handbook",
-        "note": "",
-        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-      }
+      "source": "Player's Handbook"
   },
-  "alignment": "Lawful Good",
   "classes": [
     {
       "name": "Paladin",
@@ -77,38 +59,22 @@
         {
           "name": "Divine Smite",
           "description": "When you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend.",
-          "source": {
-            "text": "Player's Handbook",
-            "note": "",
-            "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-          }
+          "source": "Player's Handbook"
         },
         {
           "name": "Lay on Hands",
           "description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level x 5.",
-          "source": {
-            "text": "Player's Handbook",
-            "note": "",
-            "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-          }
+          "source": "Player's Handbook"
         }
       ],
-      "source": {
-        "text": "Player's Handbook",
-        "note": "",
-        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-      }
+      "source": "Player's Handbook"
     }
   ],
   "background": {
     "name": "Noble",
     "option": "Noble: Knight",
     "description": "You understand wealth, power, and privilege. You carry a noble title, and your family owns land, collects taxes, and wields significant political influence. You might be a pampered aristocrat unfamiliar with work or discomfort, a former merchant just elevated to the nobility, or a disinherited scoundrel with a disproportionate sense of entitlement. Or you could be an honest, hard-working landowner who cares deeply about the people who live and work on your land, keenly aware of your responsibility to them.",
-    "source": {
-      "text": "Player's Handbook",
-      "note": "",
-      "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-    }
+    "source": "Player's Handbook"
   },
   "details": {
     "age": 32,
@@ -131,11 +97,7 @@
     {
       "name": "Lucky",
       "description": "You have inexplicable luck that seems to kick in at just the right moment. You have 3 luck points. Whenever you make an attack roll, an ability check, or a saving throw, you can spend one luck point to roll an additional d20. You can choose to spend one of your luck points after you roll the die, but before the outcome is determined. You choose which of the d20s is used for the attack roll, ability check, or saving throw. You can also spend one luck point when an attack roll is made against you. Roll a d20, and then choose whether the attack uses the attacker's roll or yours. If more than one creature spends a luck point to influence the outcome of a roll, the points cancel each other out; no additional dice are rolled. You regain your expended luck points when you finish a long rest.",
-      "source": {
-        "text": "Player's Handbook",
-        "note": "",
-        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-      }
+      "source": "Player's Handbook"
     }
   ],
   "spells": [
@@ -155,11 +117,7 @@
       "attack_save": "STR Save",
       "damage_effect": "Thunder",
       "tags": ["Paladin"],
-      "source": {
-        "text": "Player's Handbook",
-        "note": "",
-        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-      }
+      "source": "Player's Handbook"
     }
   ],
   "weapons": [
@@ -176,11 +134,7 @@
       "damage_bonus": 0,
       "damage_type": "Slashing",
       "properties": ["Versatile"],
-      "source": {
-        "text": "Player's Handbook",
-        "note": "",
-        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-      }
+      "source": "Player's Handbook"
     },
     {
       "name": "Javelin",
@@ -195,11 +149,7 @@
       "damage_bonus": 0,
       "damage_type": "Piercing",
       "properties": ["Thrown"],
-      "source": {
-        "text": "Player's Handbook",
-        "note": "",
-        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-      }
+      "source": "Player's Handbook"
     }
   ],
   "equipment": [
@@ -209,11 +159,7 @@
       "description": "A suit of interlocking metal rings, providing good protection without hindering mobility.",
       "magic": false,
       "quantity": 1,
-      "source": {
-        "text": "Player's Handbook",
-        "note": "",
-        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-      }
+      "source": "Player's Handbook"
     },
     {
       "name": "Shield",
@@ -221,11 +167,7 @@
       "description": "A piece of wood or metal held in the hand or attached to the arm, used to block attacks.",
       "magic": false,
       "quantity": 1,
-      "source": {
-        "text": "Player's Handbook",
-        "note": "",
-        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-      }
+      "source": "Player's Handbook"
     },
     {
       "name": "Holy Symbol",
@@ -233,11 +175,7 @@
       "description": "A representation of a deity or religious symbol, used by paladins to focus their divine powers.",
       "magic": false,
       "quantity": 1,
-      "source": {
-        "text": "Player's Handbook",
-        "note": "",
-        "href": "https://online.anyflip.com/afgs/xkls/mobile/index.html"
-      }
+      "source": "Player's Handbook"
     }
   ],
   "treasure": {
@@ -248,50 +186,50 @@
     "cp": 3
   },
   "Ability Scores": {
-    "STR": 16,
-    "DEX": 10,
-    "CON": 14,
-    "INT": 10,
-    "WIS": 12,
-    "CHA": 16
+    "strength": 16,
+    "dexterity": 10,
+    "constitution": 14,
+    "intelligence": 10,
+    "wisdom": 12,
+    "charisma": 16
   },
   "Skills": {
-    "Acrobatics": 0,
-    "Animal Handling": 1,
-    "Arcana": 0,
-    "Athletics": 5,
-    "Deception": 3,
-    "History": 0,
-    "Insight": 1,
-    "Intimidation": 3,
-    "Investigation": 0,
-    "Medicine": 1,
-    "Nature": 0,
-    "Perception": 1,
-    "Performance": 3,
-    "Persuasion": 5,
-    "Religion": 0,
-    "Sleight of Hand": 0,
-    "Stealth": 0,
-    "Survival": 1
+    "acrobatics": 0,
+    "animal_handling": 1,
+    "arcana": 0,
+    "athletics": 5,
+    "deception": 3,
+    "history": 0,
+    "insight": 1,
+    "intimidation": 3,
+    "investigation": 0,
+    "medicine": 1,
+    "nature": 0,
+    "perception": 1,
+    "performance": 3,
+    "persuasion": 5,
+    "religion": 0,
+    "sleight_of_hand": 0,
+    "stealth": 0,
+    "survival": 1
   },
   "Saving Throws": {
-    "STR": 5,
-    "DEX": 0,
-    "CON": 2,
-    "INT": 0,
-    "WIS": 1,
-    "CHA": 5
+    "strength": 5,
+    "dexterity": 0,
+    "constitution": 2,
+    "intelligence": 0,
+    "wisdom": 1,
+    "charisma": 5
   },
   "Combat": {
-    "Armor Class": 18,
-    "Initiative": 0,
-    "Speed": 30,
-    "Hit Points": 52,
-    "Hit Dice": "6d10",
+    "armor_class": 18,
+    "initiative": 0,
+    "speed": 30,
+    "hit_points": 52,
+    "hit_dice": "6d10",
     "Death Saves": {
-      "Successes": 0,
-      "Failures": 0
+      "successes": 0,
+      "failures": 0
     }
   }
 }
