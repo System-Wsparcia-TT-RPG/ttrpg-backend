@@ -24,7 +24,7 @@ class CharacterView:
 
     @add_http_options
     class GetId(View):
-        http_method_names = ["get"]
+        http_method_names = ["get", "put", "delete"]
 
         @staticmethod
         def get(request, character_id: int) -> JsonResponse:
@@ -40,6 +40,35 @@ class CharacterView:
                         "id_not_found": character_id,
                     },
                 }, status=404)
+        @staticmethod
+        def put(request, character_id: int) -> JsonResponse:
+            if character_id < 0:
+                return JsonResponse({"error": "Invalid character ID"}, status=400)
+            
+
+            print(character_id)
+            # if character_id != 1:
+            #     return JsonResponse({"error": "Character not found"}, status=404)
+
+
+            json_data = loads(request.body)
+
+            # Validation
+            data_ser = CharacterSerializer(data=json_data)
+            if data_ser.is_valid():
+                return JsonResponse({"character": {"id": character_id, "data": {**json_data}}}, status=201)
+            else:
+                return JsonResponse({"error": "Provided character data is invalid"}, status=400)
+
+            # with open("./src/web/api/static_json/1.json", "r", encoding="utf-8") as file:
+            #     return JsonResponse({"character": load(file)})  
+
+        @staticmethod
+        def delete(request, character_id: int) -> HttpResponse:
+            if character_id != 1:
+                return JsonResponse({"error": "Character not found"}, status=404)
+
+            return HttpResponse(status=204)     
 
     @add_http_options
     class Post(View):
@@ -159,44 +188,6 @@ class CharacterView:
 
             else:
                 return JsonResponse({"error": "Provided character data is invalid!"}, status=400)
-
-    @add_http_options
-    class Put(View):
-        http_method_names = ["put"]
-
-        @staticmethod
-        def put(request, character_id: int) -> JsonResponse:
-            if character_id < 0:
-                return JsonResponse({"error": "Invalid character ID"}, status=400)
-            
-
-            print(character_id)
-            # if character_id != 1:
-            #     return JsonResponse({"error": "Character not found"}, status=404)
-
-
-            json_data = loads(request.body)
-
-            # Validation
-            data_ser = CharacterSerializer(data=json_data)
-            if data_ser.is_valid():
-                return JsonResponse({"character": {"id": character_id, "data": {**json_data}}}, status=201)
-            else:
-                return JsonResponse({"error": "Provided character data is invalid"}, status=400)
-
-            # with open("./src/web/api/static_json/1.json", "r", encoding="utf-8") as file:
-            #     return JsonResponse({"character": load(file)})
-
-    @add_http_options
-    class Delete(View):
-        http_method_names = ["delete"]
-
-        @staticmethod
-        def delete(request, character_id: int) -> HttpResponse:
-            if character_id != 1:
-                return JsonResponse({"error": "Character not found"}, status=404)
-
-            return HttpResponse(status=204)
 
 class RaceView:
     @add_http_options
