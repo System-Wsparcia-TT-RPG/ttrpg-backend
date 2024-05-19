@@ -1,0 +1,12 @@
+[
+  {
+    "model": "api.components",
+    "pk": 1,
+    "fields": {
+      "verbal": true,
+      "somatic": true,
+      "material": false,
+      "raw": "V, S"
+    }
+  }
+]

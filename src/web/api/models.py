@@ -181,25 +181,24 @@ class Race(models.Model):
     senses = models.ForeignKey('Senses', on_delete=models.CASCADE)
     source = models.CharField(max_length=100)
 
-
 class Spell(models.Model):
     name = models.CharField(max_length=100)
-    level = models.IntegerField()
+    tags = ArrayField(models.CharField(max_length=100))
+    type = models.CharField(max_length=100)
+    ritual = models.BooleanField()
+    level = models.CharField(max_length=100)
     school = models.CharField(max_length=100)
     casting_time = models.CharField(max_length=100)
-    range_area = models.CharField(max_length=100)
-    components = models.CharField(max_length=100)
-    material = models.CharField(max_length=100)
+    range = models.CharField(max_length=100)
+    components = models.ForeignKey('Components', on_delete=models.CASCADE)
     duration = models.CharField(max_length=100)
-    description = models.CharField(max_length=1024)
-    higher_level = models.CharField(max_length=1024)
-    ritual = models.BooleanField()
-    concentration = models.BooleanField()
-    attack_save = models.CharField(max_length=100)
-    damage_effect = models.CharField(max_length=100)
-    tags = ArrayField(models.CharField(max_length=100))
-    source = models.CharField(max_length=100)
+    description = models.CharField(max_length=2048)
 
+class Components(models.Model):
+    verbal = models.BooleanField()
+    somatic = models.BooleanField()
+    material = models.BooleanField()
+    raw = models.CharField(max_length=100)
 
 class Character(models.Model):
     nickname = models.CharField(max_length=100)

@@ -3,24 +3,19 @@
     "model": "api.spell",
     "pk": 1,
     "fields": {
-      "name": "Thunderous Smite",
-      "level": 1,
-      "school": "Evocation",
-      "casting_time": "1 Action",
-      "range_area": "Self",
-      "components": "V",
-      "material": "Empty",
-      "duration": "1 minute",
-      "description": "The first time you hit with a melee weapon attack during this spell's duration, your weapon rings with thunder that is audible within 300 feet of you, and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet away from you and knocked prone.",
-      "higher_level": "Empty",
-      "ritual": false,
-      "concentration": true,
-      "attack_save": "STR Save",
-      "damage_effect": "Thunder",
-      "source": "PHB",
-      "tags": [
-        1
-      ]
-    }
+        "name": "Acid Splash",
+        "tags": [
+          1
+        ],
+        "type": "Conjuration cantrip",
+        "ritual": false,
+        "level": "cantrip",
+        "school": "Conjuration",
+        "casting_time": "1 action",
+        "range": "60 feet",
+        "components": 1,
+        "duration": "Instantaneous",
+        "description": "You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage.\n\nThis spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
+      }
   }
 ]
