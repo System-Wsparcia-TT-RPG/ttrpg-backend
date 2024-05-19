@@ -5,7 +5,8 @@
     "fields": {
         "name": "Acid Splash",
         "tags": [
-          1
+            "Conjuration",
+            "cantrip"
         ],
         "type": "Conjuration cantrip",
         "ritual": false,

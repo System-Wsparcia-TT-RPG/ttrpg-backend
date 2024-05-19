@@ -8,5 +8,7 @@ urlpatterns = [
     # path('character/update/<int:character_id>/', views.CharacterView.Put.as_view()),
     # path('character/delete/<int:character_id>/', views.CharacterView.Delete.as_view()),
     path('race/all/', views.RaceView.GetRaceEnum.as_view()),
+    path('spell/all/', views.SpellView.Get.as_view()),
+    path('spell/create/', views.SpellView.Post.as_view()),
     path('', views.Index.as_view()),
 ]

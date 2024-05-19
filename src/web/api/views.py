@@ -110,6 +110,30 @@ class RaceView:
         def get(request) -> JsonResponse:
             return JsonResponse({a: a.value for a in Race.Size}, status=200)
 
+class SpellView:
+    @add_http_options
+    class Get(View):
+        http_method_names = ['get']
+
+        @staticmethod
+        def get(request) -> JsonResponse:
+            all_spells = list(Spell.objects.values())
+
+            return JsonResponse({"spells": all_spells})
+
+    @add_http_options
+    class Post(View):
+        http_method_names = ['post']
+
+        @staticmethod
+        def post(request) -> JsonResponse:
+            json_data = loads(request.body)
+
+            try:
+                new_spell = character_utils.create_spells_from_json(json_data)
+                return JsonResponse({"spell": {"id": new_spell.id, "data": {**json_data}}}, status=201)
+            except Exception as e:
+                return JsonResponse({"error": "An unexpected error occurred", "details": str(e)}, status=500)
 
 @add_http_options
 class Index(View):
