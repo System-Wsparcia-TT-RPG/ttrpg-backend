@@ -1,10 +1,11 @@
-from enum import Enum
-
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.db.models import (
-    Model, CharField, IntegerField, PositiveIntegerField, ForeignKey, ManyToManyField, BooleanField
+    Model, CharField, IntegerField, PositiveIntegerField, ForeignKey, ManyToManyField, BooleanField, TextChoices,
+    IntegerChoices
 )
 from django.contrib.postgres.fields import ArrayField
+from django.utils.translation import gettext_lazy
 
 
 class Player(Model):
@@ -12,8 +13,16 @@ class Player(Model):
 
 
 class DamageDice(Model):
+    class Type(IntegerChoices):
+        D4 = 4
+        D6 = 6
+        D8 = 8
+        D10 = 10
+        D12 = 12
+        D20 = 20
+
     count = PositiveIntegerField()
-    sides = PositiveIntegerField()
+    sides = PositiveIntegerField(choices=Type, default=Type.D6)
     mod = PositiveIntegerField()
 
 
@@ -145,17 +154,39 @@ class Skills(Model):
 
 
 class SavingThrows(Model):
-    strength = IntegerField()
-    dexterity = IntegerField()
-    constitution = IntegerField()
-    intelligence = IntegerField()
-    wisdom = IntegerField()
-    charisma = IntegerField()
+    strength = IntegerField(validators=[
+        MinValueValidator(-5),
+        MaxValueValidator(5),
+    ])
+    dexterity = IntegerField(validators=[
+        MinValueValidator(-5),
+        MaxValueValidator(5),
+    ])
+    constitution = IntegerField(validators=[
+        MinValueValidator(-5),
+        MaxValueValidator(5),
+    ])
+    intelligence = IntegerField(validators=[
+        MinValueValidator(-5),
+        MaxValueValidator(5),
+    ])
+    wisdom = IntegerField(validators=[
+        MinValueValidator(-5),
+        MaxValueValidator(5),
+    ])
+    charisma = IntegerField(validators=[
+        MinValueValidator(-5),
+        MaxValueValidator(5),
+    ])
 
 
 class DeathSaves(Model):
-    successes = PositiveIntegerField()
-    failures = PositiveIntegerField()
+    successes = PositiveIntegerField(validators=[
+        MaxValueValidator(3),
+    ])
+    failures = PositiveIntegerField(validators=[
+        MaxValueValidator(3),
+    ])
 
 
 class CombatStats(Model):
@@ -168,17 +199,17 @@ class CombatStats(Model):
 
 
 class Race(Model):
-    class Size(str, Enum):
-        Tiny = 'Tiny'
-        Small = 'Small'
-        Medium = 'Medium'
-        Large = 'Large'
-        Huge = 'Huge'
-        Gargantuan = 'Gargantuan'
+    class Size(TextChoices):
+        TINY = 'T', gettext_lazy("Tiny")
+        SMALL = 'S', gettext_lazy("Small")
+        MEDIUM = 'M', gettext_lazy("Medium")
+        LARGE = 'L', gettext_lazy("Large")
+        HUGE = 'H', gettext_lazy("Huge")
+        GARGANTUAN = 'G', gettext_lazy("Gargantuan")
 
     name = CharField(max_length=100)
     subtype = CharField(max_length=100)
-    size = CharField(max_length=100)
+    size = CharField(max_length=100, choices=Size, default=Size.MEDIUM)
     traits = ManyToManyField(Trait)
     actions = ManyToManyField(Action)
     senses = ForeignKey(Senses, on_delete=models.CASCADE)
