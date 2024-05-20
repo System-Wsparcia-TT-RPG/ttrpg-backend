@@ -59,10 +59,39 @@ class CharacterView:
                             "message": str(error),
                         },
                     },
+                    safe=False,
                     status=404,
                 )
 
     class ModifyId(APIView):
+        def patch(self, request: HttpRequest, character_id: Optional[int]) -> JsonResponse:
+            if character_id < 0:
+                return JsonResponse({
+                    "error": "Invalid character ID"
+                }, status=400)
+
+            json_data = loads(request.body)
+
+            class CharacterSerializer:
+                pass
+
+            # Validation
+            data_ser = CharacterSerializer(data=json_data)
+            if data_ser.is_valid():
+                Character.objects.filter(id=character_id).update(**data_ser)
+                return JsonResponse({
+                    "character": {
+                        "id": character_id,
+                        "data": {
+                            **json_data
+                        }
+                    }
+                }, status=201)
+            else:
+                return JsonResponse({
+                    "error": "Provided character data is invalid"
+                }, status=400)
+
         def put(self, request: HttpRequest, character_id: Optional[int]) -> JsonResponse:
             if character_id < 0:
                 return JsonResponse({
@@ -93,17 +122,26 @@ class CharacterView:
 
         def delete(self, request: HttpRequest, character_id: Optional[int]) -> HttpResponse:
             try:
-                Character.objects.filter(id=character_id).delete()
-            except ObjectDoesNotExist as error:
-                return JsonResponse({
-                    "error": "Character not found",
-                    "details": str(error),
-                    "error_data": {
-                        "id_not_found": character_id,
-                    }
-                }, status=404)
+                count, _ = Character.objects.filter(id=character_id).delete()
 
-            return HttpResponse(status=204)
+                return JsonResponse(
+                    {
+                        "deleted_objects": count
+                    },
+                    safe=False,
+                    status=200,
+                )
+            except ObjectDoesNotExist as error:
+                return JsonResponse(
+                    {
+                        "error": "Character with specified id is not found!",
+                        "details": {
+                            "message": str(error),
+                        },
+                    },
+                    safe=False,
+                    status=404,
+                )
 
     class Create(APIView):
         def post(self, request: HttpRequest) -> JsonResponse:
@@ -113,13 +151,18 @@ class CharacterView:
 
             if serializer.is_valid():
                 instance = serializer.save()
-                return JsonResponse(serializer_id_class(instance).data, status=201)
+                return JsonResponse(
+                    serializer_id_class(instance).data,
+                    safe=False,
+                    status=201,
+                )
 
             return JsonResponse(
                 {
                     "error": "Invalid character data",
                     "details": serializer.errors
                 },
+                safe=False,
                 status=400,
             )
 
@@ -127,7 +170,7 @@ class CharacterView:
 class RaceView:
     class GetRaceEnum(APIView):
         def get(self, request: HttpRequest) -> JsonResponse:
-            return JsonResponse([a.value for a in Race.Size], status=200)
+            return JsonResponse(Race.Size.choices, status=200)
 
 
 class SpellView:
@@ -138,7 +181,6 @@ class SpellView:
             return JsonResponse({"spells": all_spells})
 
     class Post(APIView):
-
         def post(self, request: HttpRequest) -> JsonResponse:
             json_data = loads(request)
 
