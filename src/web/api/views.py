@@ -5,6 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse, HttpResponse, HttpRequest
 from django.shortcuts import render
 from django.views import View
+from rest_framework.views import APIView
 
 import utils.character_request_utils as character_utils
 import utils.spell_request_utils as spell_utils
@@ -20,11 +21,8 @@ from .serializers import get_id_serializer, get_all_serializer
 
 class CharacterView:
     @add_http_options
-    class GetAll(View):
-        http_method_names = ["get"]
-
-        @staticmethod
-        def get(request: HttpRequest, depth: Optional[int] = None) -> JsonResponse:
+    class GetAll(APIView):
+        def get(self, request: HttpRequest, depth: Optional[int] = None) -> JsonResponse:
             all_characters = Character.objects.all()
             serializer = get_all_serializer(
                 Character,
@@ -38,11 +36,8 @@ class CharacterView:
             )
 
     @add_http_options
-    class GetId(View):
-        http_method_names = ["get"]
-
-        @staticmethod
-        def get(request: HttpRequest, character_id: Optional[int] = None, depth: Optional[int] = None) -> JsonResponse:
+    class GetId(APIView):
+        def get(self, request: HttpRequest, character_id: Optional[int] = None, depth: Optional[int] = None) -> JsonResponse:
             try:
                 character = Character.objects.get(id=character_id)
                 serializer = get_all_serializer(
@@ -69,9 +64,7 @@ class CharacterView:
                 )
 
     @add_http_options
-    class ModifyId(View):
-        http_method_names = ["put", "delete"]
-
+    class ModifyId(APIView):
         def put(self, request: HttpRequest, character_id: Optional[int]) -> JsonResponse:
             if character_id < 0:
                 return JsonResponse({
@@ -101,7 +94,6 @@ class CharacterView:
                 }, status=400)
 
         def delete(self, request: HttpRequest, character_id: Optional[int]) -> HttpResponse:
-
             try:
                 Character.objects.filter(id=character_id).delete()
             except ObjectDoesNotExist as error:
@@ -116,11 +108,8 @@ class CharacterView:
             return HttpResponse(status=204)
 
     @add_http_options
-    class Post(View):
-        http_method_names = ["post"]
-
-        @staticmethod
-        def post(request: HttpRequest) -> JsonResponse:
+    class Create(APIView):
+        def post(self, request: HttpRequest) -> JsonResponse:
             json_data = loads(request.body)
 
             class CharacterSerializer:
@@ -147,31 +136,22 @@ class CharacterView:
 
 class RaceView:
     @add_http_options
-    class GetRaceEnum(View):
-        http_method_names = ['get']
-
+    class GetRaceEnum(APIView):
         @staticmethod
-        def get(request: HttpRequest) -> JsonResponse:
+        def get(self, request: HttpRequest) -> JsonResponse:
             return JsonResponse([a.value for a in Race.Size], status=200)
 
 
 class SpellView:
-    @add_http_options
-    class Get(View):
-        http_method_names = ['get']
-
-        @staticmethod
-        def get(request: HttpRequest) -> JsonResponse:
+    class Get(APIView):
+        def get(self, request: HttpRequest) -> JsonResponse:
             all_spells = list(Spell.objects.values())
 
             return JsonResponse({"spells": all_spells})
 
-    @add_http_options
-    class Post(View):
-        http_method_names = ['post']
+    class Post(APIView):
 
-        @staticmethod
-        def post(request: HttpRequest) -> JsonResponse:
+        def post(self, request: HttpRequest) -> JsonResponse:
             json_data = loads(request)
 
             try:
@@ -191,7 +171,7 @@ class SpellView:
                 }, status=500)
 
 
-@add_http_options
+# Leave `http_method_names` as is, because we do not inherit from APIView
 class Index(View):
     http_method_names = ['get']
 
