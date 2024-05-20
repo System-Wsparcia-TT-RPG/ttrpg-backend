@@ -8,5 +8,15 @@
       "material": false,
       "raw": "V, S"
     }
+  },
+  {
+    "model": "api.components",
+    "pk": 2,
+    "fields": {
+      "verbal": true,
+      "somatic": false,
+      "material": false,
+      "raw": "V"
+    }
   }
 ]

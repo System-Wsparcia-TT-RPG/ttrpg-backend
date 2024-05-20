@@ -12,10 +12,8 @@ from .models import (
 from rest_framework import serializers
 from .models import *
 
-# Get all models from the models module
 all_models = [cls for cls in globals().values() if isinstance(cls, type) and issubclass(cls, models.Model) and cls is not models.Model]
 
-# Dynamically create a serializer for each model
 for model in all_models:
     # Create Meta class
     Meta = type('Meta', (), {'model': model, 'fields': '__all__'})

@@ -7,7 +7,6 @@ from django.views import View
 
 import utils.character_request_utils as character_utils
 import utils.spell_request_utils as spell_utils
-from utils.character_validation import CharacterSerializer
 from utils.http_options_decorator import add_http_options
 
 from .models import (
@@ -27,16 +26,16 @@ from .serializers import (
 
 class CharacterView:
     @add_http_options
-    class Get(View):
+    class GetAll(View):
         http_method_names = ["get"]
+        queryset = Character.objects.all()
+        serializer_class = CharacterSerializer
 
-        @staticmethod
-        def get(request) -> JsonResponse:
-            all_characters = list(Character.objects.values())
-
-            return JsonResponse({
-                "characters": all_characters
-            })
+        def get(self, request) -> JsonResponse:
+            return JsonResponse(
+                self.serializer_class(self.queryset, many=True).data,
+                safe=False
+            )
 
     @add_http_options
     class GetId(View):
