@@ -1,15 +1,14 @@
-from json import load, loads
+from json import loads
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.views import View
 
-from utils.character_validation import CharacterSerializer
 import utils.character_request_utils as character_utils
-from utils.http_options_decorator import add_http_options
 import utils.spell_request_utils as spell_utils
-
+from utils.character_validation import CharacterSerializer
+from utils.http_options_decorator import add_http_options
 from .models import *
 
 
@@ -42,16 +41,11 @@ class CharacterView:
                         "id_not_found": character_id,
                     },
                 }, status=404)
+
         @staticmethod
         def put(request, character_id: int) -> JsonResponse:
             if character_id < 0:
                 return JsonResponse({"error": "Invalid character ID"}, status=400)
-            
-
-            print(character_id)
-            # if character_id != 1:
-            #     return JsonResponse({"error": "Character not found"}, status=404)
-
 
             json_data = loads(request.body)
 
@@ -63,24 +57,19 @@ class CharacterView:
             else:
                 return JsonResponse({"error": "Provided character data is invalid"}, status=400)
 
-            # with open("./src/web/api/static_json/1.json", "r", encoding="utf-8") as file:
-            #     return JsonResponse({"character": load(file)})  
-
         @staticmethod
         def delete(request, character_id: int) -> HttpResponse:
-            # if character_id != 1:
-            #     return JsonResponse({"error": "Character not found"}, status=404)
 
             try:
                 Character.objects.filter(id=character_id).delete()
             except ObjectDoesNotExist as error:
                 return JsonResponse({"error": "Character not found",
                                      "details": str(error),
-                                     "error_data":{
-                                         "id_not_found" : character_id,
+                                     "error_data": {
+                                         "id_not_found": character_id,
                                      }}, status=404)
 
-            return HttpResponse(status=204)     
+            return HttpResponse(status=204)
 
     @add_http_options
     class Post(View):
@@ -89,7 +78,7 @@ class CharacterView:
         @staticmethod
         def post(request) -> JsonResponse:
             json_data = loads(request.body)
-            
+
             # Validation and db entry creation
             data_ser = CharacterSerializer(data=json_data)
             if data_ser.is_valid():
@@ -102,6 +91,7 @@ class CharacterView:
             else:
                 return JsonResponse({"error": "Provided character data is invalid!"}, status=400)
 
+
 class RaceView:
     @add_http_options
     class GetRaceEnum(View):
@@ -109,7 +99,8 @@ class RaceView:
 
         @staticmethod
         def get(request) -> JsonResponse:
-            return JsonResponse({a: a.value for a in Race.Size}, status=200)
+            return JsonResponse([a.value for a in Race.Size], status=200)
+
 
 class SpellView:
     @add_http_options
@@ -135,6 +126,7 @@ class SpellView:
                 return JsonResponse({"spell": {"id": new_spell.id, "data": {**json_data}}}, status=201)
             except Exception as e:
                 return JsonResponse({"error": "An unexpected error occurred", "details": str(e)}, status=500)
+
 
 @add_http_options
 class Index(View):

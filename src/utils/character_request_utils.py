@@ -1,9 +1,7 @@
 from web.api.models import *
-from django.forms.models import model_to_dict
-from django.db.models import Model
 
 
-def get_fields(model: models.Model, fields: dict = None, ignore_models:list = []) -> dict:
+def get_fields(model: models.Model, fields: dict = None, ignore_models: list = []) -> dict:
     if not fields:
         fields = {}
         for f in model._meta.fields:
@@ -19,6 +17,7 @@ def get_fields(model: models.Model, fields: dict = None, ignore_models:list = []
         fields[name] = getattr(value, "pk") if name in ignore_models else get_fields(value)
     return fields
 
+
 def get_many_to_many(many_to_many) -> list:
     ret_list = []
     for val in many_to_many.all():
@@ -32,14 +31,13 @@ def create_character_from_json(json_data: dict) -> Character:
 
     race_senses = Senses.objects.create(**json_data['race']['senses'])
     del json_data['race']['senses']
-    
 
     race_trait_list = []
     for race_json_trait in json_data['race']['traits']:
         race_trait_list.append(Trait.objects.create(**race_json_trait))
-    
+
     del json_data['race']['traits']
-    
+
     race_action_list = []
     for race_json_action in json_data['race']['actions']:
         damage_dice = DamageDice.objects.create(**race_json_action['damage_dice'])
@@ -53,7 +51,6 @@ def create_character_from_json(json_data: dict) -> Character:
     new_race.traits.set(race_trait_list)
     new_race.actions.set(race_action_list)
     del json_data['race']
-    
 
     char_classes_list = []
 
@@ -116,7 +113,7 @@ def create_character_from_json(json_data: dict) -> Character:
     new_combat = CombatStats.objects.create(**json_data['Combat'], death_saves=new_combat_death_saves)
     del json_data['Combat']
 
-    new_char = Character.objects.create(**json_data, player=new_player, race = new_race, background=new_background, 
+    new_char = Character.objects.create(**json_data, player=new_player, race=new_race, background=new_background,
                                         details=new_details, treasure=new_treasure, ability_scores=new_ability_scores,
                                         skills=new_skills, saving_throws=new_saving_throws, combat=new_combat)
 
@@ -125,7 +122,7 @@ def create_character_from_json(json_data: dict) -> Character:
     new_char.spells.set(character_spells_list)
     new_char.weapons.set(character_weapons_list)
     new_char.equipment.set(character_equipment_list)
-    
+
     return new_char
 
 
@@ -135,6 +132,7 @@ def get_character(character_id: int) -> dict:
 
     return char_dict
 
+
 # Foreign keys
 
 def get_race(race_id: int) -> dict:
@@ -142,17 +140,22 @@ def get_race(race_id: int) -> dict:
     race_dict = get_fields(model=race)
     return race_dict
 
+
 def get_player(player_id: int) -> dict:
     return get_fields(Player.objects.get(id=player_id))
+
 
 def get_background(background_id: int) -> dict:
     return get_fields(Background.objects.get(id=background_id))
 
+
 def get_details(details_id: int) -> dict:
     return get_fields(Details.objects.get(id=details_id))
 
+
 def get_treasure(treasure_id: int) -> dict:
     return get_fields(Treasure.objects.get(id=treasure_id))
+
 
 def get_ability_scores(ability_score_id: int) -> dict:
     return get_fields(AbilityScores.objects.get(id=ability_score_id))
@@ -163,15 +166,18 @@ def get_ability_scores(ability_score_id: int) -> dict:
 def get_classes(character_id: int) -> list:
     return get_many_to_many(Character.objects.get(id=character_id).classes)
 
+
 def get_feats(character_id: int) -> list:
     return get_many_to_many(Character.objects.get(id=character_id).feats)
+
 
 def get_spells(character_id: int) -> list:
     return get_many_to_many(Character.objects.get(id=character_id).spells)
 
+
 def get_weapons(character_id: int) -> list:
     return get_many_to_many(Character.objects.get(id=character_id).weapons)
 
+
 def get_equipment(character_id: int) -> list:
     return get_many_to_many(Character.objects.get(id=character_id).equipment)
-
