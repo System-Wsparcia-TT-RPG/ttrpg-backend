@@ -39,10 +39,10 @@ class CharacterView:
 
     @add_http_options
     class GetId(View):
-        http_method_names = ["get", "put", "delete"]
+        http_method_names = ["get"]
 
         @staticmethod
-        def get(request: HttpRequest, character_id: Optional[int], depth: Optional[int] = None) -> JsonResponse:
+        def get(request: HttpRequest, character_id: Optional[int] = None, depth: Optional[int] = None) -> JsonResponse:
             try:
                 character = Character.objects.get(id=character_id)
                 serializer = get_all_serializer(
@@ -51,7 +51,7 @@ class CharacterView:
                 )
 
                 return JsonResponse(
-                    serializer(character, many=True).data,
+                    serializer([character], many=True).data,
                     safe=False,
                     status=200,
                 )
@@ -67,6 +67,10 @@ class CharacterView:
                     },
                     status=404,
                 )
+
+    @add_http_options
+    class ModifyId(View):
+        http_method_names = ["put", "delete"]
 
         def put(self, request: HttpRequest, character_id: Optional[int]) -> JsonResponse:
             if character_id < 0:
