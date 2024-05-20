@@ -21,36 +21,18 @@ class CharacterView:
     class GetAll(APIView):
         def get(self, request: HttpRequest, depth: Optional[int] = None) -> JsonResponse:
             all_characters = Character.objects.all()
-            serializer = get_all_serializer(
-                Character,
-                depth,
-            )
+            serializer = get_all_serializer(Character, depth)
 
-            return JsonResponse(
-                serializer(all_characters, many=True).data,
-                safe=False,
-                status=200,
-            )
+            return JsonResponse(serializer(all_characters, many=True).data, safe=False, status=200)
 
     class GetId(APIView):
-        def get(
-                self,
-                request: HttpRequest,
-                character_id: Optional[int] = None,
-                depth: Optional[int] = None
-        ) -> JsonResponse:
+        def get(self, request: HttpRequest, character_id: Optional[int] = None, depth: Optional[int] = None
+                ) -> JsonResponse:
             try:
                 character = Character.objects.get(id=character_id)
-                serializer = get_all_serializer(
-                    Character,
-                    depth,
-                )
+                serializer = get_all_serializer(Character, depth)
 
-                return JsonResponse(
-                    serializer([character], many=True).data,
-                    safe=False,
-                    status=200,
-                )
+                return JsonResponse(serializer([character], many=True).data, safe=False, status=200)
             except ObjectDoesNotExist as error:
                 return JsonResponse(
                     {
@@ -65,72 +47,65 @@ class CharacterView:
 
     class ModifyId(APIView):
         def patch(self, request: HttpRequest, character_id: Optional[int]) -> JsonResponse:
-            if character_id < 0:
-                return JsonResponse({
-                    "error": "Invalid character ID"
-                }, status=400)
+            try:
+                character = Character.objects.get(id=character_id)
+            except ObjectDoesNotExist as error:
+                return JsonResponse(
+                    {
+                        "error": "Character with specified id is not found!",
+                        "details": {
+                            "message": str(error),
+                        },
+                    },
+                    safe=False,
+                    status=404,
+                )
 
-            json_data = loads(request.body)
+            serializer_class = get_all_serializer(Character, None)
+            serializer_id_class = get_id_serializer(Character, None)
+            serializer = serializer_class(character, data=loads(request.body), partial=True)
 
-            class CharacterSerializer:
-                pass
+            if serializer.is_valid():
+                instance = serializer.save()
+                return JsonResponse(serializer_id_class(instance).data, status=200)
 
-            # Validation
-            data_ser = CharacterSerializer(data=json_data)
-            if data_ser.is_valid():
-                Character.objects.filter(id=character_id).update(**data_ser)
-                return JsonResponse({
-                    "character": {
-                        "id": character_id,
-                        "data": {
-                            **json_data
-                        }
-                    }
-                }, status=201)
-            else:
-                return JsonResponse({
-                    "error": "Provided character data is invalid"
-                }, status=400)
+            return JsonResponse(
+                {
+                    "error": "Invalid character data",
+                    "details": serializer.errors
+                },
+                status=400,
+            )
 
         def put(self, request: HttpRequest, character_id: Optional[int]) -> JsonResponse:
-            if character_id < 0:
-                return JsonResponse({
-                    "error": "Invalid character ID"
-                }, status=400)
+            serializer_class = get_all_serializer(Character, None)
+            serializer_id_class = get_id_serializer(Character, None)
 
-            json_data = loads(request.body)
+            try:
+                character = Character.objects.get(id=character_id)
+                serializer = serializer_class(character, data=loads(request.body))
+                code: int = 200
+            except ObjectDoesNotExist as _:
+                serializer = serializer_class(data=loads(request.body))
+                code: int = 201
 
-            class CharacterSerializer:
-                pass
+            if serializer.is_valid():
+                instance = serializer.save()
+                return JsonResponse(serializer_id_class(instance).data, status=code)
 
-            # Validation
-            data_ser = CharacterSerializer(data=json_data)
-            if data_ser.is_valid():
-                Character.objects.filter(id=character_id).update(**data_ser)
-                return JsonResponse({
-                    "character": {
-                        "id": character_id,
-                        "data": {
-                            **json_data
-                        }
-                    }
-                }, status=201)
-            else:
-                return JsonResponse({
-                    "error": "Provided character data is invalid"
-                }, status=400)
+            JsonResponse(
+                {
+                    "error": "Invalid character data",
+                    "details": serializer.errors
+                },
+                status=400,
+            )
 
         def delete(self, request: HttpRequest, character_id: Optional[int]) -> HttpResponse:
             try:
-                count, _ = Character.objects.filter(id=character_id).delete()
+                count, _ = Character.objects.get(id=character_id).delete()
 
-                return JsonResponse(
-                    {
-                        "deleted_objects": count
-                    },
-                    safe=False,
-                    status=200,
-                )
+                return JsonResponse({"deleted_objects": count}, safe=False, status=200)
             except ObjectDoesNotExist as error:
                 return JsonResponse(
                     {
@@ -151,18 +126,13 @@ class CharacterView:
 
             if serializer.is_valid():
                 instance = serializer.save()
-                return JsonResponse(
-                    serializer_id_class(instance).data,
-                    safe=False,
-                    status=201,
-                )
+                return JsonResponse(serializer_id_class(instance).data, status=201)
 
             return JsonResponse(
                 {
                     "error": "Invalid character data",
                     "details": serializer.errors
                 },
-                safe=False,
                 status=400,
             )
 

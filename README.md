@@ -187,7 +187,7 @@ However, it is remarkably slower due to the fact that all services must be resta
 
 #### API
 
-Api documentation can be found at `docs/ENDPOINTS.md` - [\[Link\]](./docs/ENDPOINTS.md)
+Api documentation can be found at `docs/ENDPOINTS.md` - [\[Link\]](docs/endpoints/ENDPOINTS.md)
 
 #### Resources
 
