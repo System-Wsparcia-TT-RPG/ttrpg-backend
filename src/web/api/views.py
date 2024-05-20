@@ -7,9 +7,7 @@ from django.shortcuts import render
 from django.views import View
 from rest_framework.views import APIView
 
-import utils.character_request_utils as character_utils
 import utils.spell_request_utils as spell_utils
-from utils.http_options_decorator import add_http_options
 
 from .models import (
     Player, DamageDice, Senses, Trait, Background, Action, Feature, Feat,
@@ -20,7 +18,6 @@ from .serializers import get_id_serializer, get_all_serializer
 
 
 class CharacterView:
-    @add_http_options
     class GetAll(APIView):
         def get(self, request: HttpRequest, depth: Optional[int] = None) -> JsonResponse:
             all_characters = Character.objects.all()
@@ -35,9 +32,13 @@ class CharacterView:
                 status=200,
             )
 
-    @add_http_options
     class GetId(APIView):
-        def get(self, request: HttpRequest, character_id: Optional[int] = None, depth: Optional[int] = None) -> JsonResponse:
+        def get(
+                self,
+                request: HttpRequest,
+                character_id: Optional[int] = None,
+                depth: Optional[int] = None
+        ) -> JsonResponse:
             try:
                 character = Character.objects.get(id=character_id)
                 serializer = get_all_serializer(
@@ -54,16 +55,13 @@ class CharacterView:
                 return JsonResponse(
                     {
                         "error": "Character with specified id is not found!",
-                        "details": str(error),
-                        "error_data": {
-                            "character_id": character_id,
-                            "depth": depth,
+                        "details": {
+                            "message": str(error),
                         },
                     },
                     status=404,
                 )
 
-    @add_http_options
     class ModifyId(APIView):
         def put(self, request: HttpRequest, character_id: Optional[int]) -> JsonResponse:
             if character_id < 0:
@@ -107,37 +105,27 @@ class CharacterView:
 
             return HttpResponse(status=204)
 
-    @add_http_options
     class Create(APIView):
         def post(self, request: HttpRequest) -> JsonResponse:
-            json_data = loads(request.body)
+            serializer_class = get_all_serializer(Character, None)
+            serializer_id_class = get_id_serializer(Character, None)
+            serializer = serializer_class(data=loads(request.body))
 
-            class CharacterSerializer:
-                pass
+            if serializer.is_valid():
+                new_character = Character.objects.create(**serializer.data)
+                return JsonResponse(serializer_id_class(new_character).data, status=201)
 
-            # Validation and db entry creation
-            data_ser = CharacterSerializer(data=json_data)
-            if data_ser.is_valid():
-                try:
-                    new_char = character_utils.create_character_from_json(json_data)
-                    return JsonResponse({
-                        "character": {
-                            "id": new_char.id,
-                            "data": {
-                                **json_data
-                            }
-                        }
-                    }, status=201)
-                except Exception as e:
-                    print("An unexpected Exception occured: ", str(e))
-            else:
-                return JsonResponse({"error": "Provided character data is invalid!"}, status=400)
+            return JsonResponse(
+                {
+                    "error": "Invalid character data",
+                    "details": serializer.errors
+                },
+                status=400,
+            )
 
 
 class RaceView:
-    @add_http_options
     class GetRaceEnum(APIView):
-        @staticmethod
         def get(self, request: HttpRequest) -> JsonResponse:
             return JsonResponse([a.value for a in Race.Size], status=200)
 
@@ -171,7 +159,7 @@ class SpellView:
                 }, status=500)
 
 
-# Leave `http_method_names` as is, because we do not inherit from APIView
+# Leave `http_method_names` as is, because we do not inherit from APIView here.
 class Index(View):
     http_method_names = ['get']
 
