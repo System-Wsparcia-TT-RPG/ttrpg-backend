@@ -81,11 +81,11 @@ class CharacterView:
             serializer_class = get_all_serializer(Character, None)
             serializer_id_class = get_id_serializer(Character, None)
 
-            try:
+            if Character.objects.filter(id=character_id).exists():
                 character = Character.objects.get(id=character_id)
                 serializer = serializer_class(character, data=loads(request.body))
                 code: int = 200
-            except ObjectDoesNotExist as _:
+            else:
                 serializer = serializer_class(data=loads(request.body))
                 code: int = 201
 
@@ -93,7 +93,7 @@ class CharacterView:
                 instance = serializer.save()
                 return JsonResponse(serializer_id_class(instance).data, status=code)
 
-            JsonResponse(
+            return JsonResponse(
                 {
                     "error": "Invalid character data",
                     "details": serializer.errors
