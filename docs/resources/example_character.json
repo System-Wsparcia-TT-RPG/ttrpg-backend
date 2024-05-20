@@ -40,9 +40,9 @@
         "source": "Player's Handbook"
       }],
       "senses": {
-        "darkvision": 60,
-        "blindsight": 0,
-        "tremorsense": 0,
+        "dark_vision": 60,
+        "blind_sight": 0,
+        "tremor_sense": 0,
         "truesight": 0,
         "passive_perception": 0
       },
@@ -54,7 +54,7 @@
       "level": 6,
       "subtype": "Oath of Devotion",
       "hit_die": 10,
-      "spellcasting": "cha",
+      "spell_casting": "cha",
       "features": [
         {
           "name": "Divine Smite",

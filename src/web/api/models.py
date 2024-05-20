@@ -18,9 +18,9 @@ class DamageDice(Model):
 
 
 class Senses(Model):
-    darkvision = PositiveIntegerField()
-    blindsight = PositiveIntegerField()
-    tremorsense = PositiveIntegerField()
+    dark_vision = PositiveIntegerField()
+    blind_sight = PositiveIntegerField()
+    tremor_sense = PositiveIntegerField()
     truesight = PositiveIntegerField()
     passive_perception = PositiveIntegerField()
 
@@ -65,7 +65,7 @@ class Class(Model):
     subtype = CharField(max_length=100)
     level = PositiveIntegerField()
     hit_die = PositiveIntegerField()
-    spellcasting = CharField(max_length=100)
+    spell_casting = CharField(max_length=100)
     features = ManyToManyField(Feature)
     source = CharField(max_length=100)
 

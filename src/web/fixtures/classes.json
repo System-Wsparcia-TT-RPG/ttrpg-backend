@@ -7,7 +7,7 @@
       "subtype": "Oath of Devotion",
       "level": 6,
       "hit_die": 10,
-      "spellcasting": "cha",
+      "spell_casting": "cha",
       "source": "PHB",
       "features": [
         1,

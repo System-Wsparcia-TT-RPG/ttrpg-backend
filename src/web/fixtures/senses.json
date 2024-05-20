@@ -3,9 +3,9 @@
     "model": "api.senses",
     "pk": 1,
     "fields": {
-      "darkvision": 60,
-      "blindsight": 10,
-      "tremorsense": 20,
+      "dark_vision": 60,
+      "blind_sight": 10,
+      "tremor_sense": 20,
       "truesight": 30,
       "passive_perception": 13
     }
