@@ -181,6 +181,7 @@ class Race(models.Model):
     senses = models.ForeignKey('Senses', on_delete=models.CASCADE)
     source = models.CharField(max_length=100)
 
+
 class Spell(models.Model):
     name = models.CharField(max_length=100)
     tags = ArrayField(models.CharField(max_length=100))
@@ -196,11 +197,13 @@ class Spell(models.Model):
     classes = ArrayField(models.CharField(max_length=100), null=True)
     higher_levels = models.CharField(max_length=2048, null=True)
 
+
 class Components(models.Model):
     verbal = models.BooleanField()
     somatic = models.BooleanField()
     material = models.BooleanField()
     raw = models.CharField(max_length=100)
+
 
 class Character(models.Model):
     nickname = models.CharField(max_length=100)

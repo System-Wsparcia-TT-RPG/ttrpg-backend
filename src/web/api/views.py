@@ -21,7 +21,9 @@ class CharacterView:
         def get(request) -> JsonResponse:
             all_characters = list(Character.objects.values())
 
-            return JsonResponse({"characters": all_characters})
+            return JsonResponse({
+                "characters": all_characters
+            })
 
     @add_http_options
     class GetId(View):
@@ -32,7 +34,9 @@ class CharacterView:
             try:
                 character = character_utils.get_character(character_id)
 
-                return JsonResponse({"character": character}, status=200)
+                return JsonResponse({
+                    "character": character
+                }, status=200)
             except ObjectDoesNotExist as error:
                 return JsonResponse({
                     "error": "Character with specified id is not found!",
@@ -45,7 +49,9 @@ class CharacterView:
         @staticmethod
         def put(request, character_id: int) -> JsonResponse:
             if character_id < 0:
-                return JsonResponse({"error": "Invalid character ID"}, status=400)
+                return JsonResponse({
+                    "error": "Invalid character ID"
+                }, status=400)
 
             json_data = loads(request.body)
 
@@ -53,9 +59,18 @@ class CharacterView:
             data_ser = CharacterSerializer(data=json_data)
             if data_ser.is_valid():
                 Character.objects.filter(id=character_id).update(**data_ser)
-                return JsonResponse({"character": {"id": character_id, "data": {**json_data}}}, status=201)
+                return JsonResponse({
+                    "character": {
+                        "id": character_id,
+                        "data": {
+                            **json_data
+                        }
+                    }
+                }, status=201)
             else:
-                return JsonResponse({"error": "Provided character data is invalid"}, status=400)
+                return JsonResponse({
+                    "error": "Provided character data is invalid"
+                }, status=400)
 
         @staticmethod
         def delete(request, character_id: int) -> HttpResponse:
@@ -63,11 +78,13 @@ class CharacterView:
             try:
                 Character.objects.filter(id=character_id).delete()
             except ObjectDoesNotExist as error:
-                return JsonResponse({"error": "Character not found",
-                                     "details": str(error),
-                                     "error_data": {
-                                         "id_not_found": character_id,
-                                     }}, status=404)
+                return JsonResponse({
+                    "error": "Character not found",
+                    "details": str(error),
+                    "error_data": {
+                        "id_not_found": character_id,
+                    }
+                }, status=404)
 
             return HttpResponse(status=204)
 
@@ -84,10 +101,16 @@ class CharacterView:
             if data_ser.is_valid():
                 try:
                     new_char = character_utils.create_character_from_json(json_data)
-                    return JsonResponse({"character": {"id": new_char.id, "data": {**json_data}}}, status=201)
+                    return JsonResponse({
+                        "character": {
+                            "id": new_char.id,
+                            "data": {
+                                **json_data
+                            }
+                        }
+                    }, status=201)
                 except Exception as e:
                     print("An unexpected Exception occured: ", str(e))
-
             else:
                 return JsonResponse({"error": "Provided character data is invalid!"}, status=400)
 
@@ -123,9 +146,19 @@ class SpellView:
 
             try:
                 new_spell = spell_utils.create_spells_from_json(json_data)
-                return JsonResponse({"spell": {"id": new_spell.id, "data": {**json_data}}}, status=201)
+                return JsonResponse({
+                    "spell": {
+                        "id": new_spell.id,
+                        "data": {
+                            **json_data
+                        }
+                    }
+                }, status=201)
             except Exception as e:
-                return JsonResponse({"error": "An unexpected error occurred", "details": str(e)}, status=500)
+                return JsonResponse({
+                    "error": "An unexpected error occurred",
+                    "details": str(e)
+                }, status=500)
 
 
 @add_http_options
