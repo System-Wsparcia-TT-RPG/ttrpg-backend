@@ -185,7 +185,7 @@
     "sp": 0,
     "cp": 3
   },
-  "Ability Scores": {
+  "ability_scores": {
     "strength": 16,
     "dexterity": 10,
     "constitution": 14,
@@ -193,7 +193,7 @@
     "wisdom": 12,
     "charisma": 16
   },
-  "Skills": {
+  "skills": {
     "acrobatics": 0,
     "animal_handling": 1,
     "arcana": 0,
@@ -213,7 +213,7 @@
     "stealth": 0,
     "survival": 1
   },
-  "Saving Throws": {
+  "saving_throws": {
     "strength": 5,
     "dexterity": 0,
     "constitution": 2,
@@ -221,7 +221,7 @@
     "wisdom": 1,
     "charisma": 5
   },
-  "Combat": {
+  "combat": {
     "armor_class": 18,
     "initiative": 0,
     "speed": 30,

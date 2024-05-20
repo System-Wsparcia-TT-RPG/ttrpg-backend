@@ -22,7 +22,7 @@ class DamageDice(Model):
         D20 = 20
 
     count = PositiveIntegerField()
-    sides = PositiveIntegerField(choices=Type, default=Type.D6)
+    sides = IntegerField(choices=Type, default=Type.D6)
     mod = PositiveIntegerField()
 
 

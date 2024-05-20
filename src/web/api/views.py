@@ -112,8 +112,8 @@ class CharacterView:
             serializer = serializer_class(data=loads(request.body))
 
             if serializer.is_valid():
-                new_character = Character.objects.create(**serializer.data)
-                return JsonResponse(serializer_id_class(new_character).data, status=201)
+                instance = serializer.save()
+                return JsonResponse(serializer_id_class(instance).data, status=201)
 
             return JsonResponse(
                 {
