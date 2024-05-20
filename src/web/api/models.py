@@ -193,6 +193,8 @@ class Spell(models.Model):
     components = models.ForeignKey('Components', on_delete=models.CASCADE)
     duration = models.CharField(max_length=100)
     description = models.CharField(max_length=2048)
+    classes = ArrayField(models.CharField(max_length=100))
+    higher_levels = models.CharField(max_length=2048)
 
 class Components(models.Model):
     verbal = models.BooleanField()

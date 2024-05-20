@@ -1,22 +1,29 @@
 [
   {
-    "model": "api.spell",
-    "pk": 1,
-    "fields": {
-        "name": "Acid Splash",
-        "tags": [
-            "Conjuration",
-            "cantrip"
-        ],
-        "type": "Conjuration cantrip",
-        "ritual": false,
-        "level": "cantrip",
-        "school": "Conjuration",
-        "casting_time": "1 action",
-        "range": "60 feet",
-        "components": 1,
-        "duration": "Instantaneous",
-        "description": "You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage.\n\nThis spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
-      }
+    "casting_time": "1 action",
+    "classes": [
+        "cleric",
+        "paladin"
+    ],
+    "components": {
+        "material": false,
+        "raw": "V",
+        "somatic": false,
+        "verbal": true
+    },
+    "description": "You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if it doesn\u2019t understand your language, or if your command is directly harmful to it.\n\nSome typical commands and their effects follow. You might issue a command other than one described here. If you do so, the DM determines how the target behaves. If the target can\u2019t follow your command, the spell ends.\n\nApproach: The target moves toward you by the shortest and most direct route, Ending its turn if it moves within 5 feet of you.\nDrop: The target drops whatever it is holding and then ends its turn.\nFlee: The target spends its turn moving away from you by the fastest available means.\nGrovel: The target falls prone and then ends its turn.\nHalt: The target doesn't move and takes no Actions. A flying creature stays aloft, provided that it is able to do so. If it must move to stay aloft, it flies the minimum distance needed to remain in the air.",
+    "duration": "1 round",
+    "higher_levels": "When you cast this spell using a spell slot of 2nd level or higher, you can affect one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them.",
+    "level": "1",
+    "name": "Command",
+    "range": "60 feet",
+    "ritual": false,
+    "school": "enchantment",
+    "tags": [
+        "cleric",
+        "paladin",
+        "level1"
+    ],
+    "type": "1st-level enchantment"
   }
 ]

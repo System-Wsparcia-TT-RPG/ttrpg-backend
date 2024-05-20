@@ -8,6 +8,7 @@ from django.views import View
 from utils.character_validation import CharacterSerializer
 import utils.character_request_utils as character_utils
 from utils.http_options_decorator import add_http_options
+import utils.spell_request_utils as spell_utils
 
 from .models import *
 
@@ -130,7 +131,7 @@ class SpellView:
             json_data = loads(request.body)
 
             try:
-                new_spell = character_utils.create_spells_from_json(json_data)
+                new_spell = spell_utils.create_spells_from_json(json_data)
                 return JsonResponse({"spell": {"id": new_spell.id, "data": {**json_data}}}, status=201)
             except Exception as e:
                 return JsonResponse({"error": "An unexpected error occurred", "details": str(e)}, status=500)

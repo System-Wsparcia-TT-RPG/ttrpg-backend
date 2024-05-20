@@ -24,29 +24,17 @@ def get_many_to_many(many_to_many) -> list:
         ret_list.append(get_fields(val))
     return ret_list
 
-"""
-        "name": "Acid Splash",
-        "tags": [
-            "Conjuration",
-            "cantrip"
-        ],
-        "type": "Conjuration cantrip",
-        "ritual": false,
-        "level": "cantrip",
-        "school": "Conjuration",
-        "casting_time": "1 action",
-        "range": "60 feet",
-        "components": 1,
-        "duration": "Instantaneous",
-        "description": "You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage.\n\nThis spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."
-      }
-"""
 def create_spells_from_json(json_data: dict) -> Spell:
 
-    components = Components.objects.create(**json_data['components'])
+    new_components = Components.objects.create(**json_data['components'])
     del json_data['components']
+
+    new_classes = []
+    for class_name in json_data['classes']:
+        new_classes.append(Class.objects.get_or_create(name=class_name))
+    del json_data['classes']
     
-    return Spell.objects.create(**json_data, components=components)
+    return Spell.objects.create(**json_data, components=new_components, classes=new_classes)
 
 def get_spell(spell_id: int) -> Spell:
     return Spell.objects.get(pk=spell_id)
