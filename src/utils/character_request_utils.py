@@ -126,13 +126,6 @@ def create_character_from_json(json_data: dict) -> Character:
     return new_char
 
 
-def get_character(character_id: int) -> dict:
-    character = Character.objects.get(id=character_id)
-    char_dict = get_fields(model=character)
-
-    return char_dict
-
-
 # Foreign keys
 
 def get_race(race_id: int) -> dict:

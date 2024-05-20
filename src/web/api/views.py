@@ -1,7 +1,8 @@
 from json import loads
+from typing import Optional
 
 from django.core.exceptions import ObjectDoesNotExist
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, HttpRequest
 from django.shortcuts import render
 from django.views import View
 
@@ -14,27 +15,26 @@ from .models import (
     Class, Details, Equipment, Weapon, Treasure, AbilityScores, Skills,
     SavingThrows, DeathSaves, CombatStats, Race, Spell, Components, Character
 )
-from .serializers import (
-    PlayerSerializer, DamageDiceSerializer, SensesSerializer, TraitSerializer,
-    BackgroundSerializer, ActionSerializer, FeatureSerializer, FeatSerializer,
-    ClassSerializer, DetailsSerializer, EquipmentSerializer, WeaponSerializer,
-    TreasureSerializer, AbilityScoresSerializer, SkillsSerializer,
-    SavingThrowsSerializer, DeathSavesSerializer, CombatStatsSerializer,
-    RaceSerializer, SpellSerializer, ComponentsSerializer, CharacterSerializer
-)
+from .serializers import get_id_serializer, get_all_serializer
 
 
 class CharacterView:
     @add_http_options
     class GetAll(View):
         http_method_names = ["get"]
-        queryset = Character.objects.all()
-        serializer_class = CharacterSerializer
 
-        def get(self, request) -> JsonResponse:
+        @staticmethod
+        def get(request: HttpRequest, depth: Optional[int] = None) -> JsonResponse:
+            all_characters = Character.objects.all()
+            serializer = get_all_serializer(
+                Character,
+                depth,
+            )
+
             return JsonResponse(
-                self.serializer_class(self.queryset, many=True).data,
-                safe=False
+                serializer(all_characters, many=True).data,
+                safe=False,
+                status=200,
             )
 
     @add_http_options
@@ -42,30 +42,42 @@ class CharacterView:
         http_method_names = ["get", "put", "delete"]
 
         @staticmethod
-        def get(request, character_id: int) -> JsonResponse:
+        def get(request: HttpRequest, character_id: Optional[int], depth: Optional[int] = None) -> JsonResponse:
             try:
-                character = character_utils.get_character(character_id)
+                character = Character.objects.get(id=character_id)
+                serializer = get_all_serializer(
+                    Character,
+                    depth,
+                )
 
-                return JsonResponse({
-                    "character": character
-                }, status=200)
+                return JsonResponse(
+                    serializer(character, many=True).data,
+                    safe=False,
+                    status=200,
+                )
             except ObjectDoesNotExist as error:
-                return JsonResponse({
-                    "error": "Character with specified id is not found!",
-                    "details": str(error),
-                    "error_data": {
-                        "id_not_found": character_id,
+                return JsonResponse(
+                    {
+                        "error": "Character with specified id is not found!",
+                        "details": str(error),
+                        "error_data": {
+                            "character_id": character_id,
+                            "depth": depth,
+                        },
                     },
-                }, status=404)
+                    status=404,
+                )
 
-        @staticmethod
-        def put(request, character_id: int) -> JsonResponse:
+        def put(self, request: HttpRequest, character_id: Optional[int]) -> JsonResponse:
             if character_id < 0:
                 return JsonResponse({
                     "error": "Invalid character ID"
                 }, status=400)
 
             json_data = loads(request.body)
+
+            class CharacterSerializer:
+                pass
 
             # Validation
             data_ser = CharacterSerializer(data=json_data)
@@ -84,8 +96,7 @@ class CharacterView:
                     "error": "Provided character data is invalid"
                 }, status=400)
 
-        @staticmethod
-        def delete(request, character_id: int) -> HttpResponse:
+        def delete(self, request: HttpRequest, character_id: Optional[int]) -> HttpResponse:
 
             try:
                 Character.objects.filter(id=character_id).delete()
@@ -105,8 +116,11 @@ class CharacterView:
         http_method_names = ["post"]
 
         @staticmethod
-        def post(request) -> JsonResponse:
+        def post(request: HttpRequest) -> JsonResponse:
             json_data = loads(request.body)
+
+            class CharacterSerializer:
+                pass
 
             # Validation and db entry creation
             data_ser = CharacterSerializer(data=json_data)
@@ -133,7 +147,7 @@ class RaceView:
         http_method_names = ['get']
 
         @staticmethod
-        def get(request) -> JsonResponse:
+        def get(request: HttpRequest) -> JsonResponse:
             return JsonResponse([a.value for a in Race.Size], status=200)
 
 
@@ -143,7 +157,7 @@ class SpellView:
         http_method_names = ['get']
 
         @staticmethod
-        def get(request) -> JsonResponse:
+        def get(request: HttpRequest) -> JsonResponse:
             all_spells = list(Spell.objects.values())
 
             return JsonResponse({"spells": all_spells})
@@ -153,8 +167,8 @@ class SpellView:
         http_method_names = ['post']
 
         @staticmethod
-        def post(request) -> JsonResponse:
-            json_data = loads(request.body)
+        def post(request: HttpRequest) -> JsonResponse:
+            json_data = loads(request)
 
             try:
                 new_spell = spell_utils.create_spells_from_json(json_data)
@@ -178,5 +192,5 @@ class Index(View):
     http_method_names = ['get']
 
     @staticmethod
-    def get(request) -> HttpResponse:
+    def get(request: HttpRequest) -> HttpResponse:
         return render(request, 'index.html')

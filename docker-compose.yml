@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       - POSTGRES_DB=tt-rpg
-      - POSTGRES_USER=root
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
     volumes:
       - ./.containers/tt-rpg_database:/var/lib/postgresql/data

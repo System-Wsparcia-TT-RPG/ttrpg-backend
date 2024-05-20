@@ -39,7 +39,7 @@ class Action(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1024)
     source = models.CharField(max_length=100)
-    damage_dice = models.ForeignKey('DamageDice', on_delete=models.CASCADE)
+    damage_dice = models.ForeignKey(DamageDice, on_delete=models.CASCADE)
     damage_bonus = models.IntegerField()
     legendary = models.BooleanField()
     reaction = models.BooleanField()
@@ -63,7 +63,7 @@ class Class(models.Model):
     level = models.IntegerField()
     hit_die = models.IntegerField()
     spellcasting = models.CharField(max_length=100)
-    features = models.ManyToManyField('Feature')
+    features = models.ManyToManyField(Feature)
     source = models.CharField(max_length=100)
 
 
@@ -96,7 +96,7 @@ class Weapon(models.Model):
     weight = models.IntegerField()
     description = models.CharField(max_length=1024)
     attack_bonus = models.IntegerField()
-    damage_dice = models.ForeignKey('DamageDice', on_delete=models.CASCADE)
+    damage_dice = models.ForeignKey(DamageDice, on_delete=models.CASCADE)
     damage_bonus = models.IntegerField()
     damage_type = models.CharField(max_length=100)
     properties = ArrayField(models.CharField(max_length=100))
@@ -161,7 +161,7 @@ class CombatStats(models.Model):
     speed = models.IntegerField()
     hit_points = models.IntegerField()
     hit_dice = models.CharField(max_length=100)
-    death_saves = models.ForeignKey('DeathSaves', on_delete=models.CASCADE)
+    death_saves = models.ForeignKey(DeathSaves, on_delete=models.CASCADE)
 
 
 class Race(models.Model):
@@ -176,10 +176,17 @@ class Race(models.Model):
     name = models.CharField(max_length=100)
     subtype = models.CharField(max_length=100)
     size = models.CharField(max_length=100)
-    traits = models.ManyToManyField('Trait')
-    actions = models.ManyToManyField('Action')
-    senses = models.ForeignKey('Senses', on_delete=models.CASCADE)
+    traits = models.ManyToManyField(Trait)
+    actions = models.ManyToManyField(Action)
+    senses = models.ForeignKey(Senses, on_delete=models.CASCADE)
     source = models.CharField(max_length=100)
+
+
+class Components(models.Model):
+    verbal = models.BooleanField()
+    somatic = models.BooleanField()
+    material = models.BooleanField()
+    raw = models.CharField(max_length=100)
 
 
 class Spell(models.Model):
@@ -191,37 +198,30 @@ class Spell(models.Model):
     school = models.CharField(max_length=100)
     casting_time = models.CharField(max_length=100)
     range = models.CharField(max_length=100)
-    components = models.ForeignKey('Components', on_delete=models.CASCADE)
+    components = models.ForeignKey(Components, on_delete=models.CASCADE)
     duration = models.CharField(max_length=100)
     description = models.CharField(max_length=2048)
     classes = ArrayField(models.CharField(max_length=100), null=True)
     higher_levels = models.CharField(max_length=2048, null=True)
 
 
-class Components(models.Model):
-    verbal = models.BooleanField()
-    somatic = models.BooleanField()
-    material = models.BooleanField()
-    raw = models.CharField(max_length=100)
-
-
 class Character(models.Model):
     nickname = models.CharField(max_length=100)
-    player = models.ForeignKey('Player', on_delete=models.CASCADE)
+    player = models.ForeignKey(Player, on_delete=models.CASCADE)
     xp = models.IntegerField()
-    race = models.ForeignKey('Race', on_delete=models.CASCADE)
-    classes = models.ManyToManyField('Class')
-    background = models.ForeignKey('Background', on_delete=models.CASCADE)
-    details = models.ForeignKey('Details', on_delete=models.CASCADE)
+    race = models.ForeignKey(Race, on_delete=models.CASCADE)
+    classes = models.ManyToManyField(Class)
+    background = models.ForeignKey(Background, on_delete=models.CASCADE)
+    details = models.ForeignKey(Details, on_delete=models.CASCADE)
     weapon_proficiencies = ArrayField(models.CharField(max_length=100))
     armor_proficiencies = ArrayField(models.CharField(max_length=100))
     tool_proficiencies = ArrayField(models.CharField(max_length=100))
-    feats = models.ManyToManyField('Feat')
-    spells = models.ManyToManyField('Spell')
-    weapons = models.ManyToManyField('Weapon')
-    equipment = models.ManyToManyField('Equipment')
-    treasure = models.ForeignKey('Treasure', on_delete=models.CASCADE)
-    ability_scores = models.ForeignKey('AbilityScores', on_delete=models.CASCADE)
-    skills = models.ForeignKey('Skills', on_delete=models.CASCADE)
-    saving_throws = models.ForeignKey('SavingThrows', on_delete=models.CASCADE)
-    combat = models.ForeignKey('CombatStats', on_delete=models.CASCADE)
+    feats = models.ManyToManyField(Feat)
+    spells = models.ManyToManyField(Spell)
+    weapons = models.ManyToManyField(Weapon)
+    equipment = models.ManyToManyField(Equipment)
+    treasure = models.ForeignKey(Treasure, on_delete=models.CASCADE)
+    ability_scores = models.ForeignKey(AbilityScores, on_delete=models.CASCADE)
+    skills = models.ForeignKey(Skills, on_delete=models.CASCADE)
+    saving_throws = models.ForeignKey(SavingThrows, on_delete=models.CASCADE)
+    combat = models.ForeignKey(CombatStats, on_delete=models.CASCADE)
