@@ -2,100 +2,37 @@
 
 ## API
 
+### Model
+
+Full model on how we have divided `../resources/example_character.json` - [\[Link\]](../resources/example_character.json)
+is shown on ERD diagram provided here: `../resources/erd.png` - [\[Link\]](../resources/erd.png) (only tables beginning with
+`api_`). However, because it is not really readable and practical to use it is highly advisable to see the model
+manually via:
+- Visiting the model definition file provided here `../../src/web/api/models.py` - [\[Link\]](../../src/web/api/models.py). (better option)
+- Visiting the admin panel of django application.
+  - You need to go to this url, when the backend app is running: `http://localhost:8000/admin/` - [\[Link\]](http://localhost:8000/admin/)
+  - Login with provided username and password: `user`, `pass`.
+  - Navigate to individual table and see their content.
+
+Every table in model discussed previously is equipped with handy of endpoints. Here are the links to every one of them
+including documentation.
+
+### Damage Dice
+
+Location can be found at `damage_dice.md` - [\[Link\]](damage_dice.md)
+
+### Race
+
+Location can be found at `race.md` - [\[Link\]](race.md)
+
+### Components
+
+Location can be found at `components.md` - [\[Link\]](components.md)
+
+### Spell
+
+Location can be found at `spell.md` - [\[Link\]](spell.md)
+
 ### Character
 
-* ENDPOINT - `api/character/all/[GET]`
-  * Description - Returns all known character objects as json with foreign keys present to related objects.
-  * Request:
-	```bash
-	curl -X GET http://localhost:8000/api/character/all/
-	```
-  * Response POSITIVE(status=200):
-	```json
-	{
-	  "characters": [
-	    {
-	      "id": 1,
-	      "nickname": "John Baldur",
-	      "player_id": 1,
-	      "xp": 15200,
-	      "race_id": 1,
-	      "background_id": 1,
-	      "details_id": 1,
-	      "weapon_proficiencies": [
-	        "Simple",
-	        "Martial"
-	      ],
-	      "armor_proficiencies": [
-	        "Light",
-	        "Medium",
-	        "Heavy",
-	        "Shields"
-	      ],
-	      "tool_proficiencies": [
-	        "Smith's Tools",
-	        "Brewer's Supplies"
-	      ],
-	      "treasure_id": 1,
-	      "ability_scores_id": 1,
-	      "skills_id": 1,
-	      "saving_throws_id": 1,
-	      "combat_id": 1
-	    }
-	  ]
-	}
-	```
-* ENDPOINT - `api/character/<int:character_id>/[GET]`
-  * Description - Returns object of a character with given id as json with foreign keys present to related objects.
-  * Request:
-    ```bash
-    curl -X GET http://localhost:8000/api/character/1/
-    ```
-  * Response POSITIVE(status=200):
-    ```json
-    {
-      "character": {
-        "id": 1,
-        "nickname": "John Baldur",
-        "player": 1,
-        "xp": 15200,
-        "race": 1,
-        "background": 1,
-        "details": 1,
-        "weapon_proficiencies": [
-          "Simple",
-          "Martial"
-        ],
-        "armor_proficiencies": [
-          "Light",
-          "Medium",
-          "Heavy",
-          "Shields"
-        ],
-        "tool_proficiencies": [
-          "Smith's Tools",
-          "Brewer's Supplies"
-        ],
-        "treasure": 1,
-        "ability_scores": 1,
-        "skills": 1,
-        "saving_throws": 1,
-        "combat": 1
-      }
-    }
-    ```
-  * Request:
-    ```bash
-    curl -X GET http://localhost:8000/api/character/9999999999/
-    ```
-  * Response NEGATIVE(status=404):
-    ```json
-    {
-      "error": "Character with specified id is not found!",
-      "details": "Character matching query does not exist.",
-      "error_data": {
-        "id_not_found": 9999999999
-      }
-    }
-    ```
-  
+Location can be found at `character.md` - [\[Link\]](character.md)

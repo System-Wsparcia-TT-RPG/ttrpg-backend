@@ -41,7 +41,7 @@ class HasCreate(Protocol):
 
 
 def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
-        data_model: type[Model]
+        data_model: Type[Model]
 ) -> Callable[[Type[T]], Type[T]]:
     def inner(cls: Type[T]) -> Type[T]:
         class CRUDWrapper(cls):
@@ -130,7 +130,7 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
                     try:
                         count, _ = data_model.objects.get(id=identifier).delete()
 
-                        return JsonResponse({"deleted_objects": count}, safe=False, status=200)
+                        return JsonResponse({"deleted_objects": count}, status=200)
                     except ObjectDoesNotExist as error:
                         return JsonResponse(
                             {
