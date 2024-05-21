@@ -2,6 +2,7 @@ from json import loads
 from typing import Optional
 
 from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Model
 from django.http import JsonResponse, HttpResponse, HttpRequest
 from django.shortcuts import render
 from django.views import View
@@ -20,23 +21,23 @@ from .serializers import get_id_serializer, get_all_serializer
 class CharacterView:
     class GetAll(APIView):
         def get(self, request: HttpRequest, depth: Optional[int] = None) -> JsonResponse:
-            all_characters = Character.objects.all()
+            all_objects = Character.objects.all()
             serializer = get_all_serializer(Character, depth)
 
-            return JsonResponse(serializer(all_characters, many=True).data, safe=False, status=200)
+            return JsonResponse(serializer(all_objects, many=True).data, safe=False, status=200)
 
     class GetId(APIView):
-        def get(self, request: HttpRequest, character_id: Optional[int] = None, depth: Optional[int] = None
+        def get(self, request: HttpRequest, identifier: Optional[int] = None, depth: Optional[int] = None
                 ) -> JsonResponse:
             try:
-                character = Character.objects.get(id=character_id)
+                instance = Character.objects.get(id=identifier)
                 serializer = get_all_serializer(Character, depth)
 
-                return JsonResponse(serializer([character], many=True).data, safe=False, status=200)
+                return JsonResponse(serializer([instance], many=True).data, safe=False, status=200)
             except ObjectDoesNotExist as error:
                 return JsonResponse(
                     {
-                        "error": "Character with specified id is not found!",
+                        "error": f"\'{Character.__class__.__name__}\' with specified id is not found!",
                         "details": {
                             "message": str(error),
                         },
@@ -46,13 +47,13 @@ class CharacterView:
                 )
 
     class ModifyId(APIView):
-        def patch(self, request: HttpRequest, character_id: Optional[int]) -> JsonResponse:
+        def patch(self, request: HttpRequest, identifier: Optional[int]) -> JsonResponse:
             try:
-                character = Character.objects.get(id=character_id)
+                instance = Character.objects.get(id=identifier)
             except ObjectDoesNotExist as error:
                 return JsonResponse(
                     {
-                        "error": "Character with specified id is not found!",
+                        "error": f"\'{Character.__class__.__name__}\' with specified id is not found!",
                         "details": {
                             "message": str(error),
                         },
@@ -63,7 +64,7 @@ class CharacterView:
 
             serializer_class = get_all_serializer(Character, None)
             serializer_id_class = get_id_serializer(Character, None)
-            serializer = serializer_class(character, data=loads(request.body), partial=True)
+            serializer = serializer_class(instance, data=loads(request.body), partial=True)
 
             if serializer.is_valid():
                 instance = serializer.save()
@@ -71,19 +72,19 @@ class CharacterView:
 
             return JsonResponse(
                 {
-                    "error": "Invalid character data",
+                    "error": f"Invalid \'{Character.__class__.__name__}\' data!",
                     "details": serializer.errors
                 },
                 status=400,
             )
 
-        def put(self, request: HttpRequest, character_id: Optional[int]) -> JsonResponse:
+        def put(self, request: HttpRequest, identifier: Optional[int]) -> JsonResponse:
             serializer_class = get_all_serializer(Character, None)
             serializer_id_class = get_id_serializer(Character, None)
 
-            if Character.objects.filter(id=character_id).exists():
-                character = Character.objects.get(id=character_id)
-                serializer = serializer_class(character, data=loads(request.body))
+            if Character.objects.filter(id=identifier).exists():
+                instance = Character.objects.get(id=identifier)
+                serializer = serializer_class(instance, data=loads(request.body))
                 code: int = 200
             else:
                 serializer = serializer_class(data=loads(request.body))
@@ -95,21 +96,21 @@ class CharacterView:
 
             return JsonResponse(
                 {
-                    "error": "Invalid character data",
+                    "error": f"Invalid \'{Character.__class__.__name__}\' data!",
                     "details": serializer.errors
                 },
                 status=400,
             )
 
-        def delete(self, request: HttpRequest, character_id: Optional[int]) -> HttpResponse:
+        def delete(self, request: HttpRequest, identifier: Optional[int]) -> HttpResponse:
             try:
-                count, _ = Character.objects.get(id=character_id).delete()
+                count, _ = Character.objects.get(id=identifier).delete()
 
                 return JsonResponse({"deleted_objects": count}, safe=False, status=200)
             except ObjectDoesNotExist as error:
                 return JsonResponse(
                     {
-                        "error": "Character with specified id is not found!",
+                        "error": f"\'{Character.__class__.__name__}\' with specified id is not found!",
                         "details": {
                             "message": str(error),
                         },
@@ -130,7 +131,7 @@ class CharacterView:
 
             return JsonResponse(
                 {
-                    "error": "Invalid character data",
+                    "error": f"Invalid \'{Character.__class__.__name__}\' data!",
                     "details": serializer.errors
                 },
                 status=400,
