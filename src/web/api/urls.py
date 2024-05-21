@@ -9,7 +9,7 @@ urlpatterns = [
     path('player/<int:identifier>/', PlayerView.ModifyId.as_view()),
     path('player/create/', PlayerView.Create.as_view()),
 
-    path('damage_dice/sides/possible/', RaceView.GetSidesEnum.as_view()),
+    path('damage_dice/sides/possible/', DamageDiceView.GetSidesEnum.as_view()),
     path('damage_dice/all/<int:depth>/', DamageDiceView.GetAll.as_view()),
     path('damage_dice/<int:identifier>/<int:depth>/', DamageDiceView.GetId.as_view()),
     path('damage_dice/<int:identifier>/', DamageDiceView.ModifyId.as_view()),
