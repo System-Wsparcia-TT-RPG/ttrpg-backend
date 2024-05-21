@@ -2,6 +2,24 @@
 
 ## API
 
+### URLS
+
+Urls have very simple schema, like shown here:
+
+<server_and_port>/api/<table_name>/<endpoint_specific_path>..
+
+Where,
+- <server_and_port> - usually `localhost:8000`
+- <table_name> - i.e. `spell`, `character` or `damage_dice` ...
+- <endpoint_specific_path> - i.e. `all/{depth}/`, `{identifier}/{depth}/` or `size/possible/` ...
+
+Example include:
+- `http://localhost:8000/api/race/size/possible/`
+- `http://localhost:8000/api/character/all/3/`
+- `http://localhost:8000/api/character/33/3/`
+
+All possible tables names and endpoint specific path information's are declared here `../../src/web/api/urls.py` - [\[Link\]](../../src/web/api/urls.py).
+
 ### Model
 
 Full model on how we have divided `../resources/example_character.json` - [\[Link\]](../resources/example_character.json)
@@ -17,9 +35,43 @@ manually via:
 Every table in model discussed previously is equipped with handy of endpoints. Here are the links to every one of them
 including documentation.
 
+### Player
+
 ### Damage Dice
 
 Location can be found at `damage_dice.md` - [\[Link\]](damage_dice.md)
+
+### Senses
+
+### Trait
+
+### Background
+
+### Action
+
+### Feature
+
+### Feat
+
+### Class
+
+### Details
+
+### Equipment
+
+### Weapon
+
+### Treasure
+
+### Ability Scores
+
+### Skills
+
+### Saving Throws
+
+### Death Saves
+
+### Combat Stats
 
 ### Race
 
