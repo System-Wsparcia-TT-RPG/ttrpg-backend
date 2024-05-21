@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import (
-    PlayerView, DamageDiceView, SensesView, TraitView, BackgroundView, ActionView, FeatureView, FeatView, ClassView, DetailsView, EquipmentView, WeaponView, TreasureView, AbilityScoresView, SkillsView, SavingThrowsView, DeathSavesView, CombatStatsView, RaceView, ComponentsView, SpellView, CharacterView
+    PlayerView, DamageDiceView, SensesView, TraitView, BackgroundView, ActionView, FeatureView, FeatView, ClassView,
+    DetailsView, EquipmentView, WeaponView, TreasureView, AbilityScoresView, SkillsView, SavingThrowsView,
+    DeathSavesView, CombatStatsView, RaceView, ComponentsView, SpellView, CharacterView
 )
 
 urlpatterns = [
