@@ -17,7 +17,7 @@ class PlayerView(HasGetAll, HasGetId, HasModifyId, HasCreate):
 
 @add_basic_crud(DamageDice)
 class DamageDiceView(HasGetAll, HasGetId, HasModifyId, HasCreate):
-    class GetSizeEnum(APIView):
+    class GetSidesEnum(APIView):
         def get(self, request: HttpRequest) -> JsonResponse:
             return JsonResponse(DamageDice.Sides.choices, status=200)
 
