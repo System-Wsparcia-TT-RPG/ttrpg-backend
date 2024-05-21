@@ -68,7 +68,6 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
                                     "message": str(error),
                                 },
                             },
-                            safe=False,
                             status=404,
                         )
 
@@ -84,7 +83,6 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
                                     "message": str(error),
                                 },
                             },
-                            safe=False,
                             status=404,
                         )
 
@@ -141,7 +139,6 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
                                     "message": str(error),
                                 },
                             },
-                            safe=False,
                             status=404,
                         )
 

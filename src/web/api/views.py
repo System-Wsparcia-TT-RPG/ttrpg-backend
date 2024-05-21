@@ -19,7 +19,7 @@ class PlayerView(HasGetAll, HasGetId, HasModifyId, HasCreate):
 class DamageDiceView(HasGetAll, HasGetId, HasModifyId, HasCreate):
     class GetSidesEnum(APIView):
         def get(self, request: HttpRequest) -> JsonResponse:
-            return JsonResponse(DamageDice.Sides.choices, status=200)
+            return JsonResponse(DamageDice.Sides.choices, safe=False, status=200)
 
 
 @add_basic_crud(Senses)
@@ -106,7 +106,7 @@ class CombatStatsView(HasGetAll, HasGetId, HasModifyId, HasCreate):
 class RaceView(HasGetAll, HasGetId, HasModifyId, HasCreate):
     class GetSizeEnum(APIView):
         def get(self, request: HttpRequest) -> JsonResponse:
-            return JsonResponse(Race.Size.choices, status=200)
+            return JsonResponse(Race.Size.choices, safe=False, status=200)
 
 
 @add_basic_crud(Components)
