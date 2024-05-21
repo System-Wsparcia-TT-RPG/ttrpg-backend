@@ -13,7 +13,7 @@ class Player(Model):
 
 
 class DamageDice(Model):
-    class Type(IntegerChoices):
+    class Sides(IntegerChoices):
         D4 = 4
         D6 = 6
         D8 = 8
@@ -22,7 +22,7 @@ class DamageDice(Model):
         D20 = 20
 
     count = PositiveIntegerField()
-    sides = IntegerField(choices=Type, default=Type.D6)
+    sides = IntegerField(choices=Sides, default=Sides.D6)
     mod = PositiveIntegerField()
 
 
