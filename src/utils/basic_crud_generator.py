@@ -12,32 +12,32 @@ from web.api.serializers import get_all_serializer, get_id_serializer
 class HasGetAll(Protocol):
     class GetAll(APIView):
         def get(self, request: HttpRequest, depth: Optional[int] = None) -> JsonResponse:
-            ...
+            pass
 
 
 class HasGetId(Protocol):
     class GetId(APIView):
         def get(self, request: HttpRequest, identifier: Optional[int] = None, depth: Optional[int] = None
                 ) -> JsonResponse:
-            ...
+            pass
 
 
 class HasModifyId(Protocol):
     class ModifyId(APIView):
         def patch(self, request: HttpRequest, identifier: Optional[int]) -> JsonResponse:
-            ...
+            pass
 
         def put(self, request: HttpRequest, identifier: Optional[int]) -> JsonResponse:
-            ...
+            pass
 
         def delete(self, request: HttpRequest, identifier: Optional[int]) -> JsonResponse:
-            ...
+            pass
 
 
 class HasCreate(Protocol):
     class Create(APIView):
         def post(self, request: HttpRequest) -> JsonResponse:
-            ...
+            pass
 
 
 def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
@@ -46,17 +46,20 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
     def inner(cls: Type[T]) -> Type[T]:
         class CRUDWrapper(cls):
             class GetAll(APIView):
+                queryset = data_model.objects.all()
+
                 def get(self, request: HttpRequest, depth: Optional[int] = None) -> JsonResponse:
-                    all_objects = data_model.objects.all()
                     serializer = get_all_serializer(data_model, depth)
 
-                    return JsonResponse(serializer(all_objects, many=True).data, safe=False, status=200)
+                    return JsonResponse(serializer(self.queryset, many=True).data, safe=False, status=200)
 
             class GetId(APIView):
+                queryset = data_model.objects.all()
+
                 def get(self, request: HttpRequest, identifier: Optional[int] = None, depth: Optional[int] = None
                         ) -> JsonResponse:
                     try:
-                        instance = data_model.objects.get(id=identifier)
+                        instance = self.queryset.get(id=identifier)
                         serializer = get_all_serializer(data_model, depth)
 
                         return JsonResponse(serializer([instance], many=True).data, safe=False, status=200)
@@ -72,9 +75,13 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
                         )
 
             class ModifyId(APIView):
+                queryset = data_model.objects.all()
+                serializer_class = get_all_serializer(data_model, None)
+                serializer_id_class = get_id_serializer(data_model, None)
+
                 def patch(self, request: HttpRequest, identifier: Optional[int]) -> JsonResponse:
                     try:
-                        instance = data_model.objects.get(id=identifier)
+                        instance = self.queryset.get(id=identifier)
                     except ObjectDoesNotExist as error:
                         return JsonResponse(
                             {
@@ -86,13 +93,11 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
                             status=404,
                         )
 
-                    serializer_class = get_all_serializer(data_model, None)
-                    serializer_id_class = get_id_serializer(data_model, None)
-                    serializer = serializer_class(instance, data=loads(request.body), partial=True)
+                    serializer = self.serializer_class(instance, data=loads(request.body), partial=True)
 
                     if serializer.is_valid():
                         instance = serializer.save()
-                        return JsonResponse(serializer_id_class(instance).data, status=200)
+                        return JsonResponse(self.serializer_id_class(instance).data, status=200)
 
                     return JsonResponse(
                         {
@@ -103,20 +108,17 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
                     )
 
                 def put(self, request: HttpRequest, identifier: Optional[int]) -> JsonResponse:
-                    serializer_class = get_all_serializer(data_model, None)
-                    serializer_id_class = get_id_serializer(data_model, None)
-
                     if data_model.objects.filter(id=identifier).exists():
-                        instance = data_model.objects.get(id=identifier)
-                        serializer = serializer_class(instance, data=loads(request.body))
+                        instance = self.queryset.get(id=identifier)
+                        serializer = self.serializer_class(instance, data=loads(request.body))
                         code: int = 200
                     else:
-                        serializer = serializer_class(data=loads(request.body))
+                        serializer = self.serializer_class(data=loads(request.body))
                         code: int = 201
 
                     if serializer.is_valid():
                         instance = serializer.save()
-                        return JsonResponse(serializer_id_class(instance).data, status=code)
+                        return JsonResponse(self.serializer_id_class(instance).data, status=code)
 
                     return JsonResponse(
                         {
@@ -128,7 +130,7 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
 
                 def delete(self, request: HttpRequest, identifier: Optional[int]) -> JsonResponse:
                     try:
-                        count, _ = data_model.objects.get(id=identifier).delete()
+                        count, _ = self.queryset.get(id=identifier).delete()
 
                         return JsonResponse({"deleted_objects": count}, status=200)
                     except ObjectDoesNotExist as error:
@@ -143,14 +145,15 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
                         )
 
             class Create(APIView):
+                serializer_class = get_all_serializer(data_model, None)
+                serializer_id_class = get_id_serializer(data_model, None)
+
                 def post(self, request: HttpRequest) -> JsonResponse:
-                    serializer_class = get_all_serializer(data_model, None)
-                    serializer_id_class = get_id_serializer(data_model, None)
-                    serializer = serializer_class(data=loads(request.body))
+                    serializer = self.serializer_class(data=loads(request.body))
 
                     if serializer.is_valid():
                         instance = serializer.save()
-                        return JsonResponse(serializer_id_class(instance).data, status=201)
+                        return JsonResponse(self.serializer_id_class(instance).data, status=201)
 
                     return JsonResponse(
                         {
