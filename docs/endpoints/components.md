@@ -54,7 +54,7 @@ This endpoint replaces a specific components by its ID.
   - Code: `200`
   - Content: New details of the components (id).
   - Code: `201`
-  - Content: New details of the components has been created (id).
+  - Content: New details of the components that have been created (id).
 - Error Response:
   - Code: `400`
   - Content: `{ "error": "Invalid Components data", "details": error details }`

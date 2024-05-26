@@ -54,7 +54,7 @@ This endpoint replaces a specific spell by its ID.
   - Code: `200`
   - Content: New details of the spell (id).
   - Code: `201`
-  - Content: New details of the spell has been created (id).
+  - Content: New details of the spell that has been created (id).
 - Error Response:
   - Code: `400`
   - Content: `{ "error": "Invalid Spell data", "details": error details }`

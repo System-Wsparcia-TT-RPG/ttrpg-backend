@@ -64,7 +64,7 @@ This endpoint replaces a specific damage dice by its ID.
   - Code: `200`
   - Content: New details of the damage dice (id).
   - Code: `201`
-  - Content: New details of the damage dice has been created (id).
+  - Content: New details of the damage dice that has been created (id).
 - Error Response:
   - Code: `400`
   - Content: `{ "error": "Invalid DamageDice data", "details": error details }`

@@ -64,7 +64,7 @@ This endpoint replaces a specific race by its ID.
   - Code: `200`
   - Content: New details of the race (id).
   - Code: `201`
-  - Content: New details of the race has been created (id).
+  - Content: New details of the race that has been created (id).
 - Error Response:
   - Code: `400`
   - Content: `{ "error": "Invalid Race data", "details": error details }`
