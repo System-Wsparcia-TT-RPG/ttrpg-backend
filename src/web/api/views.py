@@ -1,13 +1,17 @@
-from django.http import HttpResponse, HttpRequest, JsonResponse
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views import View
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from rest_framework.views import APIView
+from utils.basic_crud_generator import (HasCreate, HasGetAll, HasGetId,
+                                        HasModifyId, add_basic_crud)
 
-from utils.basic_crud_generator import add_basic_crud, HasGetAll, HasGetId, HasModifyId, HasCreate
-from .models import (
-    Player, DamageDice, Senses, Trait, Background, Action, Feature, Feat, Class, Details, Equipment, Weapon, Treasure,
-    AbilityScores, Skills, SavingThrows, DeathSaves, CombatStats, Race, Components, Spell, Character
-)
+from .models import (AbilityScores, Action, Background, Character, Class,
+                     CombatStats, Components, DamageDice, DeathSaves, Details,
+                     Equipment, Feat, Feature, Player, Race, SavingThrows,
+                     Senses, Skills, Spell, Trait, Treasure, User, Weapon)
 
 
 @add_basic_crud(Player)
@@ -123,6 +127,9 @@ class SpellView(HasGetAll, HasGetId, HasModifyId, HasCreate):
 class CharacterView(HasGetAll, HasGetId, HasModifyId, HasCreate):
     pass
 
+@add_basic_crud(User)
+class UserView(HasGetAll, HasGetId, HasModifyId, HasCreate):
+    pass
 
 # Leave `http_method_names` as is, because we do not inherit from APIView here.
 class Index(View):
@@ -131,3 +138,28 @@ class Index(View):
     @staticmethod
     def get(request: HttpRequest) -> HttpResponse:
         return render(request, 'index.html')
+
+@api_view(['POST'])
+def receive_data(request):
+    data = str(request.data) #ZNACZNIK
+    '''
+    Na razie zakładam, że podane dane to będzie informacja w słowniku,
+    czy to rejestracja, czy login i opisane dane, np:
+    {"operation": "R", "login": "nazwa", "password": "hasło", "email": "email"}
+    {"operation": "L", "login": "nazwa", "password": "hasło"}
+    '''
+    if data[0] == 'R':
+        new_user = User(login=data["login"], password=data["password"], email=data["email"])
+        new_user.save()
+        return Response({'message': 'Użytkownik zarejestrowany'}, status=status.HTTP_200_OK)
+    elif data[0] == 'L':
+        user = User.objects.filter(login=data["login"])
+        if len(user) == 1:
+            if user.password == data["password"]:
+                return Response({'message': 'Użytkownik istnieje'}, status=status.HTTP_200_OK)
+            else:
+                return Response({'message': 'Użytkownik nie istnieje'}, status=status.HTTP_200_OK)
+        else:
+            return Response({'message': 'Nieprawidłowe dane'}, status=status.HTTP_200_OK)
+    else:
+        return Response({'message': 'Nieznana operacja'}, status=status.HTTP_200_OK)

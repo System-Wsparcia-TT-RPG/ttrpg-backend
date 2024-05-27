@@ -1,12 +1,16 @@
+from django.contrib.postgres.fields import ArrayField
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-from django.db.models import (
-    Model, CharField, IntegerField, PositiveIntegerField, ForeignKey, ManyToManyField, BooleanField, TextChoices,
-    IntegerChoices
-)
-from django.contrib.postgres.fields import ArrayField
+from django.db.models import (BooleanField, CharField, ForeignKey,
+                              IntegerChoices, IntegerField, ManyToManyField,
+                              Model, PositiveIntegerField, TextChoices)
 from django.utils.translation import gettext_lazy
 
+
+class User(Model):
+    login = CharField(max_length=25)
+    password = CharField(max_length=25)
+    email = CharField(max_length=35)
 
 class Player(Model):
     name = CharField(max_length=100)
