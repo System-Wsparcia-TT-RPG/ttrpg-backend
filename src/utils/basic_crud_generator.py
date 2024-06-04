@@ -51,7 +51,7 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
                 def get(self, request: HttpRequest, depth: Optional[int] = None) -> JsonResponse:
                     serializer = get_all_serializer(data_model, depth)
 
-                    return JsonResponse(serializer(self.queryset, many=True).data, safe=False, status=200)
+                    return JsonResponse(serializer(self.queryset.all(), many=True).data, safe=False, status=200)
 
             class GetId(APIView):
                 queryset = data_model.objects.all()
