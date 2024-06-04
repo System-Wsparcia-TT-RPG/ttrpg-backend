@@ -1,3 +1,5 @@
+import json
+
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views import View
@@ -141,25 +143,35 @@ class Index(View):
 
 @api_view(['POST'])
 def receive_data(request):
-    data = str(request.data) #ZNACZNIK
+    print("SIEMA 0")
+    #data = str(request.data) #ZNACZNIK
+    try:
+        print("SIEMA 1")
+        #print(type(request.data))
+        data = json.loads(request.body)
+        if data["operation"] == 'R':
+            print("SIEMA 2")
+            new_user = User(login=data["login"], password=data["password"], email=data["email"])
+            new_user.save()
+            print("SIEMA 3")
+            return Response({'message': 'Użytkownik zarejestrowany'}, status=status.HTTP_200_OK)
+        elif data["operation"] == 'L':
+            user = User.objects.filter(login=data["login"])
+            if len(user) == 1:
+                if user.password == data["password"]:
+                    return Response({'message': 'Użytkownik istnieje'}, status=status.HTTP_200_OK)
+                else:
+                    return Response({'message': 'Użytkownik nie istnieje'}, status=status.HTTP_200_OK)
+            else:
+                return Response({'message': 'Nieprawidłowe dane'}, status=status.HTTP_200_OK)
+        else:
+            return Response({'message': 'Nieznana operacja'}, status=status.HTTP_200_OK)
+    except json.JSONDecodeError as e:
+        return Response({'message': 'Nieprawidłowy format danych JSON'}, status=400)
+    
     '''
-    Na razie zakładam, że podane dane to będzie informacja w słowniku,
+    Na razie zakładam, że podane dane to będzie informacja w słowniku (w JSON),
     czy to rejestracja, czy login i opisane dane, np:
     {"operation": "R", "login": "nazwa", "password": "hasło", "email": "email"}
     {"operation": "L", "login": "nazwa", "password": "hasło"}
     '''
-    if data[0] == 'R':
-        new_user = User(login=data["login"], password=data["password"], email=data["email"])
-        new_user.save()
-        return Response({'message': 'Użytkownik zarejestrowany'}, status=status.HTTP_200_OK)
-    elif data[0] == 'L':
-        user = User.objects.filter(login=data["login"])
-        if len(user) == 1:
-            if user.password == data["password"]:
-                return Response({'message': 'Użytkownik istnieje'}, status=status.HTTP_200_OK)
-            else:
-                return Response({'message': 'Użytkownik nie istnieje'}, status=status.HTTP_200_OK)
-        else:
-            return Response({'message': 'Nieprawidłowe dane'}, status=status.HTTP_200_OK)
-    else:
-        return Response({'message': 'Nieznana operacja'}, status=status.HTTP_200_OK)

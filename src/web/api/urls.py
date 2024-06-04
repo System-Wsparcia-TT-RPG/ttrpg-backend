@@ -5,13 +5,19 @@ from .views import (AbilityScoresView, ActionView, BackgroundView,
                     DamageDiceView, DeathSavesView, DetailsView, EquipmentView,
                     FeatureView, FeatView, PlayerView, RaceView,
                     SavingThrowsView, SensesView, SkillsView, SpellView,
-                    TraitView, TreasureView, WeaponView, receive_data)
+                    TraitView, TreasureView, UserView, WeaponView,
+                    receive_data)
 
 urlpatterns = [
     path('player/all/<int:depth>/', PlayerView.GetAll.as_view()),
     path('player/<int:identifier>/<int:depth>/', PlayerView.GetId.as_view()),
     path('player/<int:identifier>/', PlayerView.ModifyId.as_view()), #nwm czy działa
     path('player/create/', PlayerView.Create.as_view()), #nwm czy działa
+
+    path('user/all/<int:depth>/', UserView.GetAll.as_view()),
+    path('user/<int:identifier>/<int:depth>/', UserView.GetId.as_view()),
+    path('user/<int:identifier>/', UserView.ModifyId.as_view()), #nwm czy działa
+    path('user/create/', UserView.Create.as_view()), #nwm czy działa
 
     path('damage_dice/sides/possible/', DamageDiceView.GetSidesEnum.as_view()),
     path('damage_dice/all/<int:depth>/', DamageDiceView.GetAll.as_view()),

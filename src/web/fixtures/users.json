@@ -1,0 +1,11 @@
+[
+    {
+      "model": "api.user",
+      "pk": 1,
+      "fields": {
+        "login": "Robi",
+        "password": "Bobi",
+        "email": "robibobi@pocztamail.pl"
+      }
+    }
+  ]
