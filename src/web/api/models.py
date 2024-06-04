@@ -1,12 +1,16 @@
+from django.contrib.postgres.fields import ArrayField
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-from django.db.models import (
-    Model, CharField, IntegerField, PositiveIntegerField, ForeignKey, ManyToManyField, BooleanField, TextChoices,
-    IntegerChoices
-)
-from django.contrib.postgres.fields import ArrayField
+from django.db.models import (BooleanField, CharField, ForeignKey,
+                              IntegerChoices, IntegerField, ManyToManyField,
+                              Model, PositiveIntegerField, TextChoices)
 from django.utils.translation import gettext_lazy
 
+
+class User(Model):
+    login = CharField(max_length=100)
+    password = CharField(max_length=100)
+    email = CharField(max_length=100)
 
 class Player(Model):
     name = CharField(max_length=100)
@@ -23,10 +27,10 @@ class DamageDice(Model):
 
     count = PositiveIntegerField()
     sides = IntegerField(choices=Sides, default=Sides.D6)
-    mod = PositiveIntegerField()
+    mod = IntegerField()
 
 
-class Senses(Model):
+class Senses(Model): #PositiveIntegerField includes 0
     dark_vision = PositiveIntegerField()
     blind_sight = PositiveIntegerField()
     tremor_sense = PositiveIntegerField()
@@ -73,7 +77,7 @@ class Class(Model):
     name = CharField(max_length=100)
     subtype = CharField(max_length=100)
     level = PositiveIntegerField()
-    hit_die = PositiveIntegerField()
+    hit_die = PositiveIntegerField() #hit_dice
     spell_casting = CharField(max_length=100)
     features = ManyToManyField(Feature)
     source = CharField(max_length=100)
@@ -86,17 +90,17 @@ class Details(Model):
     eyes = CharField(max_length=100)
     skin = CharField(max_length=100)
     hair = CharField(max_length=100)
-    personality = CharField(max_length=100)
-    ideal = CharField(max_length=100)
-    bond = CharField(max_length=100)
-    flaw = CharField(max_length=100)
+    personality = CharField(max_length=512)
+    ideal = CharField(max_length=512)
+    bond = CharField(max_length=512)
+    flaw = CharField(max_length=512)
     backstory = CharField(max_length=1024)
-    physical = CharField(max_length=1024)
+    physical = CharField(max_length=1024) #physical_look
 
 
 class Equipment(Model):
     name = CharField(max_length=100)
-    weight = PositiveIntegerField()
+    weight = PositiveIntegerField() #TODO: tu można zmienić na FloatField, ale wymaga większego bagna
     description = CharField(max_length=1024)
     magic = BooleanField()
     quantity = PositiveIntegerField()
@@ -155,45 +159,47 @@ class Skills(Model):
 
 class SavingThrows(Model):
     strength = IntegerField(validators=[
-        MinValueValidator(-5),
-        MaxValueValidator(5),
+        MinValueValidator(-20),
+        MaxValueValidator(20),
     ])
     dexterity = IntegerField(validators=[
-        MinValueValidator(-5),
-        MaxValueValidator(5),
+        MinValueValidator(-20),
+        MaxValueValidator(20),
     ])
     constitution = IntegerField(validators=[
-        MinValueValidator(-5),
-        MaxValueValidator(5),
+        MinValueValidator(-20),
+        MaxValueValidator(20),
     ])
     intelligence = IntegerField(validators=[
-        MinValueValidator(-5),
-        MaxValueValidator(5),
+        MinValueValidator(-20),
+        MaxValueValidator(20),
     ])
     wisdom = IntegerField(validators=[
-        MinValueValidator(-5),
-        MaxValueValidator(5),
+        MinValueValidator(-20),
+        MaxValueValidator(20),
     ])
     charisma = IntegerField(validators=[
-        MinValueValidator(-5),
-        MaxValueValidator(5),
+        MinValueValidator(-20),
+        MaxValueValidator(20),
     ])
 
 
 class DeathSaves(Model):
     successes = PositiveIntegerField(validators=[
+        MinValueValidator(0),
         MaxValueValidator(3),
     ])
     failures = PositiveIntegerField(validators=[
+        MinValueValidator(0),
         MaxValueValidator(3),
     ])
 
 
 class CombatStats(Model):
     armor_class = PositiveIntegerField()
-    initiative = PositiveIntegerField()
-    speed = PositiveIntegerField()
-    hit_points = PositiveIntegerField()
+    initiative = IntegerField()
+    speed = PositiveIntegerField() #ft
+    hit_points = PositiveIntegerField() #TODO: current_hit_points
     hit_dice = CharField(max_length=100)
     death_saves = ForeignKey(DeathSaves, on_delete=models.CASCADE)
 
@@ -208,13 +214,13 @@ class Race(Model):
         GARGANTUAN = 'G', gettext_lazy("Gargantuan")
 
     name = CharField(max_length=100)
-    subtype = CharField(max_length=100)
+    subtype = CharField(max_length=100) #subrace
     size = CharField(max_length=100, choices=Size, default=Size.MEDIUM)
     traits = ManyToManyField(Trait)
     actions = ManyToManyField(Action)
     senses = ForeignKey(Senses, on_delete=models.CASCADE)
     source = CharField(max_length=100)
-
+    #TODO: description
 
 class Components(Model):
     verbal = BooleanField()
@@ -226,7 +232,7 @@ class Components(Model):
 class Spell(Model):
     name = CharField(max_length=100)
     tags = ArrayField(CharField(max_length=100))
-    type = CharField(max_length=100)
+    type = CharField(max_length=100) #niepotrzebne jak kość ogonowa
     ritual = BooleanField()
     level = CharField(max_length=100)
     school = CharField(max_length=100)
