@@ -158,20 +158,20 @@ def receive_data(request):
         elif data["operation"] == 'L':
             user = User.objects.filter(login=data["login"])
             if len(user) == 1:
-                if user.password == data["password"]:
+                if user[0].password == data["password"]:
                     return Response({'message': 'Użytkownik istnieje'}, status=status.HTTP_200_OK)
                 else:
-                    return Response({'message': 'Użytkownik nie istnieje'}, status=status.HTTP_200_OK)
+                    return Response({'message': 'Błędne hasło'}, status=status.HTTP_200_OK)
             else:
                 return Response({'message': 'Nieprawidłowe dane'}, status=status.HTTP_200_OK)
         else:
             return Response({'message': 'Nieznana operacja'}, status=status.HTTP_200_OK)
     except json.JSONDecodeError as e:
         return Response({'message': 'Nieprawidłowy format danych JSON'}, status=400)
-    
+
     '''
-    Na razie zakładam, że podane dane to będzie informacja w słowniku (w JSON),
-    czy to rejestracja, czy login i opisane dane, np:
+    Na razie zakładam, że podane dane to będzie informacja w JSON,
+    czy to rejestracja, czy login i opisane dane w taki sposób:
     {"operation": "R", "login": "nazwa", "password": "hasło", "email": "email"}
     {"operation": "L", "login": "nazwa", "password": "hasło"}
     '''
