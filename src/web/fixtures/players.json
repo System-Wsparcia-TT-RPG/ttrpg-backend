@@ -5,5 +5,12 @@
     "fields": {
       "name": "Jan Kowalski"
     }
+  },
+  {
+    "model": "api.player",
+    "pk": 2,
+    "fields": {
+      "name": "Michał Górski"
+    }
   }
 ]

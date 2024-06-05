@@ -9,5 +9,16 @@
       "truesight": 30,
       "passive_perception": 13
     }
+  },
+  {
+    "model": "api.senses",
+    "pk": 2,
+    "fields": {
+      "dark_vision": 30,
+      "blind_sight": 0,
+      "tremor_sense": 0,
+      "truesight": 0,
+      "passive_perception": 15
+    }
   }
 ]

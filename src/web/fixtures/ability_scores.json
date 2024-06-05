@@ -10,5 +10,17 @@
       "wisdom": 12,
       "charisma": 16
     }
+  },
+  {
+    "model": "api.abilityscores",
+    "pk": 2,
+    "fields": {
+      "strength": 8,
+      "dexterity": 16,
+      "constitution": 10,
+      "intelligence": 18,
+      "wisdom": 12,
+      "charisma": 10
+    }
   }
 ]

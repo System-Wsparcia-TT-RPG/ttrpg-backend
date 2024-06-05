@@ -25,5 +25,23 @@
       "sides": 6,
       "mod": 3
     }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 4,
+    "fields": {
+      "count": 2,
+      "sides": 8,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 5,
+    "fields": {
+      "count": 8,
+      "sides": 6,
+      "mod": 0
+    }
   }
 ]

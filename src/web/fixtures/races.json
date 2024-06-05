@@ -17,5 +17,24 @@
         1
       ]
     }
+  },
+  {
+    "model": "api.race",
+    "pk": 2,
+    "fields": {
+      "name": "High Elf",
+      "subtype": "",
+      "size": "Medium",
+      "senses": 2,
+      "source": "PHB",
+      "traits": [
+        4,
+        5,
+        6
+      ],
+      "actions": [
+        2
+      ]
+    }
   }
 ]

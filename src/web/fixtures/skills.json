@@ -22,5 +22,29 @@
       "stealth": 0,
       "survival": 1
     }
+  },
+  {
+    "model": "api.skills",
+    "pk": 2,
+    "fields": {
+      "acrobatics": 6,
+      "animal_handling": 1,
+      "arcana": 7,
+      "athletics": -1,
+      "deception": 0,
+      "history": 4,
+      "insight": 2,
+      "intimidation": 0,
+      "investigation": 7,
+      "medicine": 1,
+      "nature": 4,
+      "perception": 5,
+      "performance": 0,
+      "persuasion": 0,
+      "religion": 4,
+      "sleight_of_hand": 6,
+      "stealth": 6,
+      "survival": 1
+    }
   }
 ]

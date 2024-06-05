@@ -24,5 +24,87 @@
       ],
       "higher_levels": "When you cast this spell using a spell slot of 2nd level or higher, you can affect one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them."
     }
-  }
+  },
+  {
+    "model":"api.spell",
+    "pk":2,
+    "fields":{
+      "name":"Thunderwave",
+      "tags":[
+        "bard",
+        "druid",
+        "sorcerer",
+        "wizard",
+        "level1"
+      ],
+      "type":"1st-level evocation",
+      "ritual":false,
+      "level":"1",
+      "school":"evocation",
+      "casting_time":"1 action",
+      "range":"Self (15-foot cube)",
+      "components":3,
+      "duration":"Instantaneous",
+      "description":"A wave of thunderous force sweeps out from you. Each creature in a 15-foot cube originating from you must make a Constitution saving throw. On a failed save, a creature takes 2d8 thunder damage and is pushed 10 feet away from you. On a successful save, the creature takes half as much damage and isn\u2019t pushed. In addition, unsecured objects that are completely within the area of effect are automatically pushed 10 feet away from you by the spell\u2019s effect, and the spell emits a thunderous boom audible out to 300 feet.",
+      "classes":[
+        "bard",
+        "druid",
+        "sorcerer",
+        "wizard"
+      ],
+      "higher_levels":"When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st."
+    }
+  },
+  {
+      "model": "api.spell",
+      "pk": 3,
+      "fields": {
+        "name": "Fireball",
+        "tags": [
+          "sorcerer",
+          "wizard",
+          "level3"
+        ],
+        "type": "3rd-level evocation",
+        "ritual": false,
+        "level": "3",
+        "school": "evocation",
+        "casting_time": "1 action",
+        "range": "150 feet",
+        "components": 3,
+        "duration": "Instantaneous",
+        "description": "A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot radius sphere centered on that point must make a Dexterity saving throw. A target takes 8d6 fire damage on a failed save, or half as much damage on a successful one.\n\nThe fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.",
+        "classes": [
+          "sorcerer",
+          "wizard"
+        ],
+        "higher_levels": "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd."
+      }
+    },
+    {
+      "model": "api.spell",
+      "pk": 4,
+      "fields": {
+        "name": "Scorching Ray",
+        "tags": [
+          "sorcerer",
+          "wizard",
+          "level2"
+        ],
+        "type": "2nd-level evocation",
+        "ritual": false,
+        "level": "2",
+        "school": "evocation",
+        "casting_time": "1 action",
+        "range": "120 feet",
+        "components": 3,
+        "duration": "Instantaneous",
+        "description": "You create three rays of fire and hurl them at targets within range. You can hurl them at one target or several.\n\nMake a ranged spell attack for each ray. On a hit, the target takes 2d6 fire damage.\n\nAt Higher Levels: When you cast this spell using a spell slot of 3rd level or higher, you create one additional ray for each slot level above 2nd.",
+        "classes": [
+          "sorcerer",
+          "wizard"
+        ],
+        "higher_levels": null
+      }
+    }
 ]

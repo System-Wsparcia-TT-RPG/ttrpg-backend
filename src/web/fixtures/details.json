@@ -16,5 +16,23 @@
       "backstory": "Once a member of a noble family, I was exiled from my home after a scandalous affair with a servant. Now I wander the land, searching for my lost sibling and trying to make a name for myself as a hero.",
       "physical": "Toned and athletic, with a few scars from past battles."
     }
+  },
+  {
+    "model": "api.details",
+    "pk": 2,
+    "fields": {
+      "age": 17,
+      "height": "160cm",
+      "weight": 50,
+      "eyes": "Red",
+      "skin": "Pale",
+      "hair": "Black",
+      "personality": "Quiet and reserved, with a sharp wit and a dry sense of humor.",
+      "ideal": "The only way to survive in this world is to look out for yourself, because no one else will.",
+      "bond": "I will do anything to protect my sibling, who is the only family I have left.",
+      "flaw": "I have a quick temper and a tendency to lash out when I feel threatened.",
+      "backstory": "I grew up as a heir to a powerful wizarding family, but I was always the black sheep of the family. When my parents were killed in a magical accident, I was left to fend for myself, and I have been on the run ever since.",
+      "physical": "Slender but wiry, with a haunted look in my eyes."
+    }
   }
 ]

@@ -47,5 +47,50 @@
         3
       ]
     }
-  }
+  },
+  {
+    "model": "api.character",
+    "pk": 2,
+    "fields": {
+      "nickname": "Velaris",
+      "player": 2,
+      "xp": 16003,
+      "race": 2,
+        "background": 2,
+        "details": 2,
+        "treasure": 2,
+        "ability_scores": 2,
+        "skills": 2,
+        "saving_throws": 2,
+        "combat": 2,
+        "classes": [
+          2
+        ],
+        "weapon_proficiencies": [
+          "Simple"
+        ],
+        "armor_proficiencies": [
+          "Light"
+        ],
+        "tool_proficiencies": [
+          "Jeweler's Tools"
+        ],
+        "feats": [
+          2
+        ],
+        "spells": [
+          2,
+          3,
+          4
+        ],
+        "weapons": [
+          3
+        ],
+        "equipment": [
+          4,
+          5,
+          6
+        ]
+      }
+    }
 ]
