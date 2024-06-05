@@ -67,10 +67,14 @@
           2
         ],
         "weapon_proficiencies": [
-          "Simple"
+          "Simple",
+          "Longsword",
+          "Shortsword",
+          "Shortbow",
+          "Longbow"
         ],
         "armor_proficiencies": [
-          "Light"
+          "None"
         ],
         "tool_proficiencies": [
           "Jeweler's Tools"
