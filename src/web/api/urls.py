@@ -6,13 +6,14 @@ from .views import (AbilityScoresView, ActionView, BackgroundView,
                     FeatureView, FeatView, PlayerView, RaceView,
                     SavingThrowsView, SensesView, SkillsView, SpellView,
                     TraitView, TreasureView, UserView, WeaponView,
-                    receive_data)
+                    signup_view, login_view, logout_view, home_view)
 
 urlpatterns = [
-    path('player/all/<int:depth>/', PlayerView.GetAll.as_view()),
-    path('player/<int:identifier>/<int:depth>/', PlayerView.GetId.as_view()),
-    path('player/<int:identifier>/', PlayerView.ModifyId.as_view()), #nwm czy działa
-    path('player/create/', PlayerView.Create.as_view()), #nwm czy działa
+
+    path('signup/', signup_view, name='signup'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
+    path('home/', home_view, name="home"), # Do testów logowania/wylogowywania
 
     path('user/all/<int:depth>/', UserView.GetAll.as_view()),
     path('user/<int:identifier>/<int:depth>/', UserView.GetId.as_view()),
@@ -126,5 +127,4 @@ urlpatterns = [
     path('character/<int:identifier>/', CharacterView.ModifyId.as_view()),
     path('character/create/', CharacterView.Create.as_view()),
 
-    path('receive_data/', receive_data),
 ]
