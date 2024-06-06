@@ -430,5 +430,14 @@
       "sides": 20,
       "mod": 0
     }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 49,
+    "fields": {
+      "count": 0,
+      "sides": 0,
+      "mod": 0
+    }
   }
 ]

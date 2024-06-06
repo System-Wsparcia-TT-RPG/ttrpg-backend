@@ -18,5 +18,85 @@
       "description": "You spent years learning the lore of the multiverse. You scoured manuscripts, studied scrolls, and listened to the greatest experts on the subjects that interest you. Your efforts have made you a master in your fields of study.",
       "source": "PHB"
     }
+  },
+  {
+    "model": "api.background",
+    "pk": 3,
+    "fields": {
+      "name": "Soldier",
+      "option": "Soldier: Officer",
+      "description": "You are a commander of soldiers, an officer in a military organization. You have excellent leadership skills and are well respected by your peers.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.background",
+    "pk": 4,
+    "fields": {
+      "name": "Urchin",
+      "option": "Urchin: Jester",
+      "description": "You grew up on the streets alone, orphaned, and poor. You had no one to watch over you or to provide for you, so you learned to provide for yourself. You fought fiercely over food and kept a constant watch out for other desperate souls who might steal from you. You slept on rooftops and in alleyways, exposed to the elements, and endured sickness without the advantage of medicine or a place to recuperate. You've survived despite all odds, and did so through cunning, strength, speed, or some combination of each.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.background",
+    "pk": 5,
+    "fields": {
+      "name": "Acolyte",
+      "option": "Acolyte: Priest",
+      "description": "You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric—performing sacred rites is not the same thing as channeling divine power.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.background",
+    "pk": 6,
+    "fields": {
+      "name": "Charlatan",
+      "option": "Charlatan: Swindler",
+      "description": "You have always had a way with people. You know what makes them tick, you can tease out their hearts' desires after a few minutes of conversation, and with a few leading questions you can read them like they were children's books. It's a useful talent, and one that you're perfectly willing to use for your advantage.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.background",
+    "pk": 7,
+    "fields": {
+      "name": "Criminal",
+      "option": "Criminal: Spy",
+      "description": "You are an expert at stealing, breaking into places, and otherwise skirting the law. You have spent a lot of time among other criminals and still have contacts within the criminal underworld.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.background",
+    "pk": 8,
+    "fields": {
+      "name": "Entertainer",
+      "option": "Entertainer: Gladiator",
+      "description": "You thrill to the roar of the crowd. You know how to entertain them, and you know how to keep them coming back. You are a gladiator.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.background",
+    "pk": 9,
+    "fields": {
+      "name": "Folk Hero",
+      "option": "Folk Hero: Rebel",
+      "description": "You come from a humble social rank, but you are destined for so much more. Already the people of your home village regard you as their champion, and your destiny calls you to stand against the tyrants and monsters that threaten the common folk everywhere.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.background",
+    "pk": 10,
+    "fields": {
+      "name": "Guild Artisan",
+      "option": "Guild Artisan: Merchant",
+      "description": "You are a member of an artisan's guild, skilled in a particular field and closely associated with other artisans. You are a well-established part of the mercantile world, freed by talent and wealth from the constraints of a feudal social order.",
+      "source": "PHB"
+    }
   }
 ]

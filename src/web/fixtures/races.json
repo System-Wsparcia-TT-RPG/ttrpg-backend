@@ -37,5 +37,58 @@
         2
       ]
     }
+  },
+  {
+    "model": "api.race",
+    "pk": 3,
+    "fields": {
+      "name": "Human",
+      "subtype": "Calishite",
+      "size": "Medium",
+      "senses": 3,
+      "source": "PHB",
+      "traits": [
+        8
+      ],
+      "actions": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "api.race",
+    "pk": 4,
+    "fields": {
+      "name": "Gnome",
+      "subtype": "Deep Gnome",
+      "size": "Small",
+      "senses": 4,
+      "source": "PHB",
+      "traits": [
+        9,
+        10
+      ],
+      "actions": [
+        4
+      ]
+    }
+  },
+  {
+    "model": "api.race",
+    "pk": 5,
+    "fields": {
+      "name": "Dwarf",
+      "subtype": "Hill Dwarf",
+      "size": "Medium",
+      "senses": 5,
+      "source": "PHB",
+      "traits": [
+        11,
+        12
+      ],
+      "actions": [
+        5
+      ]
+    }
   }
 ]

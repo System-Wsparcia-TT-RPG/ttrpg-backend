@@ -24,5 +24,44 @@
       "legendary": false,
       "reaction": false
     }
+  },
+  {
+    "model": "api.action",
+    "pk": 3,
+    "fields": {
+      "name": "F word pass",
+      "description": "You can say the F word",
+      "source": "PHB",
+      "damage_dice": 49,
+      "damage_bonus": 0,
+      "legendary": false,
+      "reaction": false
+    }
+  },
+  {
+    "model": "api.action",
+    "pk": 4,
+    "fields": {
+      "name": "Gnome Cunning",
+      "description": "You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.",
+      "source": "PHB",
+      "damage_dice": 49,
+      "damage_bonus": 0,
+      "legendary": false,
+      "reaction": false
+    }
+  },
+  {
+    "model": "api.action",
+    "pk": 5,
+    "fields": {
+      "name": "Throw Gnome",
+      "description": "You can throw a gnome",
+      "source": "PHB",
+      "damage_dice": 19,
+      "damage_bonus": 0,
+      "legendary": false,
+      "reaction": false
+    }
   }
 ]

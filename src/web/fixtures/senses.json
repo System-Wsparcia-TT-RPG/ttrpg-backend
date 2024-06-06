@@ -20,5 +20,38 @@
       "truesight": 0,
       "passive_perception": 15
     }
+  },
+  {
+    "model": "api.senses",
+    "pk": 3,
+    "fields": {
+      "dark_vision": 0,
+      "blind_sight": 0,
+      "tremor_sense": 0,
+      "truesight": 0,
+      "passive_perception": 10
+    }
+  },
+  {
+    "model": "api.senses",
+    "pk": 4,
+    "fields": {
+      "dark_vision": 120,
+      "blind_sight": 0,
+      "tremor_sense": 0,
+      "truesight": 0,
+      "passive_perception": 0
+    }
+  },
+  {
+    "model": "api.senses",
+    "pk": 5,
+    "fields": {
+      "dark_vision": 60,
+      "blind_sight": 0,
+      "tremor_sense": 0,
+      "truesight": 0,
+      "passive_perception": 0
+    }
   }
 ]

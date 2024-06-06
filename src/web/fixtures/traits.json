@@ -61,5 +61,50 @@
       "description": "You have proficiency with the longsword, shortsword, shortbow, and longbow.",
       "source": "PHB"
     }
+  },
+  {
+    "model": "api.trait",
+    "pk": 8,
+    "fields": {
+      "name": "Ability Score Increase",
+      "description": "Your ability scores each increase by 1.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.trait",
+    "pk": 9,
+    "fields": {
+      "name": "Superior Darkvision",
+      "description": "Your darkvision has a radius of 120 feet.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.trait",
+    "pk": 10,
+    "fields": {
+      "name": "Stone Camouflage",
+      "description": "You have advantage on Dexterity (stealth) checks to hide in rocky terrain.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.trait",
+    "pk": 11,
+    "fields": {
+      "name": "Dwarven Resilience",
+      "description": "You have advantage on saving throws against poison, and you have resistance against poison damage.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.trait",
+    "pk": 12,
+    "fields": {
+      "name": "Stonecunnnig",
+      "description": "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.",
+      "source": "PHB"
+    }
   }
 ]

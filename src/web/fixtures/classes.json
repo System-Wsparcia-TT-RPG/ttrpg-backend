@@ -30,5 +30,56 @@
         4
       ]
     }
+  },
+  {
+    "model": "api.class",
+    "pk": 3,
+    "fields": {
+      "name": "Fighter",
+      "subtype": "Champion",
+      "level": 10,
+      "hit_die": 10,
+      "spell_casting": "none",
+      "source": "PHB",
+      "features": [
+        30,
+        31
+      ]
+    }
+  },
+  {
+    "model": "api.class",
+    "pk": 4,
+    "fields": {
+      "name": "Rogue",
+      "subtype": "Thief",
+      "level": 3,
+      "hit_die": 8,
+      "spell_casting": "none",
+      "source": "PHB",
+      "features": [
+        32,
+        33,
+        34
+      ]
+    }
+  },
+  {
+    "model": "api.class",
+    "pk": 5,
+    "fields": {
+      "name": "Druid",
+      "subtype": "Circle of the Moon",
+      "level": 5,
+      "hit_die": 8,
+      "spell_casting": "wis",
+      "source": "PHB",
+      "features": [
+        35,
+        36,
+        37,
+        38
+      ]
+    }
   }
 ]

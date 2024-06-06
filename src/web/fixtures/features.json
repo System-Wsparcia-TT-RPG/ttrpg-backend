@@ -259,5 +259,86 @@
       "description": "Your oath allows you to channel divine energy to fuel magical effects. Each Channel Divinity option provided by your oath explains how to use it.",
       "source": "PHB"
     }
+  },
+  {
+    "model": "api.feature",
+    "pk": 30,
+    "fields": {
+      "name": "Action Surge",
+      "description": "Starting at 2nd level, you can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 31,
+    "fields": {
+      "name": "Second Wind",
+      "description": "You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 32,
+    "fields": {
+      "name": "Fast Hands",
+      "description": "Starting at 3rd level, you can use the bonus action granted by your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves' tools to disarm a trap or open a lock, or take the Use an Object action.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 33,
+    "fields": {
+      "name": "Supreme Sneak",
+      "description": "Starting at 9th level, you have advantage on a Dexterity (Stealth) check if you move no more than half your speed on the same turn.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 34,
+    "fields": {
+      "name": "Sneak Attack",
+      "description": "Beginning at 1st level, you know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 35,
+    "fields": {
+      "name": "Druidic",
+      "description": "You know Druidic, the secret language of druids. You can speak the language and use it to leave hidden messages. You and others who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 Wisdom (Perception) check but can't decipher it without magic.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 36,
+    "fields": {
+      "name": "Wild Shape",
+      "description": "Starting at 2nd level, you can use your action to magically assume the shape of a beast that you have seen before. You can use this feature twice. You regain expended uses when you finish a short or long rest.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 37,
+    "fields": {
+      "name": "Druid Circle",
+      "description": "At 2nd level, you choose to identify with a circle of druids: the Circle of the Land or the Circle of the Moon, both detailed at the end of the class description. Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 38,
+    "fields": {
+      "name": "Natural Recovery",
+      "description": "Starting at 2nd level, you can regain some of your magical energy by sitting in meditation and communing with nature. During a short rest, you choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your druid level (rounded up), and none of the slots can be 6th level or higher.",
+      "source": "PHB"
+    }
   }
 ]
