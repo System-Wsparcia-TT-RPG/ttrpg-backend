@@ -3,8 +3,8 @@
     "model": "api.damagedice",
     "pk": 1,
     "fields": {
-      "count": 2,
-      "sides": 6,
+      "count": 1,
+      "sides": 4,
       "mod": 0
     }
   },
@@ -13,8 +13,8 @@
     "pk": 2,
     "fields": {
       "count": 1,
-      "sides": 8,
-      "mod": 3
+      "sides": 6,
+      "mod": 0
     }
   },
   {
@@ -22,13 +22,58 @@
     "pk": 3,
     "fields": {
       "count": 1,
-      "sides": 6,
-      "mod": 3
+      "sides": 8,
+      "mod": 0
     }
   },
   {
     "model": "api.damagedice",
     "pk": 4,
+    "fields": {
+      "count": 1,
+      "sides": 10,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 5,
+    "fields": {
+      "count": 1,
+      "sides": 12,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 6,
+    "fields": {
+      "count": 1,
+      "sides": 20,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 7,
+    "fields": {
+      "count": 2,
+      "sides": 4,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 8,
+    "fields": {
+      "count": 2,
+      "sides": 6,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 9,
     "fields": {
       "count": 2,
       "sides": 8,
@@ -37,10 +82,352 @@
   },
   {
     "model": "api.damagedice",
-    "pk": 5,
+    "pk": 10,
+    "fields": {
+      "count": 2,
+      "sides": 10,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 11,
+    "fields": {
+      "count": 2,
+      "sides": 12,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 12,
+    "fields": {
+      "count": 2,
+      "sides": 20,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 13,
+    "fields": {
+      "count": 3,
+      "sides": 4,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 14,
+    "fields": {
+      "count": 3,
+      "sides": 6,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 15,
+    "fields": {
+      "count": 3,
+      "sides": 8,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 16,
+    "fields": {
+      "count": 3,
+      "sides": 10,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 17,
+    "fields": {
+      "count": 3,
+      "sides": 12,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 18,
+    "fields": {
+      "count": 3,
+      "sides": 20,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 19,
+    "fields": {
+      "count": 4,
+      "sides": 4,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 20,
+    "fields": {
+      "count": 4,
+      "sides": 6,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 21,
+    "fields": {
+      "count": 4,
+      "sides": 8,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 22,
+    "fields": {
+      "count": 4,
+      "sides": 10,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 23,
+    "fields": {
+      "count": 4,
+      "sides": 12,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 24,
+    "fields": {
+      "count": 4,
+      "sides": 20,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 25,
+    "fields": {
+      "count": 5,
+      "sides": 4,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 26,
+    "fields": {
+      "count": 5,
+      "sides": 6,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 27,
+    "fields": {
+      "count": 5,
+      "sides": 8,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 28,
+    "fields": {
+      "count": 5,
+      "sides": 10,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 29,
+    "fields": {
+      "count": 5,
+      "sides": 12,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 30,
+    "fields": {
+      "count": 5,
+      "sides": 20,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 31,
+    "fields": {
+      "count": 6,
+      "sides": 4,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 32,
+    "fields": {
+      "count": 6,
+      "sides": 6,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 33,
+    "fields": {
+      "count": 6,
+      "sides": 8,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 34,
+    "fields": {
+      "count": 6,
+      "sides": 10,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 35,
+    "fields": {
+      "count": 6,
+      "sides": 12,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 36,
+    "fields": {
+      "count": 6,
+      "sides": 20,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 37,
+    "fields": {
+      "count": 7,
+      "sides": 4,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 38,
+    "fields": {
+      "count": 7,
+      "sides": 6,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 39,
+    "fields": {
+      "count": 7,
+      "sides": 8,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 40,
+    "fields": {
+      "count": 7,
+      "sides": 10,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 41,
+    "fields": {
+      "count": 7,
+      "sides": 12,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 42,
+    "fields": {
+      "count": 7,
+      "sides": 20,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 43,
+    "fields": {
+      "count": 8,
+      "sides": 4,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 44,
     "fields": {
       "count": 8,
       "sides": 6,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 45,
+    "fields": {
+      "count": 8,
+      "sides": 8,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 46,
+    "fields": {
+      "count": 8,
+      "sides": 10,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 47,
+    "fields": {
+      "count": 8,
+      "sides": 12,
+      "mod": 0
+    }
+  },
+  {
+    "model": "api.damagedice",
+    "pk": 48,
+    "fields": {
+      "count": 8,
+      "sides": 20,
       "mod": 0
     }
   }

@@ -1,11 +1,11 @@
 [
   {
     "model": "api.equipment",
-    "pk": 1,
+    "pk": 7,
     "fields": {
-      "name": "Chain Mail",
-      "weight": 55,
-      "description": "A suit of interlocking metal rings, providing good protection without hindering mobility.",
+      "name": "Backpack",
+      "weight": 5,
+      "description": "A sturdy bag with multiple compartments, used to carry various items.",
       "magic": false,
       "quantity": 1,
       "source": "PHB"
@@ -13,11 +13,11 @@
   },
   {
     "model": "api.equipment",
-    "pk": 2,
+    "pk": 8,
     "fields": {
-      "name": "Shield",
-      "weight": 6,
-      "description": "A piece of wood or metal held in the hand or attached to the arm, used to block attacks.",
+      "name": "Rope, Hempen",
+      "weight": 10,
+      "description": "A strong, durable rope made from hemp fibers.",
       "magic": false,
       "quantity": 1,
       "source": "PHB"
@@ -25,11 +25,11 @@
   },
   {
     "model": "api.equipment",
-    "pk": 3,
+    "pk": 9,
     "fields": {
-      "name": "Holy Symbol",
+      "name": "Torch",
       "weight": 1,
-      "description": "A representation of a deity or religious symbol, used by paladins to focus their divine powers.",
+      "description": "A stick with a flammable material at one end, used to provide light.",
       "magic": false,
       "quantity": 1,
       "source": "PHB"
@@ -37,11 +37,35 @@
   },
   {
     "model": "api.equipment",
-    "pk": 4,
+    "pk": 10,
     "fields": {
-      "name": "Arcane Focus",
+      "name": "Waterskin",
+      "weight": 5,
+      "description": "A container made from animal skin, used to carry water.",
+      "magic": false,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 11,
+    "fields": {
+      "name": "Bedroll",
+      "weight": 7,
+      "description": "A simple cloth bedroll used for sleeping on the ground.",
+      "magic": false,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 12,
+    "fields": {
+      "name": "Mess Kit",
       "weight": 1,
-      "description": "A crystal, orb, rod, staff, or wand used by spellcasters to channel their magical energy.",
+      "description": "A collection of utensils used for eating meals.",
       "magic": false,
       "quantity": 1,
       "source": "PHB"
@@ -49,11 +73,71 @@
   },
   {
     "model": "api.equipment",
-    "pk": 5,
+    "pk": 13,
     "fields": {
-      "name": "Spellbook",
+      "name": "Tinderbox",
+      "weight": 1,
+      "description": "A small box containing flint, steel, and tinder used to start fires.",
+      "magic": false,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 14,
+    "fields": {
+      "name": "Tent",
+      "weight": 20,
+      "description": "A portable shelter made from canvas and supported by poles.",
+      "magic": false,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 15,
+    "fields": {
+      "name": "Alchemist's Fire",
+      "weight": 1,
+      "description": "A sticky, adhesive substance that ignites when exposed to air, used as a weapon.",
+      "magic": false,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 16,
+    "fields": {
+      "name": "Ball Bearings",
+      "weight": 2,
+      "description": "Small metal spheres used to create a hazard on the ground.",
+      "magic": false,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 17,
+    "fields": {
+      "name": "Caltrops",
+      "weight": 2,
+      "description": "Small metal spikes used to create a hazard on the ground.",
+      "magic": false,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 18,
+    "fields": {
+      "name": "Healer's Kit",
       "weight": 3,
-      "description": "A book containing a spellcaster's collection of spells, used to prepare and cast spells.",
+      "description": "A collection of bandages, salves, and other medical supplies used to stabilize injured creatures.",
       "magic": false,
       "quantity": 1,
       "source": "PHB"
@@ -61,14 +145,146 @@
   },
   {
     "model": "api.equipment",
-    "pk": 6,
+    "pk": 19,
     "fields": {
-      "name": "Pearl of Power",
-      "weight": 0.1,
-      "description": "A small, enchanted pearl that can restore expended spell slots to a spellcaster.",
+      "name": "Holy Water",
+      "weight": 1,
+      "description": "A vial of blessed water that deals extra damage to undead creatures.",
+      "magic": false,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 20,
+    "fields": {
+      "name": "Hunting Trap",
+      "weight": 25,
+      "description": "A mechanical device used to trap animals.",
+      "magic": false,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 21,
+    "fields": {
+      "name": "Oil",
+      "weight": 1,
+      "description": "A flammable liquid used to create fires or coat objects.",
+      "magic": false,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 22,
+    "fields": {
+      "name": "Potion of Healing",
+      "weight": 0.5,
+      "description": "A magical potion that restores hit points when consumed. restores 2d4 + 2 hit points.",
       "magic": true,
       "quantity": 1,
-      "source": "DMG"
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 23,
+    "fields": {
+      "name": "Potion of Greater Healing",
+      "weight": 1,
+      "description": "A more powerful magical potion that restores hit points when consumed. restores 4d4 + 4 hit points.",
+      "magic": true,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 24,
+    "fields": {
+      "name": "Potion of Superior Healing",
+      "weight": 1,
+      "description": "An even more powerful magical potion that restores hit points when consumed. restores 8d4 + 8 hit points.",
+      "magic": true,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 25,
+    "fields": {
+      "name": "Potion of Supreme Healing",
+      "weight": 1,
+      "description": "The most powerful magical potion that restores hit points when consumed. restores 10d4 + 20 hit points.",
+      "magic": true,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 26,
+    "fields": {
+      "name": "Potion of Climbing",
+      "weight": 0.5,
+      "description": "A magical potion that grants the ability to climb difficult surfaces for a duration of one hour.",
+      "magic": true,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 27,
+    "fields": {
+      "name": "Potion of Invisibility",
+      "weight": 0.5,
+      "description": "A magical potion that grants invisibility to the drinker for a duration of one hour.",
+      "magic": true,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 28,
+    "fields": {
+      "name": "Potion of Fire Resistance",
+      "weight": 0.5,
+      "description": "A magical potion that grants resistance to fire damage for a duration of one hour.",
+      "magic": true,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 29,
+    "fields": {
+      "name": "Potion of Water Breathing",
+      "weight": 0.5,
+      "description": "A magical potion that grants the ability to breathe underwater for a duration of one hour.",
+      "magic": true,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 30,
+    "fields": {
+      "name": "Potion of Animal Friendship",
+      "weight": 0.5,
+      "description": "A magical potion that grants the ability to communicate with animals for a duration of one hour.",
+      "magic": true,
+      "quantity": 1,
+      "source": "PHB"
     }
   }
 ]

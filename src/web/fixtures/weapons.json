@@ -6,7 +6,7 @@
       "name": "Longsword",
       "weight": 3,
       "description": "A versatile weapon with a sharp blade, suitable for slashing and thrusting attacks.",
-      "attack_bonus": 5,
+      "attack_bonus": 0,
       "damage_dice": 3,
       "damage_bonus": 0,
       "damage_type": "Slashing",
@@ -23,7 +23,7 @@
       "name": "Javelin",
       "weight": 2,
       "description": "A lightweight spear that can be thrown or used for melee attacks.",
-      "attack_bonus": 5,
+      "attack_bonus": 0,
       "damage_dice": 2,
       "damage_bonus": 0,
       "damage_type": "Piercing",
@@ -42,7 +42,7 @@
       "name": "Shortsword",
       "weight": 2,
       "description": "A small, light blade that is easy to conceal and wield.",
-      "attack_bonus": 5,
+      "attack_bonus": 0,
       "damage_dice": 2,
       "damage_bonus": 0,
       "damage_type": "Piercing",
@@ -50,6 +50,130 @@
       "properties": [
         "Finesse",
         "Light"
+      ]
+    }
+  },
+  {
+    "model": "api.weapon",
+    "pk": 4,
+    "fields": {
+      "name": "Greatsword",
+      "weight": 6,
+      "description": "A massive two-handed sword that deals heavy damage.",
+      "attack_bonus": 0,
+      "damage_dice": 8,
+      "damage_bonus": 0,
+      "damage_type": "Slashing",
+      "source": "PHB",
+      "properties": [
+        "Two-Handed"
+      ]
+    }
+  },
+  {
+    "model": "api.weapon",
+    "pk": 5,
+    "fields": {
+      "name": "Dagger",
+      "weight": 1,
+      "description": "A small, versatile blade that can be used for both stabbing and throwing.",
+      "attack_bonus": 0,
+      "damage_dice": 1,
+      "damage_bonus": 0,
+      "damage_type": "Piercing",
+      "source": "PHB",
+      "properties": [
+        "Finesse",
+        "Light",
+        "Thrown"
+      ]
+    }
+  },
+  {
+    "model": "api.weapon",
+    "pk": 6,
+    "fields": {
+      "name": "Warhammer",
+      "weight": 4,
+      "description": "A heavy hammer that deals bludgeoning damage.",
+      "attack_bonus": 0,
+      "damage_dice": 3,
+      "damage_bonus": 0,
+      "damage_type": "Bludgeoning",
+      "source": "PHB",
+      "properties": [
+        "Versatile"
+      ]
+    }
+  },
+  {
+    "model": "api.weapon",
+    "pk": 7,
+    "fields": {
+      "name": "Shortbow",
+      "weight": 2,
+      "description": "A small bow that can be used for ranged attacks.",
+      "attack_bonus": 0,
+      "damage_dice": 2,
+      "damage_bonus": 0,
+      "damage_type": "Piercing",
+      "source": "PHB",
+      "properties": [
+        "Range",
+        "Ammunition"
+      ]
+    }
+  },
+  {
+    "model": "api.weapon",
+    "pk": 8,
+    "fields": {
+      "name": "Handaxe",
+      "weight": 2,
+      "description": "A small axe that can be used for both chopping and throwing.",
+      "attack_bonus": 0,
+      "damage_dice": 2,
+      "damage_bonus": 0,
+      "damage_type": "Slashing",
+      "source": "PHB",
+      "properties": [
+        "Light",
+        "Thrown"
+      ]
+    }
+  },
+  {
+    "model": "api.weapon",
+    "pk": 9,
+    "fields": {
+      "name": "Rapier",
+      "weight": 2,
+      "description": "A slender, piercing blade favored by duelists.",
+      "attack_bonus": 0,
+      "damage_dice": 3,
+      "damage_bonus": 0,
+      "damage_type": "Piercing",
+      "source": "PHB",
+      "properties": [
+        "Finesse"
+      ]
+    }
+  },
+  {
+    "model": "api.weapon",
+    "pk": 10,
+    "fields": {
+      "name": "Greataxe",
+      "weight": 7,
+      "description": "A massive two-handed axe that deals heavy damage.",
+      "attack_bonus": 0,
+      "damage_dice": 5,
+      "damage_bonus": 0,
+      "damage_type": "Slashing",
+      "source": "PHB",
+      "properties": [
+        "Two-Handed",
+        "Heavy"
       ]
     }
   }

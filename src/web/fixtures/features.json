@@ -34,5 +34,230 @@
       "description": "When you cast an evocation spell that affects other creatures that you can see, you can choose a number of them equal to 1 + the spell's level. The chosen creatures automatically succeed on their saving throws against the spell, and they take no damage if they would normally take half damage on a successful save.",
       "source": "PHB"
     }
+  },
+  {
+    "model": "api.feature",
+    "pk": 5,
+    "fields": {
+      "name": "Wild Shape",
+      "description": "Starting at 2nd level, you can use your action to magically assume the shape of a beast that you have seen before. You can use this feature twice. You regain expended uses when you finish a short or long rest.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 6,
+    "fields": {
+      "name": "Extra Attack",
+      "description": "Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 7,
+    "fields": {
+      "name": "Indomitable",
+      "description": "Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 8,
+    "fields": {
+      "name": "Relentless Rage",
+      "description": "Starting at 11th level, your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 9,
+    "fields": {
+      "name": "Superior Critical",
+      "description": "Starting at 15th level, your weapon attacks score a critical hit on a roll of 18-20.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 10,
+    "fields": {
+      "name": "Timeless Body",
+      "description": "At 15th level, your ki sustains you so that you suffer none of the frailty of old age, and you can't be aged magically. You can still die of old age, however. In addition, you no longer need food or water.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 11,
+    "fields": {
+      "name": "Unarmored Movement",
+      "description": "Starting at 2nd level, your speed increases by 10 feet while you are not wearing armor or wielding a shield. This bonus increases when you reach certain monk levels, as shown in the Monk table.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 12,
+    "fields": {
+      "name": "Deflect Missiles",
+      "description": "Starting at 3rd level, you can use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your monk level.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 13,
+    "fields": {
+      "name": "Slow Fall",
+      "description": "Beginning at 4th level, you can use your reaction when you fall to reduce any falling damage you take by an amount equal to five times your monk level.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 14,
+    "fields": {
+      "name": "Stunning Strike",
+      "description": "Starting at 5th level, you can interfere with the flow of ki in an opponent's body. When you hit another creature with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 15,
+    "fields": {
+      "name": "Ki-Empowered Strikes",
+      "description": "Starting at 6th level, your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 16,
+    "fields": {
+      "name": "Evasion",
+      "description": "Beginning at 7th level, you can nimbly dodge out of the way of certain area effects, such as a red dragon's fiery breath or an ice storm spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 17,
+    "fields": {
+      "name": "Stillness of Mind",
+      "description": "Starting at 7th level, you can use your action to end one effect on yourself that is causing you to be charmed or frightened.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 18,
+    "fields": {
+      "name": "Purity of Body",
+      "description": "At 10th level, your mastery of the ki flowing through you makes you immune to disease and poison.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 19,
+    "fields": {
+      "name": "Tongue of the Sun and Moon",
+      "description": "Starting at 13th level, you learn to touch the ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 20,
+    "fields": {
+      "name": "Diamond Soul",
+      "description": "Beginning at 14th level, your mastery of ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 21,
+    "fields": {
+      "name": "Timeless Body",
+      "description": "At 15th level, your ki sustains you so that you suffer none of the frailty of old age, and you can't be aged magically. You can still die of old age, however. In addition, you no longer need food or water.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 22,
+    "fields": {
+      "name": "Empty Body",
+      "description": "Beginning at 18th level, you can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 23,
+    "fields": {
+      "name": "Perfect Self",
+      "description": "At 20th level, when you roll for initiative and have no ki points remaining, you regain 4 ki points.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 24,
+    "fields": {
+      "name": "Divine Sense",
+      "description": "The presence of strong evil registers on your senses like a noxious odor, and powerful good rings like heavenly music in your ears. As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover. You know the type (celestial, fiend, or undead) of any being whose presence you sense, but not its identity (the vampire Count Strahd von Zarovich, for instance). Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the hallow spell.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 25,
+    "fields": {
+      "name": "Lay on Hands",
+      "description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level x 5.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 26,
+    "fields": {
+      "name": "Divine Smite",
+      "description": "When you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 27,
+    "fields": {
+      "name": "Divine Health",
+      "description": "By 3rd level, the divine magic flowing through you makes you immune to disease.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 28,
+    "fields": {
+      "name": "Sacred Oath",
+      "description": "When you reach 3rd level, you swear the oath that binds you as a paladin forever. Up to this time, you have been in a preparatory stage, committed to the path but not yet sworn to it. Your choice grants you features at 3rd level and again at 7th, 15th, and 20th level. Those features include oath spells and the Channel Divinity feature.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 29,
+    "fields": {
+      "name": "Channel Divinity",
+      "description": "Your oath allows you to channel divine energy to fuel magical effects. Each Channel Divinity option provided by your oath explains how to use it.",
+      "source": "PHB"
+    }
   }
 ]
