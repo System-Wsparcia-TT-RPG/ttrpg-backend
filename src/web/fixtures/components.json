@@ -18,5 +18,15 @@
       "material": false,
       "raw": "V"
     }
+  },
+  {
+    "model": "api.components",
+    "pk": 3,
+    "fields": {
+      "verbal": true,
+      "somatic": true,
+      "material": true,
+      "raw": "V, S, M"
+    }
   }
 ]

@@ -14,5 +14,21 @@
         2
       ]
     }
+  },
+  {
+    "model": "api.class",
+    "pk": 2,
+    "fields": {
+      "name": "Wizard",
+      "subtype": "Bladesinger",
+      "level": 8,
+      "hit_die": 6,
+      "spell_casting": "int",
+      "source": "PHB",
+      "features": [
+        3,
+        4
+      ]
+    }
   }
 ]

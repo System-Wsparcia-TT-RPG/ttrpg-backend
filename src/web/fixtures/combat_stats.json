@@ -10,5 +10,17 @@
       "hit_dice": "6d10",
       "death_saves": 1
     }
+  },
+  {
+    "model": "api.combatstats",
+    "pk": 2,
+    "fields": {
+      "armor_class": 12,
+      "initiative": 1,
+      "speed": 30,
+      "hit_points": 48,
+      "hit_dice": "8d6",
+      "death_saves": 1
+    }
   }
 ]

@@ -12,7 +12,7 @@
       "damage_type": "Slashing",
       "source": "PHB",
       "properties": [
-        1
+        "Versatile"
       ]
     }
   },
@@ -29,7 +29,27 @@
       "damage_type": "Piercing",
       "source": "PHB",
       "properties": [
-        2
+        "Thrown",
+        "Range",
+        "Ammunition"
+      ]
+    }
+  },
+  {
+    "model": "api.weapon",
+    "pk": 3,
+    "fields": {
+      "name": "Shortsword",
+      "weight": 2,
+      "description": "A small, light blade that is easy to conceal and wield.",
+      "attack_bonus": 5,
+      "damage_dice": 2,
+      "damage_bonus": 0,
+      "damage_type": "Piercing",
+      "source": "PHB",
+      "properties": [
+        "Finesse",
+        "Light"
       ]
     }
   }

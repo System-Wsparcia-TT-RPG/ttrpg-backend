@@ -9,5 +9,16 @@
       "sp": 0,
       "cp": 3
     }
+  },
+  {
+    "model": "api.treasure",
+    "pk": 2,
+    "fields": {
+      "pp": 3,
+      "gp": 140,
+      "ep": 0,
+      "sp": 14,
+      "cp": 4
+    }
   }
 ]

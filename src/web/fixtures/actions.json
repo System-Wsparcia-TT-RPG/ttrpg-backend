@@ -11,5 +11,18 @@
       "legendary": false,
       "reaction": false
     }
+  },
+  {
+    "model": "api.action",
+    "pk": 2,
+    "fields": {
+      "name": "Fireball",
+      "description": "A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes 8d6 fire damage on a failed save, or half as much damage on a successful one.",
+      "source": "PHB",
+      "damage_dice": 5,
+      "damage_bonus": 0,
+      "legendary": false,
+      "reaction": false
+    }
   }
 ]

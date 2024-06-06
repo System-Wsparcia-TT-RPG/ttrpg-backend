@@ -16,5 +16,23 @@
       "description": "Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level x 5.",
       "source": "PHB"
     }
+  },
+  {
+    "model": "api.feature",
+    "pk": 3,
+    "fields": {
+      "name": "Arcane Recovery",
+      "description": "You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.",
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.feature",
+    "pk": 4,
+    "fields": {
+      "name": "Sculpt Spells",
+      "description": "When you cast an evocation spell that affects other creatures that you can see, you can choose a number of them equal to 1 + the spell's level. The chosen creatures automatically succeed on their saving throws against the spell, and they take no damage if they would normally take half damage on a successful save.",
+      "source": "PHB"
+    }
   }
 ]

@@ -128,33 +128,105 @@ class Treasure(Model):
 
 
 class AbilityScores(Model):
-    strength = PositiveIntegerField()
-    dexterity = PositiveIntegerField()
-    constitution = PositiveIntegerField()
-    intelligence = PositiveIntegerField()
-    wisdom = PositiveIntegerField()
-    charisma = PositiveIntegerField()
+    strength = IntegerField(validators=[
+        MinValueValidator(-5),
+        MaxValueValidator(10),
+    ])
+    dexterity = IntegerField(validators=[
+        MinValueValidator(-5),
+        MaxValueValidator(10),
+    ])
+    constitution = IntegerField(validators=[
+        MinValueValidator(-5),
+        MaxValueValidator(10),
+    ])
+    intelligence = IntegerField(validators=[
+        MinValueValidator(-5),
+        MaxValueValidator(10),
+    ])
+    wisdom = IntegerField(validators=[
+        MinValueValidator(-5),
+        MaxValueValidator(10),
+    ])
+    charisma = IntegerField(validators=[
+        MinValueValidator(-5),
+        MaxValueValidator(10),
+    ])
 
 
 class Skills(Model):
-    acrobatics = PositiveIntegerField()
-    animal_handling = PositiveIntegerField()
-    arcana = PositiveIntegerField()
-    athletics = PositiveIntegerField()
-    deception = PositiveIntegerField()
-    history = PositiveIntegerField()
-    insight = PositiveIntegerField()
-    intimidation = PositiveIntegerField()
-    investigation = PositiveIntegerField()
-    medicine = PositiveIntegerField()
-    nature = PositiveIntegerField()
-    perception = PositiveIntegerField()
-    performance = PositiveIntegerField()
-    persuasion = PositiveIntegerField()
-    religion = PositiveIntegerField()
-    sleight_of_hand = PositiveIntegerField()
-    stealth = PositiveIntegerField()
-    survival = PositiveIntegerField()
+    acrobatics = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    animal_handling = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    arcana = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    athletics = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    deception = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    history = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    insight = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    intimidation = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    investigation = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    medicine = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    nature = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    perception = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    performance = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    persuasion = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    religion = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    sleight_of_hand = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    stealth = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
+    survival = IntegerField(validators=[
+        MinValueValidator(-10),
+        MaxValueValidator(20),
+    ])
 
 
 class SavingThrows(Model):

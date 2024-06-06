@@ -34,5 +34,41 @@
       "quantity": 1,
       "source": "PHB"
     }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 4,
+    "fields": {
+      "name": "Arcane Focus",
+      "weight": 1,
+      "description": "A crystal, orb, rod, staff, or wand used by spellcasters to channel their magical energy.",
+      "magic": false,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 5,
+    "fields": {
+      "name": "Spellbook",
+      "weight": 3,
+      "description": "A book containing a spellcaster's collection of spells, used to prepare and cast spells.",
+      "magic": false,
+      "quantity": 1,
+      "source": "PHB"
+    }
+  },
+  {
+    "model": "api.equipment",
+    "pk": 6,
+    "fields": {
+      "name": "Pearl of Power",
+      "weight": 0.1,
+      "description": "A small, enchanted pearl that can restore expended spell slots to a spellcaster.",
+      "magic": true,
+      "quantity": 1,
+      "source": "DMG"
+    }
   }
 ]
