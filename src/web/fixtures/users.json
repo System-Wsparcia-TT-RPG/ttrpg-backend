@@ -3,7 +3,7 @@
       "model": "api.user",
       "pk": 1,
       "fields": {
-        "login": "Robi",
+        "username": "Robi",
         "password": "Bobi",
         "email": "robibobi@pocztamail.pl"
       }
@@ -12,7 +12,7 @@
       "model": "api.user",
       "pk": 2,
       "fields": {
-        "login": "Megi",
+        "username": "Megi",
         "password": "12345",
         "email": "donttalk@me.com"
       }
