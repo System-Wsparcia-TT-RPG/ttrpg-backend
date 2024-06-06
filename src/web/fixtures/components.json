@@ -4,16 +4,6 @@
     "pk": 1,
     "fields": {
       "verbal": true,
-      "somatic": true,
-      "material": false,
-      "raw": "V, S"
-    }
-  },
-  {
-    "model": "api.components",
-    "pk": 2,
-    "fields": {
-      "verbal": true,
       "somatic": false,
       "material": false,
       "raw": "V"
@@ -21,7 +11,57 @@
   },
   {
     "model": "api.components",
+    "pk": 2,
+    "fields": {
+      "verbal": false,
+      "somatic": true,
+      "material": false,
+      "raw": "S"
+    }
+  },
+  {
+    "model": "api.components",
+    "pk": 4,
+    "fields": {
+      "verbal": false,
+      "somatic": false,
+      "material": true,
+      "raw": "M"
+    }
+  },
+  {
+    "model": "api.components",
+    "pk": 6,
+    "fields": {
+      "verbal": false,
+      "somatic": true,
+      "material": true,
+      "raw": "S, M"
+    }
+  },
+  {
+    "model": "api.components",
     "pk": 3,
+    "fields": {
+      "verbal": true,
+      "somatic": true,
+      "material": false,
+      "raw": "V, S"
+    }
+  },
+  {
+    "model": "api.components",
+    "pk": 5,
+    "fields": {
+      "verbal": true,
+      "somatic": false,
+      "material": true,
+      "raw": "V, M"
+    }
+  },
+  {
+    "model": "api.components",
+    "pk": 7,
     "fields": {
       "verbal": true,
       "somatic": true,

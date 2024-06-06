@@ -308,11 +308,11 @@ class Spell(Model):
     ritual = BooleanField()
     level = CharField(max_length=100)
     school = CharField(max_length=100)
-    casting_time = CharField(max_length=100)
+    casting_time = CharField(max_length=2048)
     range = CharField(max_length=100)
     components = ForeignKey(Components, on_delete=models.CASCADE)
     duration = CharField(max_length=100)
-    description = CharField(max_length=2048)
+    description = CharField(max_length=10000)
     classes = ArrayField(CharField(max_length=100), null=True)
     higher_levels = CharField(max_length=2048, null=True)
 
