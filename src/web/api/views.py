@@ -1,7 +1,11 @@
 import json
 
 from django.http import HttpRequest, HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.http import HttpRequest, HttpResponse, JsonResponse
+from django.shortcuts import render, redirect
 from django.views import View
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -14,6 +18,7 @@ from .models import (AbilityScores, Action, Background, Character, Class,
                      CombatStats, Components, DamageDice, DeathSaves, Details,
                      Equipment, Feat, Feature, Player, Race, SavingThrows,
                      Senses, Skills, Spell, Trait, Treasure, User, Weapon)
+from .forms import SignUpForm
 
 
 @add_basic_crud(Player)
@@ -141,37 +146,38 @@ class Index(View):
     def get(request: HttpRequest) -> HttpResponse:
         return render(request, 'index.html')
 
-@api_view(['POST'])
-def receive_data(request):
-    print("SIEMA 0")
-    #data = str(request.data) #ZNACZNIK
-    try:
-        print("SIEMA 1")
-        #print(type(request.data))
-        data = json.loads(request.body)
-        if data["operation"] == 'R':
-            print("SIEMA 2")
-            new_user = User(login=data["login"], password=data["password"], email=data["email"])
-            new_user.save()
-            print("SIEMA 3")
-            return Response({'message': 'Użytkownik zarejestrowany'}, status=status.HTTP_200_OK)
-        elif data["operation"] == 'L':
-            user = User.objects.filter(login=data["login"])
-            if len(user) == 1:
-                if user[0].password == data["password"]:
-                    return Response({'message': 'Użytkownik istnieje'}, status=status.HTTP_200_OK)
-                else:
-                    return Response({'message': 'Błędne hasło'}, status=status.HTTP_200_OK)
-            else:
-                return Response({'message': 'Nieprawidłowe dane'}, status=status.HTTP_200_OK)
-        else:
-            return Response({'message': 'Nieznana operacja'}, status=status.HTTP_200_OK)
-    except json.JSONDecodeError as e:
-        return Response({'message': 'Nieprawidłowy format danych JSON'}, status=400)
+def signup_view(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Utworzono nowe konto użutkownika')
+            return redirect('/api/login/')
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
 
-    '''
-    Na razie zakładam, że podane dane to będzie informacja w JSON,
-    czy to rejestracja, czy login i opisane dane w taki sposób:
-    {"operation": "R", "login": "nazwa", "password": "hasło", "email": "email"}
-    {"operation": "L", "login": "nazwa", "password": "hasło"}
-    '''
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/api/home/')
+        else:
+            return render(request, 'login.html', {'error': 'Nieprawidłowa nazwa użytkowanika lub hasło'})
+    else:
+        return render(request, 'login.html')
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('/api/login/')
+
+def home_view(request):
+    """
+    Do testów autentykacji
+    """
+    return render(request, 'home.html')
+  

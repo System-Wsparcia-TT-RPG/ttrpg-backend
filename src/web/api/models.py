@@ -5,12 +5,12 @@ from django.db.models import (BooleanField, CharField, ForeignKey,
                               IntegerChoices, IntegerField, ManyToManyField,
                               Model, PositiveIntegerField, TextChoices)
 from django.utils.translation import gettext_lazy
+from django.contrib.auth.models import AbstractUser
 
 
-class User(Model):
-    login = CharField(max_length=100)
-    password = CharField(max_length=100)
-    email = CharField(max_length=100)
+class User(AbstractUser):
+    def __str__(self):
+        return f'User: {self.username}'
 
 class Player(Model):
     name = CharField(max_length=100)
