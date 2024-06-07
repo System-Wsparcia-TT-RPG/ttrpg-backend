@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.views import View
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from rest_framework.views import APIView
 from utils.basic_crud_generator import (HasCreate, HasGetAll, HasGetId,
                                         HasModifyId, add_basic_crud)
@@ -241,8 +241,8 @@ class CharacterView(HasGetAll, HasGetId, HasModifyId, HasCreate):
 
 
 @add_basic_crud(User, {
-    'get_all': [IsAuthenticated],
-    'get_id': [IsAuthenticated],
+    'get_all': [IsAdminUser],
+    'get_id': [IsAdminUser],
     'modify_id': [IsAuthenticated],
     'create': [AllowAny],
 })
