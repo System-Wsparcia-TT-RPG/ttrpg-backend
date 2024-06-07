@@ -1,5 +1,5 @@
 from json import loads
-from typing import Protocol, Optional, Callable, Type, List
+from typing import Protocol, Optional, Callable, Type, List, Dict
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Model
@@ -42,11 +42,13 @@ class HasCreate(Protocol):
 
 def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
         data_model: Type[Model],
+        permissions: Dict[str, List[Type]],
 ) -> Callable[[Type[T]], Type[T]]:
     def inner(cls: Type[T]) -> Type[T]:
         class CRUDWrapper(cls):
             class GetAll(APIView):
                 queryset = data_model.objects.all()
+                permission_classes = permissions['get_all']
 
                 def get(self, request: HttpRequest, depth: Optional[int] = None) -> JsonResponse:
                     serializer = get_all_serializer(data_model, depth)
@@ -55,6 +57,7 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
 
             class GetId(APIView):
                 queryset = data_model.objects.all()
+                permission_classes = permissions['get_id']
 
                 def get(self, request: HttpRequest, identifier: Optional[int] = None, depth: Optional[int] = None
                         ) -> JsonResponse:
@@ -78,6 +81,7 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
                 queryset = data_model.objects.all()
                 serializer_class = get_all_serializer(data_model, None)
                 serializer_id_class = get_id_serializer(data_model, None)
+                permission_classes = permissions['modify_id']
 
                 def patch(self, request: HttpRequest, identifier: Optional[int]) -> JsonResponse:
                     try:
@@ -147,6 +151,7 @@ def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
             class Create(APIView):
                 serializer_class = get_all_serializer(data_model, None)
                 serializer_id_class = get_id_serializer(data_model, None)
+                permission_classes = permissions['create']
 
                 def post(self, request: HttpRequest) -> JsonResponse:
                     serializer = self.serializer_class(data=loads(request.body))
