@@ -3,6 +3,7 @@ from typing import List, Final, Optional
 from django.db.models import Model
 
 from rest_framework.serializers import ModelSerializer
+from .models import User
 
 MIN_JOIN_DEPTH: Final[int] = 0
 MAX_JOIN_DEPTH: Final[int] = 10
@@ -47,3 +48,9 @@ def get_id_serializer(data_model: type[Model], depth: Optional[int]) -> type[Mod
 
 def get_all_serializer(data_model: type[Model], depth: Optional[int]) -> type[ModelSerializer]:
     return _get_basic_serializer(data_model, '__all__', depth)
+
+class UserSerializer(ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('username', 'password')
+    
