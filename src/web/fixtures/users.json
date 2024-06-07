@@ -1,20 +1,20 @@
 [
-    {
-      "model": "api.user",
-      "pk": 1,
-      "fields": {
-        "username": "Robi",
-        "password": "Bobi",
-        "email": "robibobi@pocztamail.pl"
-      }
-    },
-    {
-      "model": "api.user",
-      "pk": 2,
-      "fields": {
-        "username": "Megi",
-        "password": "12345",
-        "email": "donttalk@me.com"
-      }
+  {
+    "model": "api.user",
+    "pk": 1,
+    "fields": {
+      "username": "Robi",
+      "password": "pbkdf2_sha256$720000$7Bg7XGGABVEZikNyAavyTU$TdEgrDUNGM22nGm1mAtObX53HXnQub4I2Z8DuQrrU0c=",
+      "email": "robibobi@pocztamail.pl"
     }
-  ]
+  },
+  {
+    "model": "api.user",
+    "pk": 2,
+    "fields": {
+      "username": "Megi",
+      "password": "pbkdf2_sha256$720000$JaPRTZkQ9rUN2oTz2Mixfh$2YSP5pKeQ4YCrnGFczazJiN2Qi15jSTa8wmjGB0HlJQ=",
+      "email": "donttalk@me.com"
+    }
+  }
+]

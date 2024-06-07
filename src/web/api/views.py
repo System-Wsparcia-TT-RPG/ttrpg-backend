@@ -1,15 +1,9 @@
-import json
-
-from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.views import View
-from rest_framework import status
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 from rest_framework.views import APIView
 from utils.basic_crud_generator import (HasCreate, HasGetAll, HasGetId,
                                         HasModifyId, add_basic_crud)
@@ -180,4 +174,4 @@ def home_view(request):
     Do testów autentykacji
     """
     return render(request, 'home.html')
-  
+

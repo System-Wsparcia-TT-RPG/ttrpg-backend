@@ -1,50 +1,52 @@
 from django.urls import path
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from .views import (AbilityScoresView, ActionView, BackgroundView,
                     CharacterView, ClassView, CombatStatsView, ComponentsView,
                     DamageDiceView, DeathSavesView, DetailsView, EquipmentView,
                     FeatureView, FeatView, PlayerView, RaceView,
                     SavingThrowsView, SensesView, SkillsView, SpellView,
-                    TraitView, TreasureView, UserView, WeaponView,
-                    signup_view, login_view, logout_view, home_view)
+                    TraitView, TreasureView, UserView, WeaponView)
 
 urlpatterns = [
-
-    path('signup/', signup_view, name='signup'),
-    path('login/', login_view, name='login'),
-    path('logout/', logout_view, name='logout'),
-    path('home/', home_view, name="home"), # Do testów logowania/wylogowywania
+    path('token/', TokenObtainPairView.as_view()),
+    path('token/refresh/', TokenRefreshView.as_view()),
 
     path('user/all/<int:depth>/', UserView.GetAll.as_view()),
     path('user/<int:identifier>/<int:depth>/', UserView.GetId.as_view()),
-    path('user/<int:identifier>/', UserView.ModifyId.as_view()), #nwm czy działa
-    path('user/create/', UserView.Create.as_view()), #nwm czy działa
+    path('user/<int:identifier>/', UserView.ModifyId.as_view()),
+    path('user/create/', UserView.Create.as_view()),
+
+    path('player/all/<int:depth>/', PlayerView.GetAll.as_view()),
+    path('player/<int:identifier>/<int:depth>/', PlayerView.GetId.as_view()),
+    path('player/<int:identifier>/', PlayerView.ModifyId.as_view()),
+    path('player/create/', PlayerView.Create.as_view()),
 
     path('damage_dice/sides/possible/', DamageDiceView.GetSidesEnum.as_view()),
     path('damage_dice/all/<int:depth>/', DamageDiceView.GetAll.as_view()),
     path('damage_dice/<int:identifier>/<int:depth>/', DamageDiceView.GetId.as_view()),
-    path('damage_dice/<int:identifier>/', DamageDiceView.ModifyId.as_view()), #nwm czy działa
-    path('damage_dice/create/', DamageDiceView.Create.as_view()), #chyba wgl create nie działa
+    path('damage_dice/<int:identifier>/', DamageDiceView.ModifyId.as_view()),
+    path('damage_dice/create/', DamageDiceView.Create.as_view()),
 
     path('senses/all/<int:depth>/', SensesView.GetAll.as_view()),
     path('senses/<int:identifier>/<int:depth>/', SensesView.GetId.as_view()),
-    path('senses/<int:identifier>/', SensesView.ModifyId.as_view()), #nwm czy działa
-    path('senses/create/', SensesView.Create.as_view()), #nwm czy działa
+    path('senses/<int:identifier>/', SensesView.ModifyId.as_view()),
+    path('senses/create/', SensesView.Create.as_view()),
 
     path('trait/all/<int:depth>/', TraitView.GetAll.as_view()),
     path('trait/<int:identifier>/<int:depth>/', TraitView.GetId.as_view()),
-    path('trait/<int:identifier>/', TraitView.ModifyId.as_view()), #nwm czy działa
-    path('trait/create/', TraitView.Create.as_view()), #nwm czy działa
+    path('trait/<int:identifier>/', TraitView.ModifyId.as_view()),
+    path('trait/create/', TraitView.Create.as_view()),
 
     path('background/all/<int:depth>/', BackgroundView.GetAll.as_view()),
     path('background/<int:identifier>/<int:depth>/', BackgroundView.GetId.as_view()),
-    path('background/<int:identifier>/', BackgroundView.ModifyId.as_view()), #nwm czy działa
-    path('background/create/', BackgroundView.Create.as_view()), #nwm czy działa
+    path('background/<int:identifier>/', BackgroundView.ModifyId.as_view()),
+    path('background/create/', BackgroundView.Create.as_view()),
 
     path('action/all/<int:depth>/', ActionView.GetAll.as_view()),
     path('action/<int:identifier>/<int:depth>/', ActionView.GetId.as_view()),
-    path('action/<int:identifier>/', ActionView.ModifyId.as_view()), #nwm czy działa
-    path('action/create/', ActionView.Create.as_view()), #nwm czy działa
+    path('action/<int:identifier>/', ActionView.ModifyId.as_view()),
+    path('action/create/', ActionView.Create.as_view()),
 
     path('feature/all/<int:depth>/', FeatureView.GetAll.as_view()),
     path('feature/<int:identifier>/<int:depth>/', FeatureView.GetId.as_view()),

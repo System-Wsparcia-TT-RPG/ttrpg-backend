@@ -3,14 +3,16 @@
     "model": "api.player",
     "pk": 1,
     "fields": {
-      "name": "Jan Kowalski"
+      "name": "Jan Kowalski",
+      "user": 1
     }
   },
   {
     "model": "api.player",
     "pk": 2,
     "fields": {
-      "name": "Michał Górski"
+      "name": "Michał Górski",
+      "user": 1
     }
   }
 ]

@@ -12,8 +12,10 @@ class User(AbstractUser):
     def __str__(self):
         return f'User: {self.username}'
 
+
 class Player(Model):
     name = CharField(max_length=100)
+    user = ForeignKey(User, on_delete=models.DO_NOTHING)
 
 
 class DamageDice(Model):
@@ -95,7 +97,7 @@ class Details(Model):
     bond = CharField(max_length=512)
     flaw = CharField(max_length=512)
     backstory = CharField(max_length=1024)
-    physical = CharField(max_length=1024) #physical_look
+    physical = CharField(max_length=1024)
 
 
 class Equipment(Model):
@@ -294,6 +296,7 @@ class Race(Model):
     source = CharField(max_length=100)
     #TODO: description
 
+
 class Components(Model):
     verbal = BooleanField()
     somatic = BooleanField()
@@ -304,7 +307,7 @@ class Components(Model):
 class Spell(Model):
     name = CharField(max_length=100)
     tags = ArrayField(CharField(max_length=100))
-    type = CharField(max_length=100) #niepotrzebne jak kość ogonowa
+    type = CharField(max_length=100)
     ritual = BooleanField()
     level = CharField(max_length=100)
     school = CharField(max_length=100)

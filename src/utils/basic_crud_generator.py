@@ -1,5 +1,5 @@
 from json import loads
-from typing import Protocol, Optional, Callable, Type
+from typing import Protocol, Optional, Callable, Type, List
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Model
@@ -41,7 +41,7 @@ class HasCreate(Protocol):
 
 
 def add_basic_crud[T: (HasGetAll, HasGetId, HasModifyId, HasCreate)](
-        data_model: Type[Model]
+        data_model: Type[Model],
 ) -> Callable[[Type[T]], Type[T]]:
     def inner(cls: Type[T]) -> Type[T]:
         class CRUDWrapper(cls):
