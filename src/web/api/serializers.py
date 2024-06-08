@@ -49,6 +49,7 @@ def get_id_serializer(data_model: type[Model], depth: Optional[int]) -> type[Mod
 def get_all_serializer(data_model: type[Model], depth: Optional[int]) -> type[ModelSerializer]:
     return _get_basic_serializer(data_model, '__all__', depth)
 
+
 class UserSerializer(ModelSerializer):
     class Meta:
         model = User

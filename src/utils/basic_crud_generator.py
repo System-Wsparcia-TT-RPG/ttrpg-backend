@@ -1,5 +1,5 @@
 from json import loads
-from typing import Protocol, Optional, Callable, Type, List, Dict
+from typing import Protocol, Optional, Callable, Type, List
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Model

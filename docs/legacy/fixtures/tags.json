@@ -1,9 +1,0 @@
-[
-  {
-    "model": "api.tag",
-    "pk": 1,
-    "fields": {
-      "name": "Paladin"
-    }
-  }
-]

@@ -32,7 +32,7 @@ class DamageDice(Model):
     mod = IntegerField()
 
 
-class Senses(Model): #PositiveIntegerField includes 0
+class Senses(Model):
     dark_vision = PositiveIntegerField()
     blind_sight = PositiveIntegerField()
     tremor_sense = PositiveIntegerField()
